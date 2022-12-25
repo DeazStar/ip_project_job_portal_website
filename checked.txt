@@ -1,1 +1,21 @@
 - table
+    - td
+    - tr
+    - colspan
+    - rowspan
+- center
+- br
+- forms
+    - label
+    - input 
+        - type: file
+        - type: text
+        - required
+        - placeholder
+        - name 
+        - id
+- select
+    - option
+        -value
+- ul
+    - li

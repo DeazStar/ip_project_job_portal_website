@@ -10,6 +10,8 @@
     - input 
         - type: file
         - type: text
+        - type: radio
+        - type: checkbox
         - required
         - placeholder
         - name 
@@ -17,5 +19,7 @@
 - select
     - option
         -value
+- details
+    -summary
 - ul
     - li

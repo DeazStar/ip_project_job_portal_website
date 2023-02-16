@@ -1,0 +1,38 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Nunito', sans-serif;
+}
+/** navbar css**/
+
+ul {
+    list-style-type: none;
+}
+.navbar-container img{
+    width: 120px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+}
+
+.nav-one {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+
+.nav-item {
+    margin: 25px 50px 50px 0px;
+}
+
+.nav-button-container {
+    margin-top: 15px;
+}
+
+/** end navbar css **/

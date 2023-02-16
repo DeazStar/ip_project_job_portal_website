@@ -1,9 +1,5 @@
 body {
-    padding: 0px;
-    margin: 0px;
     font-family:Montserrat;
-    line-height: 2;
-    word-spacing: 3px;
 }
 /** navbar css**/
 
@@ -163,6 +159,10 @@ padding-right: 40px;
     padding:20px;
 }
 
+.all{
+    line-height: 2;
+    word-spacing: 3px;
+}
 
 
 /** footer style **/

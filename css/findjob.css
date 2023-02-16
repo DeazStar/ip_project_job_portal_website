@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* nav */
+ul {
+    list-style-type: none;
+}
+.navbar-container img{
+    width: 120px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+}
+
+.nav-one {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+    
+}
+
+.nav-two {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+
+    width: 40%;
+}
+
+.nav-item {
+    margin: 25px 50px 50px 0px;
+}
+
+.nav-button a{
+    color: white;
+}
+
+.nav-button {
+    border-style: none;
+    background-color: #189494;
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.nav-button-container {
+    margin-top: 15px;
+}
+
+/* nav */
+
+
+
+body
+{
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(255, 255, 255);
+
+    /* margin: auto; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.line
+{
+    width: 100%;
+}
+.sunset
+{
+    display: inline-block;
+    border: 1px solid rgb(221, 212, 212);
+   
+    padding: 12px 12px 6px 13px;
+    margin: 15px;
+    margin-left: 20px;
+
+    width:300px; 
+    height: 60px;
+    
+    border-radius: 15px;
+}
+.sun
+{ 
+    float: right;
+    display: inline-block;
+    width:55px;
+    margin: -5px 0px 0px 0px;
+
+}
+.search-div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+ 
+}
+.search-input
+{
+    width: 40%;
+    border: 1.5px solid red;
+    border-radius: 19px;
+    border-color: rgb(166, 156, 156);
+    padding: 10px 0px 8px 45px;
+
+    box-shadow: 3px 3px 30px rgba(210, 196, 196, 0.5);
+
+    margin-left: -35px;
+}
+
+.jobs
+{
+    display: inline-block;
+    border: 2px solid red;
+    height: 50%;
+    width: 30%;
+}
+.details
+{
+    display: inline-block;
+    border: 2px solid blue;
+    height: 50vh;
+    width: 65%;
+}
+.job-container
+{
+    margin-top:20px ;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+
+    justify-content: space-between;
+
+}
+.job-list
+{
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.job1
+{
+
+    display: flex;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    
+    box-shadow: 3px 3px 30px rgba(141, 66, 66, 0.2);
+
+    padding: 18px 5px 0px 10px;
+    height: 330px;
+    margin: 25px 45px 0px 25px;
+}
+.job-details
+{
+    background-color: rgb(255, 255, 255);
+    flex: 1;
+    margin: 20px 35px 1px 15px;
+
+    border-radius: 10px;
+
+    display: flex;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    
+    box-shadow: 3px 3px 30px rgba(141, 66, 66, 0.5);
+
+    margin: 25px 35px 1px 15px;
+}
+
+.job-pic-div
+{
+    display: inline-block;
+    width: 70px;
+    vertical-align: top;
+} 
+.job-pic
+{
+    width: 50px;
+    border-radius: 25px;
+    margin: 3px 0px 0px 5px;
+}      
+.job-name
+{
+
+    display: inline-block;
+    margin: 5px 0px 0px -3px;
+    
+    width: 250px;
+
+    color: rgb(178, 39, 39);
+    
+    font-weight: bold;
+}
+
+.btn {
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+	border-radius: 2px;
+
+    padding: 16px 15px;
+    margin-left: -45px;
+    margin-top: 16px;
+
+    text-shadow: 1px 1px 1px rgba(255, 15, 15, 0.14);
+    text-transform: uppercase;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+.status
+{
+    color: rgb(88, 60, 60);
+    padding-top: 28px;
+    font-size: 15px;
+
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

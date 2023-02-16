@@ -4,262 +4,192 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Job</title>
+    <link rel="stylesheet" href="css/findjob.css">
+   
+  
+       <!--fontawsome-->
+       <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
+    
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+       <!--end fontawsome-->
+
+   
+       <!--google fonts-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link
+           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
+           rel="stylesheet">
+       <!--end google fonts-->
+    
+
+    <title>job search</title>
+    <style>
+     
+    </style> 
 </head>
 <body>
-    <!-- header -->
-    <header>
-        <center>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <a href="index.html"><img src="images/logo.png" width="130px">
-                        </a>
-                    </td>
+    <div class="navbar-container">
+        <nav >
+            <ul class="nav-one">
+                <li>
+                    <img src="images/logo.png">
+                </li>
+                <li class="nav-item">Home</li>
+                <li class="nav-item">Find job</li>
+                <li class="nav-item">Find Talent</li>
+                <li class="nav-item">About Us</li>
+            </ul>
 
-                    <td width="185px">
-                        <center><a href="postjob.html">Post job</a></center>
-                    </td>
-                    <td width="220px">
-                        <center><a href="findtalent.html">Find Talent</a></center>
-                    </td>
-                    <td width="185px">
-                        <center><a href="aboutus.html">About us</a></center>
-                    </td>
-                    <td width="40%"></td>
-                    <td width="80px">
-                        <center>
-                            <img src="images/alarm.png" width="35px">
-                        </center>
-                    </td>
-                    <td width="80px">
-                        <center>
-                            <img src="images/comments.png" width="35px">
-                        </center>
-                    </td>
+            <ul class="nav-two">
+                <li class="nav-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>English</span>
+                </li>
 
-                    <td width="80px">
-                        <center>
-                            <a href="profile.html"><img src="images/user.png" width="40px"></a>
-                        </center>
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </header>
-        <!-- good moring -->
-    </table>
-    <hr>
-<br>
-        <table>
-        <tr>
-        <td width="330px">
-              Saturday ,december 24
-            <br>                    
-                Good Moring
-            </td>
-            <td align="right" width="50px"">
-                <img src="images/sun.png"  width="100%" alt="">
-            </td>
-        </tr>
-    </table>
-    <br>
+                <li class="nav-item nav-button-container">
+                    <div class="nav-button">
+                        <a href="login.html">Log in</a>
+                    </div>
+                </li>
 
-    <!-- main part -->
+                <li class="nav-item nav-button-container">
+                    <div class="nav-button">
+                        <a href="signup.html">Sign up</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
     
-<table  width="100%">
-    <tr>
-        <td colspan="2" align="center"> <input type="" name="" placeholder="search" id="" size="60px" > </td>
-    </tr>
-    <tr>
-       
-        <td width="500px" heigh> 
-            <br>
-             <img src="images/app-development (1).png"  width="30px" alt=""> 
-            <span> <strong>Java Software Developer(remote)</strong> </span>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  cross over addis abeba ethiopia</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1 day ago</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  active recruting</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  full-time developer</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1000- 5000 employees IT services adn it recuritng</p> 
-            <br>
-            <br>
-            <br>
-            <br>
-        </td>
-        <td rowspan="5" valign="top">
-            <br>
-            <img src="images/app-development (1).png"  width="30px" alt=""> 
-            <span> <strong>Java Software Developer(remote)</strong> </span>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  cross over addis abeba ethiopia</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1 day ago</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  active recruting</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  full-time developer</p> 
+    <div class="sunset">
+        <div style="display: inline-block;" >
+            <p style="padding-bottom: 0px;
+                    margin: 0px;">
+                Saturday,December
+            </p>
+            <p style="padding-top: 0px; margin: 0px;">
+                good morning
+            </p>
+        </div>
+        <div class="sun">
+            <img class="sun" src="images/sun.png" alt="">
+        </div>
+    </div>
+
+    <div class="search-div">
+        <i class="glyphicon glyphicon-search" style="font-size:23px;"></i>
+        <input type="text" class="search-input" placeholder="Search Job">
+    </div>
+
+    <section class="job-container">
+            
+        <div class="job-list">
+            <div class="job1">
+
+                <div class="job-pic-div">
+                    <img class="job-pic" src="images/mobile-app.png" width="35px"  alt="">
+                </div>
                 
-                <br>
-                <center><button width="100px">apply for the job</button> 
-                </center>
-                    <br>
-                    <p><strong>Description</strong></p>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis eius pariatur amet beatae quo, accusamus ipsa maxime excepturi quaerat ducimus repellat eaque quos quas, tempora alias esse laboriosam ab tempore officiis. Alias consequatur voluptatum possimus ullam maiores saepe enim nihil, tenetur adipisci ratione, ex reiciendis! Aut nisi obcaecati facere minus officia? Aliquam provident velit consectetur corrupti saepe atque, consequuntur, ea perspiciatis labore deserunt non placeat pariatur voluptatem, explicabo maxime aliquid rerum dicta tempore cum! Voluptatem, eligendi esse. Veritatis molestias iure adipisci dolor sit? Laudantium, voluptate? Dolores, voluptatibus praesentium esse ex repellendus quaerat aperiam! Nesciunt ratione impedit eos fugit incidunt praesentium!  1000- 5000 employees IT services adn it recuritng</p> 
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis eius pariatur amet beatae quo, accusamus ipsa maxime excepturi quaerat ducimus repellat eaque quos quas, tempora alias esse laboriosam ab tempore officiis. Alias consequatur voluptatum possimus ullam maiores saepe enim nihil, tenetur adipisci ratione, ex reiciendis! Aut nisi obcaecati facere minus officia? Aliquam provident velit consectetur corrupti saepe atque, consequuntur, ea perspiciatis labore deserunt non placeat pariatur voluptatem, explicabo maxime aliquid rerum dicta tempore cum! Voluptatem, eligendi esse. Veritatis molestias iure adipisci dolor sit? Laudantium, voluptate? Dolores, voluptatibus praesentium esse ex repellendus quaerat aperiam! Nesciunt ratione impedit eos fugit incidunt praesentium!  cross over addis abeba ethiopia</p>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis eius pariatur amet beatae quo, accusamus ipsa maxime excepturi quaerat ducimus repellat eaque quos quas, tempora alias esse laboriosam ab tempore officiis. Alias consequatur voluptatum possimus ullam maiores saepe enim nihil, tenetur adipisci ratione, ex reiciendis! Aut nisi obcaecati facere minus officia? Aliquam provident velit consectetur corrupti saepe atque, consequuntur, ea perspiciatis labore deserunt non placeat pariatur voluptatem, explicabo maxime aliquid rerum dicta tempore cum! Voluptatem, eligendi esse. Veritatis molestias iure adipisci dolor sit? Laudantium, voluptate? Dolores, voluptatibus praesentium esse ex repellendus quaerat aperiam! Nesciunt ratione impedit eos fugit incidunt praesentium!  1 day ago</p> 
-               
-         
-            <br>
-            <br>
-        </td>
+                <div class="job-name">
+                    <div class="name">
+                        <p style="
+                            padding: 0;
+                            margin: 5px;
+                            font-size: 17px;
+                            ">
+                             Java Software Dev (Remote)</p>
+                        <p style="
+                            font-size:12px;
+                            margin: 5px;
+                        ">
+                            Addis Abeba, Ethiopia</p>
+                    </div>
+                    <div class="status">
+                        <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> 1 week ago</p>
+                        <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Status: Available</p>
+                        <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Time: Full time, flexable hours</p>
+                        <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> 10$-15$ per/day</p>
+                        <button class="btn">Details</button>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="job1">
+
+                <div class="job-pic-div">
+                    <img class="job-pic" src="images/app-development (1).png" width="35px"  alt="">
+                </div>
+                
+                <div class="job-name">
+                    <div class="name">
+                        <p style="
+                            padding: 0;
+                            margin: 6px;
+                            font-size: 16px;
+                            ">
+                             Java Software Dev(remote)</p>
+                        <p style="
+                            font-size:10px;
+                            margin: 5px;
+                        ">
+                            Addis abebam, Ethiopia</p>
+                    </div>
+                    <div class="status">
+                        <p>1 week ago</p>
+                        <p>Status: Available</p>
+                        <p>Time: Full time, flexable hours</p>
+                        <p>10$-15$ per/day</p>
+                       
+                        <button class="btn">Details</button>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="job1">
+
+                <div class="job-pic-div">
+                    <img class="job-pic" src="images/sales.png" width="35px"  alt="">
+                </div>
+                
+                <div class="job-name">
+                    <div class="name">
+                        <p style="
+                            padding: 0;
+                            margin: 6px;
+                            font-size: 16px;
+                            ">
+                             Java Software Dev(remote)</p>
+                        <p style="
+                            font-size:10px;
+                            margin: 5px;
+                        ">
+                            Addis abebam, Ethiopia</p>
+                    </div>
+                    <div class="status">
+                        <p>1 week ago</p>
+                        <p>Status: Available</p>
+                        <p>Time: Full time, flexable hours</p>
+                        <p>10$-15$ per/day</p>
+                        <button class="btn">Details</button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+
+        </div>
+
         
-    </tr>
+        <div class="job-details">
+            div2 
+        </div>
+
+    </section>
    
-
-    <tr>
-        <td width="500px" heigh> 
-            <br>
-             <img src="images/mobile-app.png"  width="30px" alt=""> 
-            <span> <strong>Android Application Developer(remote)</strong> </span>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  cross over addis abeba ethiopia</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1 day ago</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  active recruting</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  full-time developer</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1000- 5000 employees IT services adn it recuritng</p> 
-            <br>
-            <br>
-            <br>
-            <br>
-        </td>
-        
-    </tr>
-    <tr>
-        <td width="500px" heigh> 
-            <br>
-             <img src="images/coding.png"  width="30px" alt=""> 
-            <span> <strong>Java app Developer(remote)</strong> </span>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  cross over addis abeba ethiopia</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1 day ago</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  active recruting</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  full-time developer</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1000- 5000 employees IT services adn it recuritng</p> 
-            <br>
-            <br>
-            <br>
-            <br>
-        </td>
-    </tr>
-    <tr>
-        <td width="500px" heigh> 
-            <br>
-             <img src="images/coding.png"  width="30px" alt=""> 
-            <span> <strong>Advanced java Developer(remote)</strong> </span>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  cross over addis abeba ethiopia</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1 day ago</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  active recruting</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  full-time developer</p> 
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  1000- 5000 employees IT services adn it recuritng</p> 
-            <br>
-            <br>
-            <br>
-            <br>
-        </td>
-    </tr>
-    <tr>
-     
-        </td>
-    </tr>
-
-</table>
-
-<br>
-<br>
-<!-- footer -->
-
-
-<footer>
-    <table bgcolor="cadetblue" width="100%">
-        <tr>
-            <td width="10%">
-
-            </td>
-            <td>
-                <center>
-                    <table>
-                        <tr>
-                            <td>Follow us</td>
-                            <td>
-                                <img src="images/facebook.png" width="30px">
-                            </td>
-            
-                            <td>
-                                <img src="images/twitter.png" width="30px">
-                            </td>
-            
-                            <td>
-                                <img src="images/insagram.png" width="30px">
-                            </td>
-            
-                            <td width="200px">
-                                <b><p>For Recruters</p></b>
-                                <ul>
-                                    <li>How to Hire</li>
-                                    <li>Talent Marketplace</li>
-                                    <li>Featured</li>
-                                    <li>New Posts</li>
-                                </ul>
-                            </td>  
-                            <td width="200px">
-                                <b><p>For Candidates</p></b>
-                                <ul>
-                                    <li>Browse jobs</li>
-                                    <li>Companies</li>
-                                    <li>Featured</li>
-                                    <li>New Posts</li>
-                                </ul>
-                            </td>
-    
-                            <td width="200px">
-                                <b><p>Dictonaries</p></b>
-                                <ul>
-                                    <li>Members</li>
-                                    <li>Jobs</li>
-                                    <li>Companies</li>
-                                    <li>New Posts</li>
-                                </ul>
-                            </td>
-            
-                            <td width="200px">
-                                <b><p>About Us</p></b>
-                                <ul>
-                                    <li>About us</li>
-                                    <li>Feedback</li>
-                                    <li>Community</li>
-                                    <li>Contact Us</li>
-                                </ul>
-                            </td>
-                        </tr>
-            
-                        <tr>
-                            <td colspan="4">
-                                <input type="text" placeholder="Subscribe to our newsletter">
-                                <button>Subscribe</button>
-                            </td>
-                        </tr>
-        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>&copy;AfriHire inc.</td>
-                            <td>Terms and Services</td>
-                        </tr>
-                    </table>
-                </center>
-            </td>
-
-            <td width="10%">
-            </td>
-        </tr>
-    </table>
-</footer>
+    <script src="search.js"></script>
 </body>
 </html>

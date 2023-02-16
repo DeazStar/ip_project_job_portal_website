@@ -1,196 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--custom css-->
+    <link rel="stylesheet" href="css/profilestyle.css">
+    <!--end custom css-->
+
+    <!--fontawsome-->
+    <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
+    <!--end fontawsome-->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
+        rel="stylesheet">
+    <!--end google fonts-->
+
+    <!-- icons -->
+    <link rel="icon" href="images/logo.png" type="image/icon type">
+    <!--icon -->
     <title>Profile</title>
 </head>
+
 <body>
     <header>
-        <center>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <a href="index.html"><img src="images/logo.png" width="130px">
-                        </a>
-                    </td>
+        <div class="navbar-container">
+            <nav>
+                <ul class="nav-one">
+                    <li>
+                        <img src="images/logo.png">
+                    </li>
+                    <li class="nav-item">Home</li>
+                    <li class="nav-item">Find job</li>
+                    <li class="nav-item">About Us</li>
+                </ul>
 
-                    <td width="185px">
-                        <center><a href="postjob.html">Post job</a></center>
-                    </td>
-                    <td width="220px">
-                        <center><a href="findtalent.html">Find Talent</a></center>
-                    </td>
-                    <td width="185px">
-                        <center><a href="aboutus.html">About us</a></center>
-                    </td>
-                    <td width="40%"></td>
-                    <td width="80px">
-                        <center>
-                            <img src="images/alarm.png" width="35px">
-                        </center>
-                    </td>
-                    <td width="80px">
-                        <center>
-                            <img src="images/comments.png" width="35px">
-                        </center>
-                    </td>
+                <ul class="nav-two">
+                    <div class="nav-icon">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                    </div>
 
-                    <td width="80px">
-                        <center>
-                            <a href="profile.html"><img src="images/user.png" width="40px"></a>
-                        </center>
-                    </td>
-                </tr>
-            </table>
-        </center>
+                    <div class="nav-icon">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="nav-icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <center>
-        <table>
-            <tr>
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td><img src="images/user.png" width="100px"></td>
-                            <td width="400px">
-                                <p>username</p>
-                                <p>desctiption</p>
-                            </td>
-                            <td><button>Profile Setting</button></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="200px">
-                    <h3>Experiance</h3>
-                    <p>experance desctipiton</p>
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>language one</li>
-                        <li>language two</li>
-                    </ul>
-                    <h3>Certfication</h3>
-                    <ul>
-                        <li>certficate one</li>
-                        <li>certficate two</li>
-                        <li>certficate three</li>
-                    </ul>
-                </td>
 
-                <td>
-                    <h3>Edit Desctiption</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, 
-                        adipisci rem quia iure libero et magni sunt ab deleniti facilis pariatur, velit
-                    </p>
+    <main>
+        <div class="container">
+            <div class="profile-left">
+                <div class="profile-view">
+                    <div class="profile-image-container">
+                        <img src="images/Naod.jpg" class="profile-image">
+                    </div>
+                </div>
 
-                    <h3>Edit Work History</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident 
-                        quibusdam inventore perspiciatis odio reprehenderit nostrum fuga? 
-                    </p>
-                    <h3>Add Portfolio</h3>
-                    <input type="file">
-                    <h3> Edit Skills</h3>
-                    <ul>
-                        <li>skill one</li>
-                        <li>skill two</li>
-                        <li>skill three</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-    </center>
+                <h3 class="profile-name">Naod Ararsa</h3>
+                <p class="profession">Web Developer</p>
+                <div class="profile profile-card">
+                    <div class="profile-icon icons">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="description">Profile</div>
+                </div>
+
+                <div class="resume profile-card">
+                    <div class="resume-icon icons">
+                        <i class="fa-regular fa-file-invoice"></i>
+                    </div>
+
+                    <div class="description">My Resume</div>
+                </div>
+
+                <div class="Saved Jobs profile-card">
+                    <div class="saved-job-icon icons">
+                        <i class="fa-light fa-heart"></i>
+                    </div>
+
+                    <div class="description">Saved Jobs</div>
+                </div>
+
+                <div class="applied-jobs profile-card">
+                    <div class="applied-jobs-icons icons">
+                        <i class="fa-light fa-suitcase"></i>
+                    </div>
+
+                    <div class="description">Applied Jobs</div>
+                </div>
+
+                <div class="change-password profile-card">
+                    <div class="change-password-icon icons">
+                        <i class="fa-light fa-key"></i>
+                    </div>
+
+                    <div class="description">Change Password</div>
+                </div>
+
+                <div class="log-out profile-card">
+                    <div class="log-out-icon icons">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+
+                    <div class="description">Log Out</div>
+                </div>
+            </div>
+
+
+            <div class="profile-right">
+                <div class="basic-info">
+                    <div class="basic-info-header">
+                        <h3>BASIC INFORMATION</h3>
+                    </div>
+
+
+                    <div class="back-btn-container">
+                        <button class="back-btn">Back</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="edit-form">
+                    <div class="part-container">
+                        <div class="left">
+                            <label for="fullname">Your Name:</label><br>
+                            <input type="text" name="full-name" id="fullname" class="move-down"> <br>
+
+                            <label for="language">Languages: </label><br>
+                            <input type="text" name="languages" id="language"><br>
+                        </div>
+
+                        <div class="right">
+                            <label for="title">Professional title: </label><br>
+                            <input type="text" name="title" id="title" class="move-down"><br>
+
+                            <label for="age">Age: </label><br>
+                            <input type="text" name="age" id="age"><br>
+                        </div>
+                    </div>
+
+
+                    <label class="description-header">Description</label><br>
+                    <textarea></textarea>
+
+
+                    <h3 class="contact-info">CONTACT INFORMATION</h3>
+
+                    <hr>
+
+                    <div class="part-container">
+                        <div class="left">
+                            <label for="phone">Phone:</label><br>
+                            <input type="text" name="phone" id="phone" class="move-down"> <br>
+
+                            <label for="country">Country: </label><br>
+                            <input type="text" name="country" id="country" class="move-down"><br>
+
+                            <label for="city">City: </label><br>
+                            <input type="text" name="city" id="city"><br>
+                        </div>
+
+                        <div class="right">
+                            <label for="title">Email Address: </label><br>
+                            <input type="email" name="email" id="email" class="move-down"><br>
+
+                            <label for="code">Postcode: </label><br>
+                            <input type="text" name="code" id="code" class="move-down"><br>
+
+                            <label for="address" class="move-down">Full Address: </label><br>
+                            <input type="text" name="address" id="address"><br>
+                        </div>
+                    </div>
+
+
+                    <button class="save-btn">Save Setting</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <footer>
-        <table bgcolor="cadetblue" width="100%">
-            <tr>
-                <td width="10%">
+        <div class="upper-footer-container">
+            <div class="left-section">
+                <div class="bottom-site-icon">
+                    <img src="images/logo.png">
+                </div>
 
-                </td>
-                <td>
-                    <center>
-                        <table>
-                            <tr>
-                                <td>Follow us</td>
-                                <td>
-                                    <img src="images/facebook.png" width="30px">
-                                </td>
+                <div class="footer-social-media">
+                    <span class="follow-us">Follow Us: </span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div>
 
-                                <td>
-                                    <img src="images/twitter.png" width="30px">
-                                </td>
+                <div class="subscribe">
+                    <p>Subscribe to our news letter: </p>
+                    <input type="email" placeholder="Subscribe" class="subscribe-input">
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+            <div class="right-footer-section footer-links">
+                <div class="footer-row-one">
+                    <ul>
+                        <li class="footer-title">For Recruiters</li>
+                        <li class="footer-item">How to Hire</li>
+                        <li class="footer-item">Talent Marketplace</li>
+                        <li class="footer-item">Payroll Service</li>
+                        <li class="footer-item">Hire Worldwide</li>
+                        <li class="footer-item">Hire in Africa</li>
+                    </ul>
+                </div>
 
-                                <td>
-                                    <img src="images/insagram.png" width="30px">
-                                </td>
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">For Talent</li>
+                        <li class="footer-item">How to Find a Job</li>
+                        <li class="footer-item">Find in Africa</li>
+                    </ul>
+                </div>
 
-                                <td width="100px">
-                                </td>
-                                <td width="200px">
-                                    <b>
-                                        <p>For Recruters</p>
-                                    </b>
-                                    <ul>
-                                        <li>How to Hire</li>
-                                        <li>Talent Marketplace</li>
-                                        <li>Featured</li>
-                                        <li>New Posts</li>
-                                    </ul>
-                                </td>
-
-                                <td width="200px">
-                                    <b>
-                                        <p>Dictonaries</p>
-                                    </b>
-                                    <ul>
-                                        <li>Members</li>
-                                        <li>Jobs</li>
-                                        <li>Companies</li>
-                                        <li>New Posts</li>
-                                    </ul>
-                                </td>
-
-                                <td width="200px">
-                                    <b>
-                                        <p>Company</p>
-                                    </b>
-                                    <ul>
-                                        <li>About us</li>
-                                        <li>Feedback</li>
-                                        <li>Community</li>
-                                        <li>Contact Us</li>
-                                    </ul>
-                                </td>
-
-                                <td width="100px">
-
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="4">
-                                    <input type="text" placeholder="Subscribe to our newsletter">
-                                    <button>Subscribe</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>&copy;AfriHire inc.</td>
-                                <td>Terms and Services</td>
-                            </tr>
-                        </table>
-                    </center>
-                </td>
-
-                <td width="10%">
-                </td>
-            </tr>
-        </table>
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">Company</li>
+                        <li class="footer-item">About Us</li>
+                        <li class="footer-item">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-last">
+            <p>&copy; 2022-2022 AfriHire inc</p>
+            <p>Terms and Services</p>
+            <p>Privacy Policy</p>
+        </div>
+        <!--finsh the footer-->
     </footer>
 </body>
+
 </html>

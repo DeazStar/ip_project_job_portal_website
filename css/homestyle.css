@@ -342,3 +342,67 @@ hr {
     flex-direction: row;
     justify-content: space-around;
 }
+
+
+
+/** hamburger style **/
+
+.hamburger {
+    position: relative;
+    margin-top: 30px;
+    display: block;
+    width: 50px;
+    height: 35px;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    display: none;
+    visibility: hidden;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    margin: 6px 0px;
+    transition: 0.4s;
+}
+
+.hamburger.is-active:before{
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active .bar {
+    opacity: 0;
+}
+.hamburger.is-active:after{
+    transform: rotate(45deg) translate(-9px, -8px);
+}
+
+
+
+/** media query **/
+@media only screen and (max-width: 1141px) {
+    nav {
+        display: none;
+        visibility: hidden;
+    }
+
+    .navbar-container {
+        display: flex;
+        justify-content: end;
+        margin-right: 65px;
+    }
+
+    .hamburger {
+        display: block;
+        visibility: visible;
+    }
+    
+}
+

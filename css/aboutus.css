@@ -1,7 +1,9 @@
 body {
     padding: 0px;
     margin: 0px;
-    font-family: 'Nunito', sans-serif;
+    font-family:Montserrat;
+    line-height: 2;
+    word-spacing: 3px;
 }
 /** navbar css**/
 
@@ -51,21 +53,18 @@ a {
 .nav-button-container {
     margin-top: 15px;
 }
-/* header */
+
 
 .Title {
     display: grid;
     justify-content: center;
     align-items: end;
     font-size: 29px;
-    /* color: rgb(62, 170, 178); */
 }
 
 .target-container{
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* color: rgb(62, 170, 178); */
     
 }
 .target {
@@ -76,7 +75,6 @@ margin-left: 10px;
 margin-right: 10px;
 padding-left: 85px;
 padding-right: 40px;
-/* text-align: center; */
 }
 
 
@@ -87,9 +85,7 @@ padding-right: 40px;
     grid-gap: 12px;
     align-items: center;
     justify-items: center;
-    /* color: rgb(62, 170, 178); */
     margin-right: 20px;
-    /* text-align: center; */
     padding-left: 55px;
     padding-right: 55px;
 
@@ -104,13 +100,11 @@ padding-right: 40px;
     opacity: 0.9;
 }
 .last-container{
+    margin-top: 70px;
     display: grid;
     grid-template-columns: 3fr 3fr;
-    /* text-align: center; */
     align-items: center;
-    /* color: rgb(62, 170, 178); */
     margin-left: 20px;
-    /* text-align: center; */
 }
 
 .last-container img {
@@ -130,21 +124,17 @@ padding-right: 40px;
 
 
 .team-container{
-    background-color: #FFFBF0;
     display: grid;
-    /* text-align: center; */
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 10px 10px 10px black;
-    /* color: rgb(62, 170, 178); */
-
+    text-align: center;
+    padding: 60px;
+ 
 }
 
 #TheTeam {
-
+    margin-top: 100px;
     display: grid;
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     justify-items: center;
+    font-size: 45px;
 }
 .aboutUs{
     padding-left: 100px;
@@ -155,16 +145,16 @@ padding-right: 40px;
     border-width: 400px;
 }
 .team-img {
-    margin-top: 40px;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 56px;
-    justify-items: center;   
+    justify-items: center;  
 }
 .team-img img:nth-of-type(odd) {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
-    width: 130px;
+    width: 135px;
     height: 130px;;
     border-radius: 100%;
 
@@ -265,7 +255,6 @@ hr {
     grid-template-rows: 0.5fr 1.5fr;
     grid-row-gap: 1em;
     align-items: start;
-    /* color: rgb(62, 170, 178); */
     margin-bottom: 30px;
 }
 
@@ -276,7 +265,6 @@ hr {
     grid-gap: 0px;
     align-items: start;
     justify-items: center;
-    /* color: rgb(62, 170, 178); */
 }
 
 .last-container{
@@ -284,7 +272,6 @@ hr {
     grid-template-rows: 1fr 1fr;
     text-align: center;
     align-items: center;
-    /* color: rgb(62, 170, 178); */
     margin-left: 20px;
     text-align: center;
 }

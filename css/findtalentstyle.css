@@ -3,12 +3,14 @@ body {
     margin: 0px;
     font-family: 'Nunito', sans-serif;
 }
+
 /** navbar css**/
 
 ul {
     list-style-type: none;
 }
-.navbar-container img{
+
+.navbar-container img {
     width: 120px;
 }
 
@@ -16,7 +18,9 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
+
 a {
     text-decoration: none;
 }
@@ -25,6 +29,7 @@ a {
     display: flex;
     flex-direction: row;
     margin-left: 30px;
+    align-items: center;
 }
 
 .nav-item {
@@ -35,4 +40,409 @@ a {
     margin-top: 15px;
 }
 
+
+.nav-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 15%;
+    align-items: center;
+    margin-right: 30px;
+    margin-bottom: 48px;
+}
+
+.nav-icon {
+    font-size: 1.4rem;
+}
+
 /** end navbar css **/
+
+
+/**main - search bar **/
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.search-bar {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: #A09D9D;
+}
+
+.search-bar-container i {
+    position: absolute;
+    font-size: 1.9rem;
+    left: 25.5%;
+    top: 7%;
+}
+
+.search-bar::placeholder {
+    text-indent: 40px;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+/**main -sear bar **/
+
+/** section-one **/
+#section-one {
+    display: flex;
+    flex-direction: row;
+}
+
+/** left part ***/
+.left-part {
+    margin-left: 150px;
+}
+
+.left-part-header {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.location-container input {
+    padding: 10px 15px 10px 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A09D9D;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.location-selected {
+    color: #A09D9D;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    text-indent: 8px;
+}
+
+/* slider-css **/
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 27px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dad4d4;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: -1px;
+    top: -1px;
+    background-color: #A1A1AA;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider::before {
+    background-color: #189494;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #189494;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+.switch-label {
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+/** slider-css **/
+
+/** select tag css **/
+select {
+    border-style: solid;
+    background-color: transparent;
+    padding: 10px 40px 10px 40px;
+}
+
+/** select tag css end**/
+
+/** check box css **/
+
+.checkbox-label {
+    font-size: 1.1rem;
+}
+
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkmark {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.checkbox-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: #189494;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkbox-label{
+    margin-left: 40px;
+}
+
+/** profile part css **/
+
+.right-part{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.profile-image {
+    border-radius: 50%;
+    width: 80px;
+}
+
+.profile-name-image-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.name{
+    font-weight: 600;
+    font-size: 20px
+}
+.country{
+    color: #A1A1AA;
+}
+
+.role-description {
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.open-work{
+    color: #189494;
+    margin-left: 10px;
+}
+.btn-container {
+    position: relative;
+}
+
+.see-more-btn {
+    padding: 8px 12px 8px 12px;
+    background-color: #189494;
+    color: #fff;
+    border-style: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+
+}
+
+
+.see-more-btn:hover {
+    cursor: pointer;
+}
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 155px;
+}
+
+.year-it-been{
+    margin-top: 23px;
+    font-size: 14px;
+    color: #A09D9D;
+}
+
+.right-part hr {
+    border-style: solid;
+    width: 90%;
+    border-radius: 1px;
+    border-color: #d8d8da;
+}
+
+.change-page {
+    text-indent: 230px;
+}
+
+
+
+/** footer style **/
+footer {
+    background-color: #F1F1F1;
+    padding-bottom: 10px;
+}
+.upper-footer-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom-site-icon img {
+    width: 150px;
+    margin-left: 65px;
+}
+
+.left-section {
+    width: 30%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.right-footer-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-social-media, .subscribe{
+    margin-left: 15%;
+}
+
+.footer-social-media i {
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.subscribe-input {
+    border-style: none;
+    background-color: rgb(187, 186, 186);
+    padding: 18px 45px 18px 45px;
+    border-radius: 50px;
+    position: relative;
+}
+
+.btn-subscribe {
+    border-style: solid;
+    background-color: rgb(187, 186, 186);
+    padding: 15px 17px 18px 17px;
+    border-radius: 50px;
+    position: absolute;
+    left: 230px;
+}
+
+.footer-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-item {
+    line-height: 30px;
+}
+
+hr {
+    width: 80%;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 50px;
+}
+
+
+.footer-last {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

@@ -1,0 +1,290 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/** navbar css**/
+
+ul {
+    list-style-type: none;
+}
+
+.navbar-container img {
+    width: 120px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-one {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 25px 50px 50px 0px;
+}
+
+.nav-button-container {
+    margin-top: 15px;
+}
+
+
+.nav-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 15%;
+    align-items: center;
+    margin-right: 30px;
+    margin-bottom: 48px;
+}
+
+.nav-icon {
+    font-size: 1.4rem;
+}
+
+/** end navbar css **/
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0 6% 0 10%;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+
+/** left part css **/
+.profile-left {
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.13);
+    
+    width: 280px;
+    margin-right: 25px;
+}
+
+.profile-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.profile-image {
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-size: 1.7rem;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.profession {
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.profile-card {
+    border-bottom-style: solid;
+    border-color: #A09D9D;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px 10px 15px;
+}
+
+.icons {
+    font-size: 2rem;
+}
+
+.profile-card .description{
+    margin-left: 10px;
+}
+
+.profile-right {
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.13);
+}
+
+/** right part css **/
+.basic-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.basic-info-header {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.back-btn-container {
+    margin-top: 23px;
+    margin-right: 30px;
+}
+
+.back-btn {
+    padding: 10px 15px 10px 15px;
+    border-style: none;
+    background-color: #189494;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    cursor: pointer;
+}
+
+.part-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 15px 20px 15px;
+    justify-content: space-between;
+}
+
+.container input {
+    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-style: none;
+    box-shadow: 0px 0px 18px
+     rgba(66, 66, 66, 0.16);
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.move-down{
+    margin-bottom: 30px;
+}
+
+.description-header {
+    margin-left: 15px;
+}
+
+textarea {
+    resize: none;
+    width: 95%;
+    height: 350px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border-style: none;
+    box-shadow: 0px 0px 18px
+     rgba(66, 66, 66, 0.16);
+    border-radius: 5px;
+}
+
+.save-btn {
+    padding: 15px 20px 15px 20px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #189494;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.save-btn:hover {
+    cursor: pointer;
+}
+
+.contact-info{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+/** footer style **/
+footer {
+    background-color: #F1F1F1;
+    padding-bottom: 10px;
+}
+.upper-footer-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom-site-icon img {
+    width: 150px;
+    margin-left: 65px;
+}
+
+.left-section {
+    width: 30%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.right-footer-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-social-media, .subscribe{
+    margin-left: 15%;
+}
+
+.footer-social-media i {
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.subscribe-input {
+    border-style: none;
+    background-color: rgb(187, 186, 186);
+    padding: 18px 45px 18px 45px;
+    border-radius: 50px;
+    position: relative;
+}
+
+.btn-subscribe {
+    border-style: solid;
+    background-color: rgb(187, 186, 186);
+    padding: 15px 17px 18px 17px;
+    border-radius: 50px;
+    position: absolute;
+    left: 230px;
+}
+
+.footer-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-item {
+    line-height: 30px;
+}
+
+hr {
+    width: 80%;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 50px;
+}
+
+
+.footer-last {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+

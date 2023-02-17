@@ -40,7 +40,18 @@ a {
     display: flex;
     flex-direction: row;
     margin-left: 3px;
+    color: rgb(27, 6, 6);
 }
+.nav-one a{
+    color: rgb(27, 6, 6);
+    text-decoration: none;
+}
+.nav-one a:hover
+{
+    color: rgb(57, 142, 212);
+    text-decoration: none;
+}
+
 
 .nav-two {
     display: flex;

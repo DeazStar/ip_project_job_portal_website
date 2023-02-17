@@ -41,7 +41,7 @@
             
             <button class="login_btn">Continue with Google</button>
             <p class="parr_or">or</p>
-            <form id="form">
+            <form id="form" onsubmit="return validateInputs()">
               <div class="form_control">
                 <input type="text" name="" id="f_name" required>
                 <label for="">First Name</label>
@@ -98,7 +98,7 @@
                 <p>By creating an account you agree to <a  href="">Terms & Privacy</a>.</p>
               </div> 
                 <button class="can_btn">Cancel</button>
-              <button class="btn">Signup</button>
+              <button type="submit" class="btn">Signup</button>
               <p class="parr1">Already have an account? <a class="log_btn" href="login.html">Log in</a></p> 
             </form>
             </div> 

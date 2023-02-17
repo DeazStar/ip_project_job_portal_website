@@ -207,6 +207,8 @@ border-radius: 10px;
     padding: 12px  25px;
     display: inline;
     font-size: 14px;
+    margin-left: 75px;
+    margin-right: 10px;
   }
   .can_btn:focus
   {
@@ -230,10 +232,10 @@ border-radius: 10px;
   {
     border-radius: 15px;
     /* background-color: #189494; */
-    padding: 6px 12px;
     display: flex;
-    text-align: center;
+    text-align:right;
     border-color: #189494;
+    block-size: 0%;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 30px;
     border-radius: 0;
@@ -249,14 +251,14 @@ border-radius: 10px;
     margin: 10px 0 10px;
     width: 300px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 10px;
 
     
   }
   .gen label{
     top: 15px;
     left: 0;
-    font-size: 18px;
+    font-size: 15px;
 }
 .checkbox
 {

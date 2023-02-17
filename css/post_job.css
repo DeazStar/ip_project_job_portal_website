@@ -140,7 +140,7 @@ nav ul li a:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 70;
     padding: 50px;
     font-size: 20px;
@@ -264,9 +264,16 @@ border-radius: 10px;
   }
   .file_type
   {
+    margin: 10px 0 20px;
+    display: flex;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     margin: 20px;
+  }
+  .file_type label
+  {
+    display: inline;
+    padding-right: 10px;
   }
   .select_cls
   {

@@ -1,18 +1,18 @@
 
-        function handleCredentialResponse(response) {
-          console.log("Encoded JWT ID token: " + response.credential);
-        }
-        window.onload = function () {
-          google.accounts.id.initialize({
-            client_id: "YOUR_GOOGLE_CLIENT_ID",
-            callback: handleCredentialResponse
-          });
-          google.accounts.id.renderButton(
-            document.getElementById("buttonDiv"),
-            { theme: "outline", size: "large" }  // customization attributes
-          );
-          google.accounts.id.prompt(); // also display the One Tap dialog
-        }
+        // function handleCredentialResponse(response) {
+        //   console.log("Encoded JWT ID token: " + response.credential);
+        // }
+        // window.onload = function () {
+        //   google.accounts.id.initialize({
+        //     client_id: "YOUR_GOOGLE_CLIENT_ID",
+        //     callback: handleCredentialResponse
+        //   });
+        //   google.accounts.id.renderButton(
+        //     document.getElementById("buttonDiv"),
+        //     { theme: "outline", size: "large" }  // customization attributes
+        //   );
+        //   google.accounts.id.prompt(); // also display the One Tap dialog
+        // }
 
         const labels=document.querySelectorAll('.form_control label')
 
@@ -23,30 +23,30 @@
             style="transition-delay: ${idx * 50}ms">${letter}</span>`)
             .join('')
           })
-          $(function() {
-            $( ".calendar" ).datepicker({
-              dateFormat: 'dd/mm/yy',
-              firstDay: 1
-            });
+          // $(function() {
+          //   $( ".calendar" ).datepicker({
+          //     dateFormat: 'dd/mm/yy',
+          //     firstDay: 1
+          //   });
             
-            $(document).on('click', '.date-picker .input', function(e){
-              var $me = $(this),
-                  $parent = $me.parents('.date-picker');
-              $parent.toggleClass('open');
-            });
+          //   $(document).on('click', '.date-picker .input', function(e){
+          //     var $me = $(this),
+          //         $parent = $me.parents('.date-picker');
+          //     $parent.toggleClass('open');
+          //   });
             
             
-            $(".calendar").on("change",function(){
-              var $me = $(this),
-                  $selected = $me.val(),
-                  $parent = $me.parents('.date-picker');
-              $parent.find('.result').children('span').html($selected);
-            });
-          });
+          //   $(".calendar").on("change",function(){
+          //     var $me = $(this),
+          //         $selected = $me.val(),
+          //         $parent = $me.parents('.date-picker');
+          //     $parent.find('.result').children('span').html($selected);
+          //   });
+          // });
 
-          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          // var checkboxes = document.querySelectorAll('input[type="checkbox"]');
           
-          var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+          // var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
 
 
 
@@ -63,6 +63,8 @@ form.addEventListener('submit', e => {
     e.preventDefault();
 
     validateInputs();
+
+    console.log("it works");
 });
 
 const setError = (element, message) => {
@@ -79,7 +81,7 @@ const setSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
-    errorDisplay.innerText = '';
+    errorDisplay.innerHTML = '';
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 };
@@ -93,25 +95,25 @@ const isValidRemail = remail => {
   return re.test(String(remail).toLowerCase());
 }
 
-const validateInputs = () => {
+function validateInputs() {
     const f_nameValue = f_name.value.trim();
     const l_nameValue = l_name.value.trim();
     const emailValue = email.value.trim();
     const remailValue = remail.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
-    const telValue= tel.value.trm();
+    const telValue= tel.value.trim();
     var phoneno = /^\d{10}$/;
 
-    if(tel.value.match(phoneno))
-        {
-      setSuccess(tel);
-        }
-      else
-        {
-        alert("message");
-        setError(tel,'Enter the right format')
-        }
+    // if(tel.value.match(phoneno))
+    //     {
+    //   setSuccess(tel);
+    //     }
+    //   else
+    //     {
+    //     alert("message");
+    //     setError(tel,'Enter the right format')
+    //     }
 
     if(f_nameValue === '') {
         setError(f_name, 'Name is required');

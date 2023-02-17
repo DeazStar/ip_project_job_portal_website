@@ -312,8 +312,8 @@ body
     display: flex;
     
     border-radius: 5px;
-    background-color: rgb(251, 245, 245);
-    
+    background-color: rgb(252, 252, 252);
+     
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.993);
 
     padding: 15px 5px 0px 10px;
@@ -325,11 +325,20 @@ body
 .nav-two {
     display: flex;
     flex-direction: row;
-    margin: 5px 25px;
+    margin: 5px 0px;
 
+    padding: 5px;
     width: 200px;
     justify-content: space-between;
 }
+.nav-one a
+{
+    width: 10px;
+}
+.btn-subscribe
+{
+    display: none;
+}    
 }
 
 .details-top
@@ -432,7 +441,8 @@ hr {
 
 @media only screen and (max-width:800px){
 
-    
+
+
 .target-container{
 
     display: grid;

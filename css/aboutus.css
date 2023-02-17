@@ -245,8 +245,7 @@ hr {
     justify-content: space-around;
 }
 
-@media only screen and (max-width:800px){
-
+@media only screen and (max-width:900px){
     
 .target-container{
 
@@ -275,5 +274,106 @@ hr {
     margin-left: 20px;
     text-align: center;
 }
+    
+}
+
+
+/** hamburger style **/
+
+.hamburger {
+    position: relative;
+    margin-top: 30px;
+    display: block;
+    width: 50px;
+    height: 35px;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    display: none;
+    visibility: hidden;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    margin: 6px 0px;
+    transition: 0.4s;
+}
+
+.hamburger.is-active {
+    position: fixed;
+}
+.hamburger.is-active:before{
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active .bar {
+    opacity: 0;
+}
+.hamburger.is-active:after{
+    transform: rotate(45deg) translate(-9px, -8px);
+}
+
+
+
+/** for mobile navigation **/
+.mobile-nav {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    display: block;
+    z-index: 98;
+    background-color: #cacece;
+    color: #fff;
+    padding-top: 120px;
+    visibility: hidden;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.4s;
+}
+
+.mobile-nav.is-active {
+    top: 0;
+}
+
+.mobile-nav ul li {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border-bottom-style: solid; 
+    border-color: #7d8080;
+}
+.mobile-link a {
+    color: black;
+}
+
+
+@media only screen and (max-width: 1141px) {
+    .main-nav {
+        display: none;
+        visibility: hidden;
+    }
+
+    .navbar-container {
+        display: flex;
+        justify-content: end;
+        margin-right: 65px;
+    }
+
+    .hamburger {
+        display: block;
+        visibility: visible;
+        z-index: 100;
+    }
+
+    .mobile-nav {
+        visibility: visible;
+    }
     
 }

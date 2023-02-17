@@ -1,3 +1,36 @@
+
+.logo_img
+{
+    width: 120px;
+}
+nav 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav_item
+{
+    margin: 25px 50px 50px 0px;
+}
+.nav_item a{
+    text-decoration: none;
+    color: #189494;
+}
+li{
+    display: list-item;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+.nav_container
+{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 .main-container {
 display:flex;
 flex-direction: column;

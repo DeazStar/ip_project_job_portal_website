@@ -65,24 +65,24 @@ form.addEventListener('submit', e => {
     validateInputs();
 });
 
-// const setError = (element, message) => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
 
-//     errorDisplay.innerText = message;
-//     // errorDisplay.innerHTML = message;
-//     inputControl.classList.add('error');
-//     inputControl.classList.remove('success')
-// }
+    errorDisplay.innerText = message;
+    // errorDisplay.innerHTML = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
 
-// const setSuccess = element => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
 
-//     errorDisplay.innerText = '';
-//     inputControl.classList.add('success');
-//     inputControl.classList.remove('error');
-// };
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
 
 const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -114,8 +114,8 @@ const validateInputs = () => {
         }
 
     if(f_nameValue === '') {
-        //setError(f_name, 'Name is required');
-        alert("Name is re")
+        setError(f_name, 'Name is required');
+        // alert("Name is re")
     } else {
         setSuccess(f_name);
     }

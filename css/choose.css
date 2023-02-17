@@ -1,0 +1,16 @@
+.main-container {
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items : center;
+height: 100vh;
+}
+
+.container{
+    display: flex;
+
+}
+.recuriter{
+    margin-right: 50px;
+}
+

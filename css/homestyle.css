@@ -41,6 +41,10 @@ a {
     color: black;
 }
 
+.main-nav a:hover {
+    color: #189494;
+}
+
 
 .nav-button a:hover {
     color: #fff;
@@ -575,6 +579,71 @@ hr {
     }
 
     .fast-and-flexible-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+
+    .btn-subscribe {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 808px) {
+    .subscribe input{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 808px) {
+    .slogan h1{
+        font-size: 2.5rem;
+    }
+
+    .search-bar-container {
+        width: 383px;
+    }
+
+    .search-bar-container i {
+        left: 66px;
+    }
+
+    .search-button {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 588px) {
+    #section-four {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 516px) {
+    .footer-title {
+        font-size: 1rem;
+    }
+
+    .footer-item {
+        font-size: 0.8rem;
+    }
+
+    .bottom-site-icon img {
+        width: 120px;
+        margin-left: 0px;
+    }
+}
+
+
+@media only screen and (max-width: 468px) {
+    .row-one {
+        grid-template-columns: 1fr;
+    }
+
+    .row-two {
         grid-template-columns: 1fr;
     }
 }

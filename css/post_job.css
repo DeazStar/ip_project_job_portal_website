@@ -134,6 +134,18 @@ nav ul li a:hover {
     margin-left: 30px;
 }
 
+.all_p
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    height: 70;
+    padding: 50px;
+    font-size: 20px;
+}
+
 .form_control
   {
     /* Last Name */
@@ -252,15 +264,24 @@ border-radius: 10px;
   }
   .file_type
   {
+    margin: 10px 0 20px;
+    display: flex;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    margin: 20px;
+  }
+  .file_type label
+  {
+    display: inline;
+    padding-right: 10px;
   }
   .select_cls
   {
+
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     display: flex;
-    margin: 10px 0 10px;
+    margin: 10px 0 20px;
   }
 .select_cls select
 {

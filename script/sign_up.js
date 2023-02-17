@@ -1,18 +1,18 @@
 
-        // function handleCredentialResponse(response) {
-        //   console.log("Encoded JWT ID token: " + response.credential);
-        // }
-        // window.onload = function () {
-        //   google.accounts.id.initialize({
-        //     client_id: "YOUR_GOOGLE_CLIENT_ID",
-        //     callback: handleCredentialResponse
-        //   });
-        //   google.accounts.id.renderButton(
-        //     document.getElementById("buttonDiv"),
-        //     { theme: "outline", size: "large" }  // customization attributes
-        //   );
-        //   google.accounts.id.prompt(); // also display the One Tap dialog
-        // }
+        function handleCredentialResponse(response) {
+          console.log("Encoded JWT ID token: " + response.credential);
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "YOUR_GOOGLE_CLIENT_ID",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" }  // customization attributes
+          );
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
 
         const labels=document.querySelectorAll('.form_control label')
 
@@ -103,7 +103,7 @@ const validateInputs = () => {
     const telValue= tel.value.trm();
     var phoneno = /^\d{10}$/;
 
-    if((tel.value.match(phoneno)))
+    if(tel.value.match(phoneno))
         {
       setSuccess(tel);
         }
@@ -112,7 +112,6 @@ const validateInputs = () => {
         alert("message");
         setError(tel,'Enter the right format')
         }
-}
 
     if(f_nameValue === '') {
         //setError(f_name, 'Name is required');

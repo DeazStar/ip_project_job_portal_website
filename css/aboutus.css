@@ -148,8 +148,8 @@ padding-right: 40px;
     justify-items: center;  
 }
 .team-img img:nth-of-type(odd) {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    /* filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); */
     width: 135px;
     height: 130px;;
     border-radius: 100%;

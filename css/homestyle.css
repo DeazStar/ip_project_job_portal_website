@@ -41,8 +41,13 @@ a {
     color: black;
 }
 
-nav ul li a:hover {
-    color: #189494;
+
+.nav-button a:hover {
+    color: #fff;
+}
+
+.nav-button-container a {
+    color: #fff;
 }
 
 .nav-one {
@@ -424,6 +429,9 @@ hr {
 }
 .mobile-link a {
     color: black;
+}
+.mobile-link a:hover {
+    color: #189494;
 }
 
 

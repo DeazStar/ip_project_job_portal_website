@@ -4,81 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+     <!--custom css-->
+     <link rel="stylesheet" href="log_in.css">
+     <!--end custom css-->
+ 
+     <!--fontawsome-->
+     <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
+     <!--end fontawsome-->
+ 
+     <!--google fonts-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
+         rel="stylesheet">
+     <!--end google fonts-->
+ 
+     <link rel="icon" href="images/logo.png" type="image/icon type">
+     <!--icon -->
+    <title>Log in AfriHire</title>
 </head>
 <body>
-    <table width="100%">
-        <tr>
-            <td valign="top" width="80px">
-                <a href="index.html"><img src="images/logo.png" width="150px"></a>
-            </td>
-  
-            <td><a href="aboutus.html">About us</a></td>
-            <td width="55%"></td>
-  
-        </tr>
-    </table>
-
-    <form>
-        <table align="center">
-            <tr>
-                <td></td>
-                <td width="700">
-        <fieldset  >
-            <legend align="center">
-                    <h1>
-                       Login to Hire Talent 
-                    </h1>
-            </legend>
-            <table align="center">
-                <tr>
-                    <td><img src="images/google.png"  width="40px" alt=""></td>
-                    <td><h3><a href="">Continue with Google</a></h3></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="u-name"><strong>Username</strong></label>
-                        <br>
-                        <br>
-                    </td>
-                    <td>
-                        <input type="text" name="" placeholder="Enter Username" id="" required>
-                        <br>
-                        <br>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><label for="pass"><strong>Password</strong></label></td>
-                    <td>
-                        <input type="password" name="" placeholder="Enter Password" id="" required>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p>Forgot <a href="">Password</a>?</p>
-                    </td>
-                </tr>
+    <header>
+            <div class="nav_container">
+                <nav>
+                    <ul class="nav_one">
+                        <li><a href=""><img class="logo_img" src="images/logo.png"  alt="Afrihire Logo"></a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="">About Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+    
+    <div class="above_sign">
+        <div class="login">
+            <div class="login_parr">
+            <p class="parr" > Log in </p><br> 
+            <p class="parr_org">to Hire Talent</p>
+            
+            <button class="login_btn">Continue with Google</button>
+            <p class="parr_or">or</p>
+        
+        <form action="#" id="form" onsubmit="return validate()" name="form">
+            <div class="form_control">
                 
-                <tr>
-                    <td colspan="2">
-                        <button type="button" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="signupbtn">login </button>
-                    </td>
-                </tr>
-            </table>
-            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-        </fieldset>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-      </form>
+                <input type="text"  id="email"  name="email" required>
+                <label for="email" >Email</label>
+                <div id="email_error"></div> 
+              </div>
+              <div class="form_control">
+                <input type="password"   id="password" name="password" required>
+                <label for="pass">Password</label>
+                <div id="pass_error"></div>
+              </div>
+              <div class="rem_me">
+                <input type="checkbox">
+                <p>Remember me</p>
+              </div>
+              <div class="forgot_pass">
+                <a href="#">Forget Password</a>
+              </div>
+                <button class="can_btn">Cancel</button>
+              <button class="btn">Log in</button>
+              <p class="parr1">Don't have an account? <a class="log_btn" href="">Sign up</a></p>
+        </form>
+    </div>
+    </div>
+    </div>
+    <script src="log_in.js" ></script>
 </body>
 </html>

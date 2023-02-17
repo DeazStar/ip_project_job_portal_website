@@ -4,6 +4,10 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+a {
+    color: black;
+}
+
 /** navbar css**/
 
 ul {
@@ -55,6 +59,9 @@ a {
     font-size: 1.4rem;
 }
 
+nav ul li a:hover {
+    color: #189494;
+}
 /** end navbar css **/
 
 

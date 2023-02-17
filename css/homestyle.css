@@ -38,6 +38,11 @@ nav {
 }
 a {
     text-decoration: none;
+    color: black;
+}
+
+nav ul li a:hover {
+    color: #189494;
 }
 
 .nav-one {
@@ -182,10 +187,11 @@ h2 {
 .people-first-solution-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .people-first-solution-img img {
-    width: 600px;
+    width: 100%;
     margin-top: 50px;
 }
 
@@ -212,10 +218,11 @@ h2 {
 .fast-and-flexible-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .fast-and-flexible-container  img{
-    width: 600px;
+    width: 100%;
 }
 .fast-and-flexible {
     margin-left: 10px;
@@ -445,3 +452,122 @@ hr {
     }
     
 }
+
+
+/** resonsive media query **/
+
+@media only screen and (max-width: 1141px) {
+    .image-container img {
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .slogan h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .image-container img {
+        width: 510px;
+    }
+
+    .slogan h1 {
+        font-size: 3.2rem;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    .image-container img {
+        width: 470px;
+    }
+
+    .slogan h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .image-container img {
+        visibility: hidden;
+        display: none;
+
+    }
+
+    .head-container {
+        grid-template-columns: 1fr;
+        padding: 3% 15%;
+    }
+    .slogan h1 {
+        text-align: center;
+    }
+
+    .search-bar-container {
+        justify-content: center;
+    }
+
+    .search-button {
+        left: 324px
+    }
+
+    .search-icon  {
+        position: absolute;
+        left: 136px;
+    }
+
+    .search-bar-container {
+        width: 530px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1048px) {
+    .row-one {
+        grid-template-columns: 1fr 1fr ;
+    }
+
+    .row-two {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 845px) {
+    .people-first-solution-container h3 {
+        font-size: 1.8rem;
+    }
+
+    .people-first-solution-container p {
+        font-size: 1.3rem;
+    }
+
+    .fast-and-flexible-container h3 {
+        font-size: 1.8rem;
+    }
+
+    .fast-and-flexible-container p {
+        font-size: 1.3rem;
+    }
+
+
+    #section-four h3 {
+        font-size: 1.8rem;
+    }
+
+    #section-four li {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .people-first-solution-container {
+        grid-template-columns: 1fr;
+    }
+
+    .fast-and-flexible-container {
+        grid-template-columns: 1fr;
+    }
+}
+

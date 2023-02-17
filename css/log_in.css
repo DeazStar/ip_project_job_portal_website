@@ -40,7 +40,7 @@ ul{
 
     /* border: 1px solid red; */
 }
-.sign_up
+.login
 {
     display: flex;
 justify-content: center;
@@ -49,9 +49,10 @@ border: 1px solid #A09D9D;
 /* border-style: solid; */
 border-radius: 25px;
 width: 500px;
+margin-bottom: 1px;
 
 }
-.sign_par
+.login_parr
 {
   display: grid;
   justify-self: center;
@@ -143,7 +144,6 @@ width: 500px;
     position: absolute;
     top: 15px;
     left: 0;
-    
 }
 
 .form_control label span{
@@ -208,8 +208,6 @@ border-radius: 10px;
     padding: 12px  25px;
     display: inline;
     font-size: 14px;
-    margin-left: 75px;
-    margin-right: 10px;
   }
   .can_btn:focus
   {
@@ -229,42 +227,14 @@ border-radius: 10px;
       0 2px 4px rgba(0, 0, 0, .25),
       0 0 0 3px #c8dafc;
   }
-  .age_in
+  .rem_me
   {
-    border-radius: 15px;
-    /* background-color: #189494; */
+    font-family: 'Montserrat', sans-serif;
     display: flex;
-    text-align:right;
-    border-color: #189494;
-    block-size: 0%;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 30px;
-    border-radius: 0;
   }
-  .age_par
+  .forgot_pass
   {
+    text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    background: transparent;
+    margin-bottom: 10px;
   }
-  .gen
-  {
-    position: relative;
-    margin: 10px 0 10px;
-    margin-top: 0px;
-    width: 300px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-
-    
-  }
-  .gen label{
-    top: 15px;
-    left: 0;
-    font-size: 15px;
-}
-.checkbox
-{
-  display: flex;
-  font-family: 'Montserrat',sans-serif;
-  font-size: small;
-}

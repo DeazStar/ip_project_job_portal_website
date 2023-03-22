@@ -37,27 +37,33 @@
     <div class="sign_up">
         <div class="sign_par">
             <p class="parr" > Sign Up </p><br> 
-            <p class="parr_org">to Find a Job</p>
-            
             <button class="login_btn">Continue with Google</button>
-            <p class="parr_or">or</p>
+            <hr>
             <form id="form" onsubmit="return validateInputs()">
-              <div class="form_control">
-                <input type="text" name="" id="f_name" required>
-                <label for="">First Name</label>
-                <div class="error"></div>
+              <div class="form-container">
+                <div class="form_control">
+                  <input type="text" name="" id="f_name" required>
+                  <label for="">First Name</label>
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="form_control">
-                <input type="text" name="" id="l_name" required>
-                <label for="">Last Name</label>
-                <div class="error"></div>
+
+              <div class="form-container">
+                <div class="form_control">
+                  <input type="text" name="" id="l_name" required>
+                  <label for="">Last Name</label>
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="form_control">
-                <div class="age_in">
-                <input type="date" class="age_in" id="age" name="age" required>
-                <label for="age" class="age_par" >DOB</label>
-              </div>
-                <div class="error"></div>
+
+              <div class="form-container">
+                <div class="form_control">
+                  <div class="age_in">
+                  <input type="date" class="age_in" id="age" name="age" required>
+                  <label for="age" class="age_par" >DOB</label>
+                </div>
+                  <div class="error"></div>
+                </div>
               </div>
               <div  class="gen">
                 <label for="gender">Gender:</label>
@@ -67,39 +73,55 @@
                 <input type="radio" id="female" name="gender">
                 <label for="female"  >Female</label>
               </div>
-              <div class="form_control">
+
+              <div class="form-container">
+                <div class="form_control">
                 
-                <input type="text"  id="email"  name="email" required>
-                <label for="email" >Email</label>
-                <div class="error"></div> 
+                  <input type="text"  id="email"  name="email" required>
+                  <label for="email" >Email</label>
+                  <div class="error"></div> 
+                </div>
               </div>
-              <div class="form_control">
+
+              <div class="form-container">
+                <div class="form_control">
                 
-                <input type="text"  id="remail"  name="remail" required>
-                <label for="remail">Recovery Email</label> 
-                <div class="error"></div>
+                  <input type="text"  id="remail"  name="remail" required>
+                  <label for="remail">Recovery Email</label> 
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="form_control">
-                <input type="password"   id="password" required>
-                <label for="pass">Password</label>
-                <div class="error"></div>
+
+              <div class="form-container">
+                <div class="form_control">
+                  <input type="password"   id="password" required>
+                  <label for="pass">Password</label>
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="form_control">
-                <input type="password" id="password2" required>
-                <label for="repass">Repeat Password</label>
-                <div class="error"></div>
+
+              <div class="form-container">
+                <div class="form_control">
+                  <input type="password" id="password2" required>
+                  <label for="repass">Repeat Password</label>
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="form_control">
-              <input type="tel" name="Tel" required id="tel">
-              <label for="">Telephone</label>
+
+              <div class="form-container">
+                <div class="form_control">
+                  <input type="tel" name="Tel" required id="tel">
+                  <label for="">Telephone</label>
+                  </div>
               </div>
+
               <div class="checkbox">
                 <input type="checkbox" required name="" id="">
                 <p>By creating an account you agree to <a  href="">Terms & Privacy</a>.</p>
               </div> 
                 <button class="can_btn">Cancel</button>
               <button type="submit" class="btn">Signup</button>
-              <p class="parr1">Already have an account? <a class="log_btn" href="login.html">Log in</a></p> 
+              <p class="parr1">Already have an account?&nbsp; <a class="log_btn" href="login.html">Log in</a></p> 
             </form>
             </div> 
 

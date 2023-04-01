@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/post_job.css">
-        <!--fontawsome-->
-        <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
-        <!--end fontawsome-->
-    
-        <!--google fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
-            rel="stylesheet">
-        <!--end google fonts-->
-    
-        <link rel="icon" href="images/logo.png" type="image/icon type">
-        <!--icon -->
-        <title>AfriHire Post Job</title>
+    <!--fontawsome-->
+    <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
+    <!--end fontawsome-->
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
+        rel="stylesheet">
+    <!--end google fonts-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="css/post_job.css">
+    <link rel="icon" href="images/logo.png" type="image/icon type">
+    <!--icon -->
+
+    <title>AfriHire Post Job</title>
 </head>
+
 <body>
     <header>
         <div class="navbar-container">
@@ -52,129 +59,183 @@
     </header>
     <hr>
 
-    <div class="all_p">
-    <div class="date">
+    <section class="section-one mt-5">
+        <div class="container-fluid">
 
+            <div class="row justify-content-center">
+                <div class="col-8">
+                <div class="text-start">
+                <form onsubmit="return">
+                    <div class="mb-3">
+                        <label for="company-logo" class="form-label">Company Logo: </label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-folder2-open"></i>
+                            </span>
+                            <input type="file" class="form-control" id="company-logo">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company-name" class="form-label">Company Name:</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-cursor-text"></i>
+                            </span>
+
+                            <input type="text" class="form-control" id="company-name">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="job-title" class="form-label">Job Title:</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-cursor-text"></i>
+                            </span>
+
+                            <input type="text" class="form-control" id="job-title">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="company-industry" class="form-label">Company Industry</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-building-gear"></i>
+                            </span>
+                            <select name="company-industry" id="company-industry" class="form-control">
+                                <option selected>Choose company Industry</option>
+                                <option value="information_tecnology">Information Technology</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="agriculture_and_forestry">Agriculture & Forestry/Wildlife</option>
+                                <option value="business_and_information">Business & Information</option>
+                                <option value="construction">Construction/Utilities/Contracting</option>
+                                <option value="education">Education</option>
+                                <option value="finace_and_insurance">Finance & Insurance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="employment-type" class="form-label">Employment Type</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-video2"></i>
+                            </span>
+                            <select name="employment-type" id="employment-type" class="form-control">
+                                <option selected>Choose Employment Type</option>
+                                <option value="fulltime">Full-Time</option>
+                                <option value="parttime">Part-Time</option>
+                                <option value="contract">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="seniority-level" class="form-label">Seniority Level</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-video2"></i>
+                            </span>
+                            <select name="seniority-level" id="Seniority" class="form-control">
+                                <option selected>Choose Seniority Level</option>
+                                <option value="entrylevel">Entery-Level</option>
+                                <option value="midlevel">Mid-Level</option>
+                                <option value="seniorlevel">Senior Level</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="job-description" class="form-label">Job Description:</label>
+                        <div class="form-floating">
+                            <textarea name="job-description" id="job-description" style="height: 15.5rem" class="form-control"></textarea>
+                            <label for="job-description">Your job description ...</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="additional-files" class="form-label">Additional Files</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-folder2-open"></i>
+                            </span>
+                            <input type="file" class="form-control" id="additional-files">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg me-5 reset-btn px-4" type="reset">Reset</button>
+                    <button class="btn btn-primary btn-lg submit-btn px-4" type="submit">Post</button>
+                </form>
+            </div>
+        </div>
+        </div>
+        </div>
     </div>
-    <div class="greeting">
+    </section>
+    <footer class="mt-5">
+        <div class="upper-footer-container">
+            <div class="left-section">
+                <div class="bottom-site-icon">
+                    <img src="images/logo.png">
+                </div>
 
-    </div>
-    <div class="post"></div>
-    <form onsubmit="return"  >
-        <div class="file_type">
-            <label for="">Company Logo</label>
-            <input type="file" name="" id="">
-        </div>
-        <div class="form_control">
-            <input type="text" required name="" id="">
-            <label for="">Company Name</label>
-        </div>
-        <div class="form_control">
-            <input type="text" required name="" id="">
-            <label for="">Job Title</label>
-        </div>
-        <div class="select_cls">
-            <label for="">Company Industry</label>
-            <select name="" id="">
-                <option>Choose company Industry</option>
-                <option value="information_tecnology">Information Technology</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="agriculture_and_forestry">Agriculture & Forestry/Wildlife</option>
-                <option value="business_and_information">Business & Information</option>
-                <option value="construction">Construction/Utilities/Contracting</option>
-                <option value="education">Education</option>
-                <option value="finace_and_insurance">Finance & Insurance</option>
-            </select>
-        </div>
-        <div class="select_cls">
-            <label for="">Employment Type</label>
-            <select required id="employmenttype" name="employmenttype">
-                <option>Choose Employment Type</option>
-                <option value="fulltime">Full-Time</option>
-                <option value="parttime">Part-Time</option>
-                <option value="contract">Contract</option>
-            </select>
-            
-        </div>
-        <div class="select_cls">
-            <label for="">Seniority Level</label>
-            <select required id="senioritylevel" name="senioritylevel">
-                <option>choose Seniority Level</option>
-                <option value="entrylevel">Entery-Level</option>
-                <option value="midlevel">Mid-Level</option>
-                <option value="seniorlevel">Senior Level</option>
-            </select>
-            
-    </div>
-        <div class="discrpt">
-            <label for="jobdescripton">Job Description</label>
-            <textarea id="jobdescripton" name="jobdescripton" rows="5" cols="30"></textarea>
-        </div>
-        <div class="file_type">
-            <label for="addtionalfiles">Additonal Files</label>
-            <input type="file" id="companylogo" name="companylogo">
-        </div>
-        <button class="can_btn" type="reset">Reset</button>
-        <button class="btn" type="submit">Post</button>
-    </form>
-  </div>  
-  <footer>
-    <div class="upper-footer-container">
-        <div class="left-section">
-            <div class="bottom-site-icon">
-                <img src="images/logo.png">
-            </div>
+                <div class="footer-social-media">
+                    <span class="follow-us">Follow Us: </span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div>
 
-            <div class="footer-social-media">
-                <span class="follow-us">Follow Us: </span>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-square-twitter"></i>
-                <i class="fa-brands fa-square-instagram"></i>
+                <div class="subscribe">
+                    <p>Subscribe to our news letter: </p>
+                    <input type="email" placeholder="Subscribe" class="subscribe-input">
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
             </div>
+            <div class="right-footer-section footer-links">
+                <div class="footer-row-one">
+                    <ul>
+                        <li class="footer-title">For Recruiters</li>
+                        <li class="footer-item">How to Hire</li>
+                        <li class="footer-item">Talent Marketplace</li>
+                        <li class="footer-item">Payroll Service</li>
+                        <li class="footer-item">Hire Worldwide</li>
+                        <li class="footer-item">Hire in Africa</li>
+                    </ul>
+                </div>
 
-            <div class="subscribe">
-                <p>Subscribe to our news letter: </p>
-                <input type="email" placeholder="Subscribe" class="subscribe-input">
-                <button class="btn-subscribe">Subscribe</button>
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">For Talent</li>
+                        <li class="footer-item">How to Find a Job</li>
+                        <li class="footer-item">Find in Africa</li>
+                    </ul>
+                </div>
+
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">Company</li>
+                        <li class="footer-item">About Us</li>
+                        <li class="footer-item">Contact Us</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="right-footer-section footer-links">
-            <div class="footer-row-one">
-                <ul>
-                    <li class="footer-title">For Recruiters</li>
-                    <li class="footer-item">How to Hire</li>
-                    <li class="footer-item">Talent Marketplace</li>
-                    <li class="footer-item">Payroll Service</li>
-                    <li class="footer-item">Hire Worldwide</li>
-                    <li class="footer-item">Hire in Africa</li>
-                </ul>
-            </div>
-
-            <div class="footer-row-two">
-                <ul>
-                    <li class="footer-title">For Talent</li>
-                    <li class="footer-item">How to Find a Job</li>
-                    <li class="footer-item">Find in Africa</li>
-                </ul>
-            </div>
-
-            <div class="footer-row-two">
-                <ul>
-                    <li class="footer-title">Company</li>
-                    <li class="footer-item">About Us</li>
-                    <li class="footer-item">Contact Us</li>
-                </ul>
-            </div>
+        <hr>
+        <div class="footer-last">
+            <p>&copy; 2022-2022 AfriHire inc</p>
+            <p>Terms and Services</p>
+            <p>Privacy Policy</p>
         </div>
-    </div>
-    <hr>
-    <div class="footer-last">
-        <p>&copy; 2022-2022 AfriHire inc</p>
-        <p>Terms and Services</p>
-        <p>Privacy Policy</p>
-    </div>
-  </footer>
-  <script src="script/post_job.js"></script>
+    </footer>
+    <script src="script/post_job.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

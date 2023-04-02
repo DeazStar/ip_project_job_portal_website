@@ -5,15 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--custom css-->
-    <link rel="stylesheet" href="css/profilestyle.css">
-    <!--end custom css-->
 
-    <!--fontawsome-->
-    <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
-    <!--end fontawsome-->
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +15,16 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
         rel="stylesheet">
     <!--end google fonts-->
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!--end-->
+
+        <!--custom css-->
+        <link rel="stylesheet" href="css/profilestyle.css">
+        <!--end custom css-->
 
     <!-- icons -->
     <link rel="icon" href="images/logo.png" type="image/icon type">
@@ -60,131 +63,182 @@
     </header>
 
     <main>
-        <div class="container">
-            <div class="profile-left">
-                <div class="profile-view">
-                    <div class="profile-image-container">
-                        <img src="images/Naod.jpg" class="profile-image">
-                    </div>
-                </div>
+        <div class="container-fluid px-5 mt-5 mb-5">
+            <div class="row pb-5 gap-5 justify-content-center">
+                <div class="col-md-3">
+                    <div class="row shadow-lg rounded  pb-5">
+                        <div class="col pt-5 pd-b-5">
+                            <div class="profile-container">
+                                <div class="profile-image-container text-center">
+                                    <img class="img-fluid profile-image" src="images/Naod.jpg" alt="proflile-image">
+                                </div>
+                                <div class="name-container text-center mt-4">
+                                    <p class="name h3">Naod Ararsa</p>
+                                </div>
 
-                <h3 class="profile-name">Naod Ararsa</h3>
-                <p class="profession">Web Developer</p>
-                <div class="profile profile-card">
-                    <div class="profile-icon icons">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="description">Profile</div>
-                </div>
-
-                <div class="resume profile-card">
-                    <div class="resume-icon icons">
-                        <i class="fa-regular fa-file-invoice"></i>
-                    </div>
-
-                    <div class="description">My Resume</div>
-                </div>
-
-                <div class="Saved Jobs profile-card">
-                    <div class="saved-job-icon icons">
-                        <i class="fa-light fa-heart"></i>
-                    </div>
-
-                    <div class="description">Saved Jobs</div>
-                </div>
-
-                <div class="applied-jobs profile-card">
-                    <div class="applied-jobs-icons icons">
-                        <i class="fa-light fa-suitcase"></i>
-                    </div>
-
-                    <div class="description">Applied Jobs</div>
-                </div>
-
-                <div class="change-password profile-card">
-                    <div class="change-password-icon icons">
-                        <i class="fa-light fa-key"></i>
-                    </div>
-
-                    <div class="description">Change Password</div>
-                </div>
-
-                <div class="log-out profile-card">
-                    <div class="log-out-icon icons">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </div>
-
-                    <div class="description">Log Out</div>
-                </div>
-            </div>
-
-
-            <div class="profile-right">
-                <div class="basic-info">
-                    <div class="basic-info-header">
-                        <h3>BASIC INFORMATION</h3>
-                    </div>
-
-
-                    <div class="back-btn-container">
-                        <button class="back-btn">Back</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="edit-form">
-                    <div class="part-container">
-                        <div class="left">
-                            <label for="fullname">Your Name:</label><br>
-                            <input type="text" name="full-name" id="fullname" class="move-down"> <br>
-
-                            <label for="language">Languages: </label><br>
-                            <input type="text" name="languages" id="language"><br>
+                                <div class="occupation-container">
+                                    <p class="occupation text-center">
+                                        Full Stack Web Developer
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="right">
-                            <label for="title">Professional title: </label><br>
-                            <input type="text" name="title" id="title" class="move-down"><br>
+                        <div class="col-12 pt-3 profile-btn-container border">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-file-person pe-1"></i>
+                                </span>Profile</p>
+                        </div>
 
-                            <label for="age">Age: </label><br>
-                            <input type="text" name="age" id="age"><br>
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-file-earmark-medical pe-1"></i>
+                                </span>My Resume</p>
+                        </div>
+
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-box2-heart pe-1"></i>
+                                </span>Saved Jobs</p>
+                        </div>
+
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-briefcase pe-1"></i>
+                                </span>Applied Jobs</p>
+                        </div>
+
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-lock pe-1"></i>
+                                </span>Change Password</p>
+                        </div>
+
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0">
+                                <p class="btn-name h5"><span>
+                                    <i class="bi bi-box-arrow-right pe-1"></i>
+                                </span>Log Out</p>
                         </div>
                     </div>
+                </div>
 
+                <div class="col-md-7 shadow-lg px-3 py-5 rounded">
+                    <div class="container">
+                        <p class="h2">Personal Information</p>
+                        <hr class="text-center">
+                        <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Your Name:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person-bounding-box"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="name" placeholder="e.g Naod Ararsa">
+                                </div>
+                            </div>
 
-                    <label class="description-header">Description</label><br>
-                    <textarea></textarea>
+                            <div class="col-md-6">
+                                <label for="title" class="form-label">Professional title:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-briefcase-fill"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="title" placeholder="e.g Software Engineer">
+                                </div>
+                            </div>
 
+                            <div class="col-md-6 mt-3">
+                                <label for="language" class="form-label">Languages:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-megaphone-fill"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="language" placeholder="e.g Amharic">
+                                </div>
+                            </div>
 
-                    <h3 class="contact-info">CONTACT INFORMATION</h3>
+                            <div class="col-md-6 mt-3">
+                                <label for="birth-date" class="form-label">Birth Date:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-calendar-date-fill"></i>
+                                    </span>
+                                    <input type="date" class="form-control" id="birth-date">
+                                </div>
+                            </div>
 
-                    <hr>
+                            <div class="col-md-6 mt-3">
+                                <label for="phonenumber" class="form-label">Phone Number:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-telephone-fill"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="phonenumber"  placeholder="e.g +555-555-555">
+                                </div>
+                            </div>
 
-                    <div class="part-container">
-                        <div class="left">
-                            <label for="phone">Phone:</label><br>
-                            <input type="text" name="phone" id="phone" class="move-down"> <br>
+                            <div class="col-md-6 mt-3">
+                                <label for="email" class="form-label">Email Address: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope-at-fill"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" placeholder="e.g email@example.com">
+                                </div>
+                            </div>
 
-                            <label for="country">Country: </label><br>
-                            <input type="text" name="country" id="country" class="move-down"><br>
+                            <div class="col-md-6 mt-3">
+                                <label for="country" class="form-label">Country: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-globe-europe-africa"></i>
+                                    </span>
+                                    <select name="country" id="country" class="form-control">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                            <label for="city">City: </label><br>
-                            <input type="text" name="city" id="city"><br>
+                            <div class="col-md-6 mt-3">
+                                <label for="postcode" class="form-label">Postcode </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-postcard"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="postcode" placeholder="e.g 1000">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
+                                <label for="city" class="form-label">City: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-globe-europe-africa"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="city" placeholder="e.g Addis Ababa">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
+                                <label for="address" class="form-label">Address: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-globe-europe-africa"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="address" placeholder="e.g Addis Ababa">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea name="description" id="description" class="form-control"></textarea>
+                            </div>
                         </div>
 
-                        <div class="right">
-                            <label for="title">Email Address: </label><br>
-                            <input type="email" name="email" id="email" class="move-down"><br>
-
-                            <label for="code">Postcode: </label><br>
-                            <input type="text" name="code" id="code" class="move-down"><br>
-
-                            <label for="address" class="move-down">Full Address: </label><br>
-                            <input type="text" name="address" id="address"><br>
-                        </div>
+                        <button class="btn btn-primary mt-5 save-btn">Save</button>
+                        </form>
                     </div>
-
-
-                    <button class="save-btn">Save Setting</button>
                 </div>
             </div>
         </div>
@@ -247,6 +301,9 @@
         </div>
         <!--finsh the footer-->
     </footer>
+
+    <script src="script/fetchCountry.js"></script>
+    <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

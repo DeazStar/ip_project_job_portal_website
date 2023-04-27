@@ -1,4 +1,5 @@
 body {
+    width: 100%;
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
@@ -25,7 +26,7 @@ nav {
     width: 17%;
     align-items: center;
     margin-right: 30px;
-    margin-bottom: 48px;
+    margin-bottom: 4px;
 }
 
 .nav-icon {
@@ -56,7 +57,7 @@ a {
 .nav-two {
     display: flex;
     flex-direction: row;
-    margin: 5px 25px;
+    margin: 0px 25px;
 }
 
 .nav-item {
@@ -74,9 +75,8 @@ a {
     border-radius: 0px;
  
 }
-
 .nav-button-container {
-    margin-top: 45px;
+    margin-top: 4px;
 }
 /* header */
 
@@ -101,17 +101,18 @@ body
     margin: 19px;
     margin-left: 55px;
 
-    width:330px; 
-    height: 70px;
+    width:400px; 
+    height: 75px;
     
     border-radius: 15px;
+    font-size: 15px;
 }
 .sun
 { 
     float: right;
     display: inline-block;
-    width:55px;
-    margin: -5px 0px 0px 0px;
+    width:60px;
+    margin: -3px 5px 0px 0px;
 
 }
 .search-div
@@ -157,13 +158,12 @@ body
     background-color: rgb(255, 255, 255);
 
     justify-content: space-between;
-
 }
 .job-list
 {
     background-color: rgb(255, 255, 255);
     width: 35%;
-
+    
 
     display: flex;
     flex-direction: column;
@@ -184,7 +184,6 @@ body
 }
 .job-details
 {
-    background-color: rgb(255, 255, 255);
     flex: 1;
     margin: 0px 35px 1px 15px;
 
@@ -242,6 +241,10 @@ body
     text-transform: uppercase;
     box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
 }
+button:active {
+    transform: scale(1.03);
+  }
+  
 .status
 {
     color: rgb(66, 52, 52);
@@ -296,7 +299,7 @@ body
     
 
     padding: 16px 15px;
-    margin-left: 155px;
+    margin-left: 25%;
     margin-top: 18px;
 
     text-shadow: 1px 1px 1px rgba(240, 207, 207, 0.14);
@@ -304,19 +307,49 @@ body
     box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
 
 }
+
 @media screen and (max-width: 900px) {
+
+    .job-list
+    {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+            
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+    .job-details
+    {
+        width: 100%;
+
+        border-radius: 10px;
+    
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        background-color: #f3f3f3;
+        
+        box-shadow: 3px 3px 30px rgba(221, 213, 213, 0.5);
+    
+        margin: 55px 20px 1px 25px;
+    }
+    
     .btn1 {
-        margin-left:55px ;
+        margin-left:35%;;
+        width: 80%;
+
     }
     .job-container
     {
+
+    width: 100%;
     margin-top:20px ;
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-
     justify-content: space-between;
-
 }
 .job1
 {
@@ -328,8 +361,7 @@ body
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.993);
 
     padding: 15px 5px 0px 10px;
-    height: 330px;
-    width: 400px;
+    height: 230px;
     margin: 25px 45px 0px 25px;
 }
     
@@ -349,8 +381,36 @@ body
 .btn-subscribe
 {
     display: none;
-}    
 }
+
+p.description
+{
+    width: 100%;
+    margin: 45px 0px;
+
+    text-align: justify;
+}
+
+
+/* left */
+.status
+{
+    color: rgb(66, 52, 52);
+    padding-top: 28px;
+    font-size: 15px;
+    width: 100%;
+    height: 220px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content:space-between;
+}
+
+}
+
+
+
 
 .details-top
 {
@@ -450,8 +510,9 @@ hr {
     justify-content: space-around;
 }
 
-@media only screen and (max-width:800px){
 
+
+@media only screen and (max-width:800px){
 
 
 .target-container{

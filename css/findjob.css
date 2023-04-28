@@ -1,23 +1,32 @@
-body {
-    width: 100%;
+body 
+{
+    width: 100vw;
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
 }
 /** navbar css**/
 
-ul {
+ul 
+{
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 .navbar-container img{
     width: 120px;
 }
 
 nav {
+    margin: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 17px;
+    font-size: 14px;
+
+    padding: 0;
+    margin: 0;
+
 }
 .nav-two {
     display: flex;
@@ -26,11 +35,13 @@ nav {
     width: 17%;
     align-items: center;
     margin-right: 30px;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
+    padding: 0;
+  
 }
 
 .nav-icon {
-    font-size: 1.6rem;
+    font-size: 0.8rem;
 }
 
 a {
@@ -42,6 +53,10 @@ a {
     flex-direction: row;
     margin-left: 3px;
     color: rgb(27, 6, 6);
+
+    margin: 8px 0px 0px 0px;
+    padding: 0;
+
 }
 .nav-one a{
     color: rgb(27, 6, 6);
@@ -57,7 +72,8 @@ a {
 .nav-two {
     display: flex;
     flex-direction: row;
-    margin: 0px 25px;
+    margin: 0px 20px;
+    padding: 0px;
 }
 
 .nav-item {
@@ -76,7 +92,7 @@ a {
  
 }
 .nav-button-container {
-    margin-top: 4px;
+    margin-top: 0px;
 }
 /* header */
 
@@ -90,19 +106,17 @@ body
 }
 .line
 {
-    width: 100%;
+    width: 80%;
 }
 .sunset
 {
     display: inline-block;
     border: 1px solid rgb(221, 212, 212);
    
-    padding: 15px 12px 15px 16px;
-    margin: 19px;
-    margin-left: 55px;
-
-    width:400px; 
-    height: 75px;
+    padding: 10px 12px 15px 16px;
+    margin: 5px 0px 0px 30px;
+    width:350px; 
+    height: 65px;
     
     border-radius: 15px;
     font-size: 15px;
@@ -111,8 +125,8 @@ body
 { 
     float: right;
     display: inline-block;
-    width:60px;
-    margin: -3px 5px 0px 0px;
+    width:45px;
+    margin: 0px 5px 0px 0px;
 
 }
 .search-div
@@ -143,6 +157,7 @@ body
     border: 2px solid red;
     height: 50%;
     width: 30%;
+    font: 12px;
 }
 .details
 {
@@ -150,10 +165,11 @@ body
     border: 2px solid blue;
     height: 50vh;
     width: 65%;
+    
 }
 .job-container
 {
-    margin-top:20px ;
+    margin-top: 5px ;
     display: flex;
     background-color: rgb(255, 255, 255);
 
@@ -163,7 +179,7 @@ body
 {
     background-color: rgb(255, 255, 255);
     width: 35%;
-    
+    font: 12px;
 
     display: flex;
     flex-direction: column;
@@ -181,6 +197,8 @@ body
     padding: 15px 5px 0px 10px;
     height: 330px;
     margin: 25px 45px 0px 25px;
+    font: 12px;
+
 }
 .job-details
 {
@@ -192,11 +210,13 @@ body
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: #F1F1F1;
+    background-color: #f8f9f9;
     
-    box-shadow: 3px 3px 30px rgba(221, 213, 213, 0.5);
+    box-shadow: 3px 3px 30px rgba(242, 234, 234, 0.5);
 
     margin: 25px 35px 1px 15px;
+    font: 12px;
+
 }
 
 .job-pic-div
@@ -222,6 +242,8 @@ body
     color: rgb(112, 51, 51);
     
     font-weight: bold;
+    font: 12px;
+
 }
 
 .btn {
@@ -322,7 +344,7 @@ button:active {
     }
     .job-details
     {
-        width: 100%;
+        width: 90%;
 
         border-radius: 10px;
     
@@ -337,15 +359,14 @@ button:active {
     }
     
     .btn1 {
-        margin-left:35%;;
-        width: 80%;
-
+        margin-left:25%;;
+        width: 70%;
     }
     .job-container
     {
 
     width: 100%;
-    margin-top:20px ;
+    margin-top:0px ;
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
@@ -368,7 +389,7 @@ button:active {
 .nav-two {
     display: flex;
     flex-direction: row;
-    margin: 5px 0px;
+    margin: 0px 0px;
 
     padding: 5px;
     width: 200px;
@@ -377,6 +398,7 @@ button:active {
 .nav-one a
 {
     width: 10px;
+    margin: 0;
 }
 .btn-subscribe
 {
@@ -386,7 +408,8 @@ button:active {
 p.description
 {
     width: 100%;
-    margin: 45px 0px;
+    color: rgb(59, 42, 42);
+    margin: 15px 0px;
 
     text-align: justify;
 }
@@ -406,6 +429,49 @@ p.description
     gap: 30px;
     justify-content:space-between;
 }
+}
+
+@media screen and (max-width: 550px) {
+
+    body{
+        background-color: rgb(255, 255, 255);
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
+    }    
+    hr{
+        width: 100%;
+    }
+    .job-container{
+        width: 550px;
+        padding: 0;
+        margin: 5px;
+    }
+    .job-details
+    {
+        width: 480px;
+        padding: 0;
+
+    }
+    p.description
+    {
+        margin-top: 25px;
+    }    
+    .search-input
+    {
+    width: 40%;
+    border: 1.5px solid red;
+    border-radius: 19px;
+    border-color: rgb(166, 156, 156);
+    padding: 10px 0px 8px 45px;
+
+    box-shadow: 3px 3px 30px rgba(233, 227, 227, 0.5);
+
+    margin-left: 25px;
+    }
+    footer{
+        width: 500px;
+    }
 
 }
 
@@ -421,10 +487,11 @@ p.description
 {
     font-size: 14.5px;
 
-    margin: 10px 17px;
+    margin: 20px 17px;
 
     text-align: justify;
 }
+
 
 
 /*footer*/
@@ -436,6 +503,7 @@ footer {
 }
 .upper-footer-container {
     display: flex;
+    width: 100%;
     flex-direction: row;
 }
 
@@ -496,7 +564,11 @@ footer {
 
 hr {
     width: 95%;
-    margin-top: 0px;
+    margin-left: 2.5%;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
     border: 0.01px solid rgb(233, 218, 218);
     padding: 0.001px;
     background-color: black;
@@ -511,39 +583,4 @@ hr {
 }
 
 
-
-@media only screen and (max-width:800px){
-
-
-.target-container{
-
-    display: grid;
-    grid-template-columns:0fr;
-    grid-template-rows: 0.5fr 1.5fr;
-    grid-row-gap: 1em;
-    align-items: start;
-    /* color: rgb(62, 170, 178); */
-    margin-bottom: 30px;
-}
-
-.vision-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 0px;
-    align-items: start;
-    justify-items: center;
-    /* color: rgb(62, 170, 178); */
-}
-
-.last-container{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    text-align: center;
-    align-items: center;
-    /* color: rgb(62, 170, 178); */
-    margin-left: 20px;
-    text-align: center;
-}
-    
-}
+   

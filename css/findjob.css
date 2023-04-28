@@ -445,7 +445,7 @@ p.description
     .job-container{
         width: 550px;
         padding: 0;
-        margin: 5px;
+        margin-left: -25px;
     }
     .job-details
     {
@@ -457,18 +457,6 @@ p.description
     {
         margin-top: 25px;
     }    
-    .search-input
-    {
-    width: 40%;
-    border: 1.5px solid red;
-    border-radius: 19px;
-    border-color: rgb(166, 156, 156);
-    padding: 10px 0px 8px 45px;
-
-    box-shadow: 3px 3px 30px rgba(233, 227, 227, 0.5);
-
-    margin-left: 25px;
-    }
     footer{
         width: 500px;
     }

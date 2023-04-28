@@ -62,9 +62,6 @@
         </div>
     </header>
     <hr>
-            
-        </div>
-        </header>
 
         <!-- sunset -->
         <div class="sunset">
@@ -72,18 +69,24 @@
                 <p style="padding-bottom: 0px;
                         margin: 0px;">
                    
-                   <p id="date"></p>
+                   <p id="date" style="padding: 0px; margin: 0px; font-size: 14px;"></p>
                    <script>
+                    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
                      var today = new Date();
-                     var day = today.getDate();
-                     var month = today.toLocaleString('default', { month: 'long' });
-                     var dateString = month + ' ' + day;
+
+                     var date = today.getDate();
+                     var month = monthsOfYear[today.getMonth()];
+                     var day = daysOfWeek[today.getDay()];
+
+                     var dateString = day+", "+ month + ' ' + date;
                      document.getElementById('date').innerHTML = dateString;
                    </script>
 
                 </p>
-                <p style="padding-top: 0px; margin: 0px;">
-                    Good morning
+                <p style="padding: 0px; margin: 0px; font-size: 14px;">
+                    Have a nice day!
                 </p>
             </div>
             <div class="sun">
@@ -200,7 +203,7 @@
     
             <!-- job details right -->
             <div class="job-details col-12 col-lg-8">
-                <div class=" details-top">
+                <div class="details-top">
                     <div class="job2">
     
                         <div class="job-pic-div">

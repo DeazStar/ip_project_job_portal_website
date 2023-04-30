@@ -113,12 +113,14 @@ body
     border: 1px solid rgb(221, 212, 212);
    
     padding: 10px 12px 15px 16px;
-    margin: 5px 0px 0px 30px;
+    margin: 10px 0px 0px 30px;
     width:350px; 
     height: 65px;
     
     border-radius: 15px;
     font-size: 15px;
+    box-shadow: 3px 3px 15px rgba(216, 137, 137, 0.3);
+
 }
 .sun
 { 
@@ -145,8 +147,7 @@ body
     border-color: rgb(166, 156, 156);
     padding: 10px 0px 8px 45px;
 
-    box-shadow: 3px 3px 30px rgba(233, 227, 227, 0.5);
-
+ 
     margin-left: -35px;
 }
 
@@ -192,8 +193,7 @@ body
     border-radius: 5px;
     background-color: #f6feff;;
     
-    box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.993);
-
+    
     padding: 15px 5px 0px 10px;
     height: 330px;
     margin: 25px 45px 0px 25px;
@@ -205,14 +205,12 @@ body
     flex: 1;
     margin: 0px 35px 1px 15px;
 
-    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     background-color: #eefafa;
     
-    box-shadow: 3px 3px 30px rgba(242, 234, 234, 0.5);
 
     margin: 25px 35px 1px 15px;
     font: 12px;

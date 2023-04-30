@@ -34,14 +34,13 @@ nav {
     justify-content: space-around;
     width: 17%;
     align-items: center;
-    margin-right: 30px;
-    margin-bottom: 0px;
+    margin-right: 0 30px 0 0;
     padding: 0;
-  
+    
 }
 
 .nav-icon {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 
 a {
@@ -54,7 +53,7 @@ a {
     margin-left: 3px;
     color: rgb(27, 6, 6);
 
-    margin: 8px 0px 0px 0px;
+    margin: 4px 0px 0px 0px;
     padding: 0;
 
 }
@@ -183,7 +182,6 @@ body
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     
 }
 .job1
@@ -475,7 +473,7 @@ p.description
 {
     font-size: 14.5px;
 
-    margin: 20px 17px;
+    margin: 10px 17px;
 
     text-align: justify;
 }

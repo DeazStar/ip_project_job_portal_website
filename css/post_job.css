@@ -2,6 +2,7 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
+    
 }
 
 a {
@@ -140,18 +141,12 @@ footer {
     line-height: 30px;
 }
 
-hr {
-    width: 80%;
-    border: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 50px;
-}
-
-
 .footer-last {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-
+input:invalid 
+  {
+    outline-color: red;
+  }

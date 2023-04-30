@@ -76,7 +76,7 @@ a {
 }
 
 .nav-item {
-    margin: 35px 50px 50px 0px;
+    margin: 25px 50px 10px 0px;
 }
 
 .nav-button a{
@@ -178,6 +178,8 @@ body
 {
     background-color: rgb(255, 255, 255);
     width: 35%;
+    max-height: 995px;
+    overflow-y: scroll;   
     font: 12px;
 
     display: flex;
@@ -188,7 +190,7 @@ body
 {
     display: flex;
     border-radius: 5px;
-    background-color: rgb(252, 252, 252);
+    background-color: #f6feff;;
     
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.993);
 
@@ -208,7 +210,7 @@ body
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: #f8f9f9;
+    background-color: #eefafa;
     
     box-shadow: 3px 3px 30px rgba(242, 234, 234, 0.5);
 
@@ -315,11 +317,11 @@ button:active {
     background-color: #189494;
     color: rgb(255, 255, 255);
     
-    width: 53%;
+    width: 50%;
     
 
     padding: 16px 15px;
-    margin-left: 25%;
+    margin-left: 18%;
     margin-top: 18px;
 
     text-shadow: 1px 1px 1px rgba(240, 207, 207, 0.14);
@@ -552,8 +554,8 @@ hr {
     width: 95%;
     margin-left: 2.5%;
 
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
 
     border: 0.01px solid rgb(233, 218, 218);
     padding: 0.001px;
@@ -568,5 +570,16 @@ hr {
     justify-content: space-around;
 }
 
+/* other */
 
-   
+::-webkit-scrollbar {
+    width: 5px;
+  }
+::-webkit-scrollbar-thumb {
+    background-color: #6c8383;;
+    border-radius: 15px;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #842e42;
+  }
+  

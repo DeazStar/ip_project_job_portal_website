@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
         <link rel="stylesheet" href="css/post_job.css">
+        <link rel="stylesheet" href="css/findjob.css">
     <link rel="icon" href="images/logo.png" type="image/icon type">
     <!--icon -->
 
@@ -30,33 +31,36 @@
 
 <body>
     <header>
+        <!-- nav bar -->
         <div class="navbar-container">
             <nav>
                 <ul class="nav-one">
                     <li>
-                        <img src="images/logo.png">
+                      <a href="index.html"><img src="images/logo.png"></a>  
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a></li>
-                    <li class="nav-item"><a href="postjob.html">Post Job</a></li>
-                    <li class="nav-item"><a href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a href="index.html">Home</a> </li>
+                    <li class="nav-item"> <a href="findtalent.html">Find Talent</a> </li>
+                    <li class="nav-item">  <a href="aboutus.html">About Us</a> </li>
                 </ul>
 
                 <ul class="nav-two">
                     <div class="nav-icon">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        <i class="fa fa-bell-o" aria-hidden="true" style="font-size: 20px;"></i>
                     </div>
 
                     <div class="nav-icon">
-                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        <i class="fa fa-comments-o" aria-hidden="true" style="font-size: 20px;"></i>
                     </div>
 
                     <div class="nav-icon">
-                        <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                       <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
                     </div>
                 </ul>
             </nav>
         </div>
     </header>
+    <hr>
+
     <hr>
 
     <section class="section-one mt-5">
@@ -66,24 +70,36 @@
             <div class="row justify-content-center">
                 <div class="col-8">
                 <div class="text-start">
-                <form onsubmit="return">
+            
+                 <form action="/php/postjob.php" method="POST">
                     <div class="mb-3">
                         <label for="company-logo" class="form-label">Company Logo: </label>
                         <div class="input-group">
                             <span class="input-group-text">
                                 <i class="bi bi-folder2-open"></i>
                             </span>
-                            <input type="file" class="form-control" id="company-logo">
+                            <input type="file" class="form-control" id="company-logo" >
                         </div>
                     </div>
+                    <!--  -->
                     <div class="mb-3">
                         <label for="company-name" class="form-label">Company Name:</label>
                         <div class="input-group">
                             <span class="input-group-text">
                                 <i class="bi bi-cursor-text"></i>
                             </span>
+                            <input type="text" class="form-control" id="company-name" name="company-name" required>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="mb-3">
+                        <label for="company-location" class="form-label">Company Location:</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-cursor-text"></i>
+                            </span>
 
-                            <input type="text" class="form-control" id="company-name">
+                            <input type="text" class="form-control" id="company-name" name="company-location" required>
                         </div>
                     </div>
 
@@ -94,7 +110,7 @@
                                 <i class="bi bi-cursor-text"></i>
                             </span>
 
-                            <input type="text" class="form-control" id="job-title">
+                            <input type="text" class="form-control" id="job-title" name="job-title" required>
                         </div>
                     </div>
 
@@ -104,8 +120,8 @@
                             <span class="input-group-text">
                                 <i class="bi bi-building-gear"></i>
                             </span>
-                            <select name="company-industry" id="company-industry" class="form-control">
-                                <option selected>Choose company Industry</option>
+                            <select name="company-industry" id="company-industry" class="form-control" name="Company-Industry" required>
+                                <option value="" selected>Choose company Industry</option>
                                 <option value="information_tecnology">Information Technology</option>
                                 <option value="manufacturing">Manufacturing</option>
                                 <option value="entertainment">Entertainment</option>
@@ -117,15 +133,16 @@
                             </select>
                         </div>
                     </div>
-
+                
+                
                     <div class="mb-3">
                         <label for="employment-type" class="form-label">Employment Type</label>
                         <div class="input-group">
                             <span class="input-group-text">
                                 <i class="bi bi-person-video2"></i>
                             </span>
-                            <select name="employment-type" id="employment-type" class="form-control">
-                                <option selected>Choose Employment Type</option>
+                            <select name="employment-type" id="employment-type" class="form-control" required>
+                                <option value="" selected>Choose Employment Type</option>
                                 <option value="fulltime">Full-Time</option>
                                 <option value="parttime">Part-Time</option>
                                 <option value="contract">Contract</option>
@@ -139,8 +156,8 @@
                             <span class="input-group-text">
                                 <i class="bi bi-person-video2"></i>
                             </span>
-                            <select name="seniority-level" id="Seniority" class="form-control">
-                                <option selected>Choose Seniority Level</option>
+                            <select name="seniority-level" id="Seniority" class="form-control" required>
+                                <option value="" selected>Choose Seniority Level</option>
                                 <option value="entrylevel">Entery-Level</option>
                                 <option value="midlevel">Mid-Level</option>
                                 <option value="seniorlevel">Senior Level</option>
@@ -148,7 +165,21 @@
                         </div>
                     </div>
 
-                    </div>
+                    <div class="mb-3">
+                        <label for="payment-amount" class="form-label">Budget / Payment Amount</label>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input type="number" name="payment-amount" id="payment-amount" class="form-control" placeholder="Enter payment amount" required>
+                          <select name="payment-frequency" id="payment-frequency" class="form-select" required>
+                            <option value="" selected>Payment Frequency</option>
+                            <option value="hourly">Per Hour</option>
+                            <option value="daily">Per Day</option>
+                            <option value="daily">Per Week</option>
+                            <option value="monthly">Per Month</option>
+                          </select>
+                        </div>
+                      </div>
+                    
 
                     <div class="mb-3">
                         <label for="job-description" class="form-label">Job Description:</label>
@@ -164,19 +195,23 @@
                             <span class="input-group-text">
                                 <i class="bi bi-folder2-open"></i>
                             </span>
-                            <input type="file" class="form-control" id="additional-files">
+                            <input type="file" class="form-control" id="additional-files" name="additional-files">
                         </div>
                     </div>
 
                     <button class="btn btn-primary btn-md me-5 reset-btn px-4" type="reset">Reset</button>
-                    <button class="btn btn-primary btn-md submit-btn px-4" type="submit">Post</button>
-                </form>
+                    <button class="btn btn-primary btn-md submit-btn px-4" type="submit" name="submit">Post</button>
+                    </form>
+                    </div>
             </div>
         </div>
         </div>
         </div>
     </div>
     </section>
+
+
+    <!-- footer -->
     <footer class="mt-5">
         <div class="upper-footer-container">
             <div class="left-section">
@@ -237,6 +272,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
-</body>
+    </body>
 
-</html>
+
+   </html>

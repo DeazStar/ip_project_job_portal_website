@@ -571,7 +571,7 @@ hr {
 /* other */
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
   }
 ::-webkit-scrollbar-thumb {
     background-color: #6c8383;;

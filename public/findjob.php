@@ -1,0 +1,489 @@
+<?php
+     include "php/config.php";
+    
+    $sql="SELECT * FROM jobposted";
+        //  WHERE Cname='babish' AND title='java'";
+    
+    $result= mysqli_query($conn,$sql); /// to execute the SQL query
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find job</title>
+     <!--fontawsome-->
+     <script src="https://kit.fontawesome.com/85dd05858a.js" crossorigin="anonymous"></script>
+    
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+     <!--end fontawsome-->
+
+ 
+     <!--google fonts-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Roboto&family=Ubuntu:wght@700&display=swap"
+         rel="stylesheet">
+     <!--end google fonts-->
+    
+     <!-- bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--css  -->
+     <link rel="stylesheet" href="css/findjob.css">
+
+     <!-- web icon -->
+     <link rel="icon" href="images/logo.png" type="image/icon type">
+</head>
+<body>
+    <header>
+        <!-- nav bar -->
+        <div class="navbar-container" style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+               ">
+            <nav>
+                <ul class="nav-one">
+                    <li>
+                      <a href="index.html"><img src="images/logo.png"></a>  
+                    </li>
+                    <li class="nav-item"><a href="index.html">Home</a> </li>
+                    <li class="nav-item"> <a href="findtalent.html">Find Talent</a> </li>
+                    <li class="nav-item">  <a href="aboutus.html">About Us</a> </li>
+                </ul>
+
+                <ul class="nav-two">
+                    <div class="nav-icon">
+                        <i class="fa fa-bell-o" aria-hidden="true" style="font-size: 20px;"></i>
+                    </div>
+
+                    <div class="nav-icon">
+                        <i class="fa fa-comments-o" aria-hidden="true" style="font-size: 20px;"></i>
+                    </div>
+
+                    <div class="nav-icon">
+                       <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <hr style="
+        margin:100px 0 0 0;
+        border:none;
+    ">
+
+        <!-- sunset -->
+        <div class="sunset">
+            <div style="display: inline-block;" >
+                <p style="padding-bottom: 0px;
+                        margin: 0px;">
+                   
+                   <p id="date" style="padding: 0px; margin: 0px; font-size: 14px;"></p>
+                   <script>
+                    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                     var today = new Date();
+
+                     var date = today.getDate();
+                     var month = monthsOfYear[today.getMonth()];
+                     var day = daysOfWeek[today.getDay()];
+
+                     var dateString = day+", "+ month + ' ' + date;
+                     document.getElementById('date').innerHTML = dateString;
+                   </script>
+
+                </p>
+                <p style="padding: 0px; margin: 0px; font-size: 14px;">
+                    Have a nice day!
+                </p>
+            </div>
+            <div class="sun">
+                <img class="sun" src="images/sun.png" alt="">
+            </div>
+        </div>
+    
+
+        <div class="search-div">
+            <i class="glyphicon glyphicon-search" style="font-size:23px;"></i>
+            <input type="text" class="search-input" placeholder="Search Job">
+        </div>
+    
+
+        <!-- main page -->
+        <section class="job-container container-fluid column">
+            
+            <!-- job-list left -->
+            <div class="job-list col-12 col-lg-4">
+                <div class="job1 active">
+    
+                    <div class="job-pic-div">
+                        <img class="job-pic" src="images/mobile-app.png" width="35px"  alt="">
+                    </div>
+                    
+                    <div class="job-name">
+                        <div class="name">
+                            <p style="
+                                padding: 0;
+                                margin: 5px;
+                                font-size: 17px;
+                                ">
+                                 Java Software Dev (Remote)</p>
+                            <p style="
+                                font-size:12px;
+                                margin: 5px;
+                            ">
+                                Addis Abeba, Ethiopia</p>
+                        </div>
+                        <div class="status">
+                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : 1 week ago</p>
+                            <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : Mid-level </p>
+                            <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : Full time</p>
+                            <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : 15$ per/day</p>
+              
+                        </div>
+                    </div>
+                
+                </div>
+
+                
+                <div class="job1">
+    
+                    <div class="job-pic-div">
+                        <img class="job-pic" src="images/app-development (1).png" width="35px"  alt="">
+                    </div>
+                    
+                    <div class="job-name">
+                        <div class="name">
+                            <p style="
+                                padding: 0;
+                                margin: 6px;
+                                font-size: 16px;
+                                ">
+                                 Java Software Dev(remote)</p>
+                            <p style="
+                                font-size:12px;
+                                margin: 5px;
+                            ">
+                                Addis abebam, Ethiopia</p>
+                        </div>
+                        <div class="status">
+                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : 1 week ago</p>
+                            <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : Mid-level </p>
+                            <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : Full time</p>
+                            <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : 10$ per/day</p>
+              
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="job1">
+    
+                    <div class="job-pic-div">
+                        <img class="job-pic" src="images/sales.png" width="35px"  alt="">
+                    </div>
+                    
+                    <div class="job-name">
+                        <div class="name">
+                            <p style="
+                                padding: 0;
+                                margin: 6px;
+                                font-size: 16px;
+                                ">
+                                 Java Software Dev(remote)</p>
+                            <p style="
+                                font-size:12px;
+                                margin: 5px;
+                            ">
+                                Addis abebam, Ethiopia</p>
+                        </div>
+                        <div class="status">
+                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : 1 week ago</p>
+                            <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : Mid-level </p>
+                            <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : Full time</p>
+                            <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : 20$ per/day</p>
+              
+                        </div>
+                    </div>
+                
+                </div>
+
+                
+                <div class="job1">
+    
+                    <div class="job-pic-div">
+                        <img class="job-pic" src="images/sales.png" width="35px"  alt="">
+                    </div>
+                    
+                    <div class="job-name">
+                        <div class="name">
+                            <p style="
+                                padding: 0;
+                                margin: 6px;
+                                font-size: 16px;
+                                ">
+                                 Java Software Dev(remote)</p>
+                            <p style="
+                                font-size:12px;
+                                margin: 5px;
+                            ">
+                                Addis abebam, Ethiopia</p>
+                        </div>
+                        <div class="status">
+                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : 1 week ago</p>
+                            <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : Mid-level </p>
+                            <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : Full time</p>
+                            <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : 20$ per/day</p>
+              
+                        </div>
+                    </div>
+                
+                </div>
+
+
+                <!-- fetch with php -->
+                <?php
+
+                 if ($result->num_rows > 0) 
+                 {
+                 
+                    //  $i = 0;
+                  while($row=$result->fetch_assoc()){
+                            ?>
+                         <div class="job1">
+                 
+                         <div class="job-pic-div">
+                             <img class="job-pic" src="images/sales.png" width="35px"  alt="">
+                         </div>
+                         
+                         <div class="job-name">
+                             <div class="name">
+                                 <p style="
+                                     padding: 0;
+                                     margin: 6px;
+                                     font-size: 16px;
+                                     ">
+                                      <?= $row['job_name'] ?></p>
+                                 <p style="
+                                     font-size:12px;
+                                     margin: 5px;
+                                 ">
+                                     <?= $row['company_location'] ?></p>
+                             </div>
+                             <div class="status">
+    
+                             <div hidden>
+                             <?=
+                                $posted_time = strtotime($row['job_posted_date']);
+                                $time_diff = time() - $posted_time;
+                                
+                                if ($time_diff < 86400) { // less than 24 hours
+                                    $job_posted_time = date('g:i a', $posted_time);
+                                }
+                                 else { // more than 24 hours
+                                    $job_posted_time = date('F j, Y', $posted_time);
+                                }
+                                
+                             ?>
+                            </div>
+                            
+                                <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : <?= $job_posted_time?> </p>
+                                 <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : <?= $row['level_of_job_position'] ?> </p>
+                                 <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : <?= $row['hours_of_job_work'] ?></p>
+                                 <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : <?= $row['budget_for_job'] ."$ per/".$row['frequency_of_payment']?> </p>
+                   
+                             </div>
+                         </div>
+                     </div> 
+
+                                         
+                    <?php
+                    }
+                 }
+                     else
+                  {
+                     echo "No jobs found.";
+                  }
+                ?>
+            </div>
+    
+    
+            </div>
+    
+            <!-- job details right -->
+            <div class="job-details col-12 col-lg-8">
+                <div class="details-top">
+                    <div class="job2">
+    
+                        <div class="job-pic-div">
+                            <img class="job-pic" src="images/mobile-app.png" width="35px"  alt="">
+                        </div>
+                        
+                        <div class="job-name">
+                            <div class="name" style="width: 400px;">
+                                <p style="
+                                    padding: 0;
+                                    margin: 5px;
+                                    font-size: 17px;
+                                    ">
+                                     Java Software Dev  : -  <i class="fa-sharp fa-solid fa-user-tie"></i> Company: Meta </p>
+                                <p style="
+                                    font-size:12px;
+                                    margin: 5px;
+                                ">
+                                    Information tecnology, Addis Abeba, Ethiopia</p>
+                            </div>
+                            <div class="status1">
+                            
+                                                         
+                                <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : 1 week ago</p>
+                                <p><i class="fas fa-chart-line" style="font-size:13px;"></i> Level : Mid-level </p>
+                                <p><i class="glyphicon glyphicon-time" style="font-size:13px;"></i> Hours : Full time</p>
+                                <p><i class="glyphicon glyphicon-usd" style="font-size:13px;"></i> Budget : 15$ per/day</p>
+                  
+                                <button class="btn1">apply for the job</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+  
+                </div>
+                
+                <div class="description">
+
+                   <p class="description">
+                    
+                    As a Java software developer, your main responsibility would be to design, develop and maintain software applications that are written in Java. Some of your key tasks may include:
+
+                    Writing clean, efficient and well-documented Java code that is both functional and maintainable.
+
+                    Collaborating with other developers, project managers and stakeholders to design and develop software solutions that meet the needs of the business.
+
+                    Testing software applications to ensure that they are error-free and meet performance and quality standards.
+
+                    Debugging and troubleshooting software applications when issues arise, and providing solutions to fix them.
+
+                    Integrating software applications with other systems or platforms as needed.
+
+                    Participating in code reviews to ensure that code quality is maintained across the team.
+
+                    Keeping up to date with the latest Java technologies and best practices, and sharing your knowledge with the team.
+
+                    Writing technical documentation and user guides to help users understand and use the software effectively.
+
+                    To be successful in this role, you should have a strong understanding of Java programming concepts, as well as experience with commonly used Java frameworks and tools. You should also be able to work effectively in a team environment, have excellent problem-solving skills, and be able to communicate technical concepts to non-technical stakeholders.
+
+              
+                    As a Java software developer, your main responsibility would be to design, develop and maintain software applications that are written in Java. Some of your key tasks may include:
+
+                    <br>
+                    <br>
+                        Writing clean, efficient and well-documented Java code that is both functional and maintainable.
+
+                        Collaborating with other developers, project managers and stakeholders to design and develop software solutions that meet the needs of the business.
+
+                        Testing software applications to ensure that they are error-free and meet performance and quality standards.
+
+                        Debugging and troubleshooting software applications when issues arise, and providing solutions to fix them.
+
+                        Integrating software applications with other systems or platforms as needed.
+
+                        Participating in code reviews to ensure that code quality is maintained across the team.
+
+                        Keeping up to date with the latest Java technologies and best practices, and sharing your knowledge with the team.
+
+                        Writing technical documentation and user guides to help users understand and use the software effectively.
+
+                        To be successful in this role, you should have a strong understanding of Java programming concepts, as well as experience with commonly used Java frameworks and tools. You should also be able to work effectively in a team environment, have excellent problem-solving skills, and be able to communicate technical concepts to non-technical stakeholders.
+
+                </p>
+                </div>
+            </div>
+    
+        </section>
+
+
+        
+
+    <footer>
+        <div class="upper-footer-container">
+            <div class="left-section">
+                <div class="bottom-site-icon">
+                    <img src="images/logo.png">
+                </div>
+
+                <div class="footer-social-media">
+                    <span class="follow-us">Follow Us: </span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div>
+
+                <div class="subscribe">
+                    <p>Subscribe to our news letter: </p>
+                    <input type="email" placeholder="Subscribe" class="subscribe-input">
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+            <div class="right-footer-section footer-links">
+                <div class="footer-row-one">
+                    <ul>
+                        <li class="footer-title">For Recruiters</li>
+                        <li class="footer-item">How to Hire</li>
+                        <li class="footer-item">Talent Marketplace</li>
+                        <li class="footer-item">Payroll Service</li>
+                        <li class="footer-item">Hire Worldwide</li>
+                        <li class="footer-item">Hire in Africa</li>
+                    </ul>
+                </div>
+
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">For Talent</li>
+                        <li class="footer-item">How to Find a Job</li>
+                        <li class="footer-item">Find in Africa</li>
+                    </ul>
+                </div>
+
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">Company</li>
+                        <li class="footer-item">About Us</li>
+                        <li class="footer-item">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-last">
+            <p>&copy; 2022-2022 AfriHire inc</p>
+            <p>Terms and Services</p>
+            <p>Privacy Policy</p>
+        </div>
+        <!--finsh the footer-->
+    </footer>
+
+    <script src="/script/findjob.js"></script>
+    <script>
+        /* JavaScript */
+    window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar-container');
+    if (window.pageYOffset > 0) {
+        navbar.classList.add('nav-scrolled');
+    } else {
+        navbar.classList.remove('nav-scrolled');
+    }
+});
+    </script>
+</body>
+</html>

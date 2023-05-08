@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
@@ -11,7 +11,8 @@ require_once '../core/DataBase.php';
  * 
  * Handles the upload and retrieval of profile of profile pictures for job seekers and companies.
  */
-class ProfilePictureModel {
+class ProfilePictureModel
+{
     private string $filePath;
     private int $size = 10000000;
 
@@ -32,7 +33,8 @@ class ProfilePictureModel {
      * 
      * Create a new instance of the ProfilePictureModel class.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new DataBase();
         $this->connection = $this->db->getConnection();
     }
@@ -46,8 +48,11 @@ class ProfilePictureModel {
      * 
      * @throws Exception If the file is too big, unsupported types, or an error occurs while uploading
      * @throws InvalidArgumentException If an invalid user type is provided.
+     * 
+     * @return void
      */
-    public function uploadPicture(JobSeeker|Company $user, array $file):void {
+    public function uploadPicture(JobSeeker|Company $user, array $file): void
+    {
         if ($user instanceof JobSeeker) {
             $this->filePath = 'uploads/jobseeker-profile/';
             $sql = "UPDATE job_seeker SET profile_picture_url= :url WHERE job_seeker_id = :id";
@@ -84,7 +89,6 @@ class ProfilePictureModel {
         } else {
             throw new Exception('Error uploading the file');
         }
-
     }
 
     /**
@@ -93,8 +97,11 @@ class ProfilePictureModel {
      * @param JobSeeker|Company $user he user object for whom to fetch the picture reference form the database
      * 
      * @throws InvalidArgumentException If an invalid user type is provided
+     * 
+     * @return string
      */
-    public function fetchPicture(JobSeeker|Company $user):string {
+    public function fetchPicture(JobSeeker|Company $user): string
+    {
         if ($user instanceof JobSeeker) {
             $sql = "SELECT profile_picture_url FROM job_seeker WHERE job_seeker_id= :id";
             $id = $user->getId();
@@ -114,7 +121,12 @@ class ProfilePictureModel {
         return $this->filePath;
     }
 
-    public function __destruct() {
+    /**
+     * A destructor method to close the database connection when the object is destroyed
+     * @return void
+     */
+    public function __destruct()
+    {
         $this->db->close();
     }
 }

@@ -54,11 +54,11 @@ class ProfilePictureModel
     public function uploadPicture(JobSeeker|Company $user, array $file): void
     {
         if ($user instanceof JobSeeker) {
-            $this->filePath = 'uploads/jobseeker-profile/';
+            $this->filePath = '../../public/uploads/jobseeker-profile/';
             $sql = "UPDATE job_seeker SET profile_picture_url= :url WHERE job_seeker_id = :id";
             $id = $user->getId();
         } else if ($user instanceof Company) {
-            $this->filePath = 'uploads/company-profile/';
+            $this->filePath = '../../public/uploads/company-profile/';
             $sql = "UPDATE company SET profile_picture_url= :url WHERE company_id = :id";
             $id = $user->getId();
         } else {
@@ -75,6 +75,8 @@ class ProfilePictureModel
                 if ($file['size'] < $this->size) {
                     $newFileName = uniqid('', true) . '.' . $this->fileExtension;
                     $newFilePath = $this->filePath . $newFileName;
+                    echo $this->filePath . '<br>';
+                    echo $newFilePath . '<br>';
                     move_uploaded_file($this->fileTmp, $newFilePath);
                     $stmt = $this->connection->prepare($sql);
                     $stmt->bindParam(":url", $newFilePath);

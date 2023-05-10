@@ -5,7 +5,7 @@ session_start();
 class DataBase {
     private string $url = "mysql:host=localhost;dbname=job_portal";
     private string $username = "admin";
-    private string $password = "password";
+    private string $password = "admin";
 
     private ?PDO $connection;
 

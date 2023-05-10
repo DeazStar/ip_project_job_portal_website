@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once 'JobSeeker.php';
 require_once 'Company.php';
-require_once '../core/DataBase.php';
+require_once dirname(__DIR__) . '/core/DataBase.php';
 
 /**
  * Class ProfilePictureModel
@@ -54,11 +54,11 @@ class ProfilePictureModel
     public function uploadPicture(JobSeeker|Company $user, array $file): void
     {
         if ($user instanceof JobSeeker) {
-            $this->filePath = '../../public/uploads/jobseeker-profile/';
+            $this->filePath = dirname(dirname(__Dir__)).'/public/uploads/jobseeker-profile/';
             $sql = "UPDATE job_seeker SET profile_picture_url= :url WHERE job_seeker_id = :id";
             $id = $user->getId();
         } else if ($user instanceof Company) {
-            $this->filePath = '../../public/uploads/company-profile/';
+            $this->filePath = dirname(dirname(__Dir__)).'/public/uploads/company-profile/';
             $sql = "UPDATE company SET profile_picture_url= :url WHERE company_id = :id";
             $id = $user->getId();
         } else {

@@ -69,8 +69,23 @@ nav ul li a:hover {
 /** end navbar css **/
 /** main **/
 
+.profile-image-container {
+    width: 210px;
+    margin: 0 auto;
+}
+
+.profile-picture-input, .profile-picture-upload-btn {
+    display: none;
+    visibility: hidden;
+}
+
+
+
 .profile-image {
     border-radius: 50%;
+    cursor: pointer;
+    height: 224px !important;
+    object-fit: cover;
 }
 
 .profile-btn-container:hover {

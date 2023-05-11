@@ -18,129 +18,314 @@ class PersonalInfo
 
     private DataBase $db;
     private PDO $connection;
-    public function __construct() {
+
+    /**
+     * PersonalInfo construct 
+     * 
+     * Create a new instance of the PersonalInfo class.
+     */
+    public function __construct()
+    {
         $this->db = new DataBase();
+        $this->connection = $this->db->getConnection();
     }
 
-    // Getter methods
-    public function getFirstName(): string {
+
+    /**
+     * getter Method for firstName
+     */
+    public function getFirstName(): string
+    {
         return $this->firstName;
     }
 
-    public function getLastName(): string {
+    /**
+     * getter Method for lastName
+     */
+    public function getLastName(): string
+    {
         return $this->lastName;
     }
 
-    public function getProfessionalTitle(): string {
+    /**
+     * getter Method for professionalTitle
+     */
+    public function getProfessionalTitle(): string
+    {
         return $this->professionalTitle;
     }
 
-    public function getLanguage(): array {
-        return $this->language;
-    }
-
-    public function getDate(): DateTime {
+    /**
+     * getter Method for date
+     */
+    public function getDate(): DateTime
+    {
         return $this->date;
     }
 
-    public function getPhoneNumber(): string {
+    /**
+     * getter Method for phoneNumber
+     */
+    public function getPhoneNumber(): string
+    {
         return $this->phoneNumber;
     }
 
-    public function getEmail(): string {
+    /**
+     * getter Method for email
+     */
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
-    public function getCountry(): string {
+    /**
+     * getter Method for country
+     */
+    public function getCountry(): string
+    {
         return $this->country;
     }
 
-    public function getPostCode(): int {
+    /**
+     * getter Method for postcode
+     */
+    public function getPostCode(): int
+    {
         return $this->postCode;
     }
 
-    public function getCity(): string {
+    /**
+     * getter Method for city
+     */
+    public function getCity(): string
+    {
         return $this->city;
     }
 
-    public function getAddress(): string {
+    /**
+     * getter Method for address
+     */
+    public function getAddress(): string
+    {
         return $this->address;
     }
 
-    public function getDescription(): string {
+    /**
+     * getter Method for description
+     */
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
+    /**
+     * setter method for firstName
+     * 
+     * @param string $firstName 
+     */
     // Setter methods
-    public function setFirstName(string $firstName): void {
+    public function setFirstName(string $firstName): void
+    {
         $this->firstName = $firstName;
     }
 
-    public function setLastName(string $lastName): void {
+    /**
+     * setter method for firstName
+     * 
+     * @param string $lastName 
+     */
+    public function setLastName(string $lastName): void
+    {
         $this->lastName = $lastName;
     }
 
-    public function setProfessionalTitle(string $professionalTitle): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $professionalTitle 
+     */
+    public function setProfessionalTitle(string $professionalTitle): void
+    {
         $this->professionalTitle = $professionalTitle;
     }
 
-    public function setLanguage(array $language): void {
-        $this->language = $language;
-    }
 
-    public function setDate(DateTime $date): void {
+    /**
+     * setter method for firstName
+     * 
+     * @param DateTime $date 
+     */
+    public function setDate(DateTime $date): void
+    {
         $this->date = $date;
     }
 
-    public function setPhoneNumber(string $phoneNumber): void {
+    /**
+     * setter method for firstName
+     * 
+     * @param string $phoneNumber 
+     */
+    public function setPhoneNumber(string $phoneNumber): void
+    {
         $this->phoneNumber = $phoneNumber;
     }
 
-    public function setEmail(string $email): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $email 
+     */
+    public function setEmail(string $email): void
+    {
         $this->email = $email;
     }
 
-    public function setCountry(string $country): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $country 
+     */
+    public function setCountry(string $country): void
+    {
         $this->country = $country;
     }
 
-    public function setPostCode(int $postCode): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $postcode 
+     */
+    public function setPostCode(int $postCode): void
+    {
         $this->postCode = $postCode;
     }
 
-    public function setCity(string $city): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $city 
+     */
+    public function setCity(string $city): void
+    {
         $this->city = $city;
     }
 
-    public function setAddress(string $address): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $address 
+     */
+    public function setAddress(string $address): void
+    {
         $this->address = $address;
     }
 
-    public function setDescription(string $description): void {
+
+    /**
+     * setter method for firstName
+     * 
+     * @param string $description 
+     */
+    public function setDescription(string $description): void
+    {
         $this->description = $description;
     }
 
-    public function setFromArray(array $data) {
+    /**
+     * setFromArray: set the attribute from the form data
+     * 
+     * @param array $data
+     * 
+     * @throws Exception if the input date is not in the appropriate format 
+     * @throws Exception if the postcode is not numeric 
+     * 
+     * @return void
+     */
+    public function setFromArray(array $data): void
+    {
         $name = explode(' ', $data['fullname']);
-        $this->firstName = $name[0];
-        $this->lastName = $name[1];
-        $this->professionalTitle = $data['title'];
-        $this->language = $data['language'];
-        $this->date = $data['birth_date'];
-        $this->phoneNumber = $data['phone_number'];
-        $this->email = $data['email'];
-        $this->country = $data['country'];
-        $this->postCode = $data['postcode'];
-        $this->city = $data['city'];
-        $this->address = $data['address'];
-        $this->description = $data['description'];
+        $this->firstName = $this->validateInput($name[0]);
+        $this->lastName = $this->validateInput($name[1]);
+        $this->professionalTitle = $this->validateInput($data['professional-title']);
+        $dateObj = DateTime::createFromFormat('Y-m-d', $data['birth-date']);
+        if ($dateObj === false) {
+            throw new Exception('enter the date in appropriate format');
+        } else {
+            $this->date = $dateObj;
+        }
+        $this->phoneNumber = $this->validateInput($data['phone-number']);
+        $this->email = filter_var($this->validateInput($data['email']), FILTER_VALIDATE_EMAIL);
+        $this->country = $this->validateInput($data['country']);
+        $this->postCode = intVal($this->validateInput($data['postcode']));
+
+        if ($this->postCode === 0) {
+            throw new Exception("Invalid PostCode");
+        }
+
+        $this->city = $this->validateInput($data['city']);
+        $this->address = $this->validateInput($data['address']);
+        $this->description = $this->validateInput($data['description']);
     }
 
-    public function updatePersonalInfo() {
-
+    /**
+     * validateInput: validate the data using htmlspecialchars() function
+     * 
+     * @param mixed $data: the data to be validated
+     * 
+     * @return string
+     */
+    public function validateInput(mixed $data)
+    {
+        return htmlspecialchars($data);
     }
 
-    public function __destruct() {
+    /**
+     * updatePersonalInfo: update the database with the new personal information
+     * 
+     * @param int $id the id of the job seeker
+     * @throws PDOException when it fails to update the database
+     * 
+     * @return void
+     */
+    public function updatePersonalInfo(int $id)
+    {
+        $sql = "UPDATE job_seeker SET first_name = :first_name, last_name = :last_name, professional_title = :professional_title,
+        date_of_birth = :date_of_birth, email = :email, country = :country, postcode = :postcode, city = :city, address = :address, description =:description WHERE job_seeker_id = :job_seeker_id";
+
+        try {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":first_name", $this->firstName);
+            $stmt->bindParam(":last_name", $this->lastName);
+            $stmt->bindParam(":professional_title", $this->professionalTitle);
+            $birthDate = $this->date->format('Y-m-d');
+            $stmt->bindParam(":date_of_birth", $birthDate);
+            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":country", $this->country);
+            $stmt->bindParam(":postcode", $this->postCode);
+            $stmt->bindParam(":city", $this->city);
+            $stmt->bindParam(":address", $this->address);
+            $stmt->bindParam(":description", $this->description);
+            $stmt->bindParam(":job_seeker_id", $id);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "can't update database" . $e->getMessage();
+        }
+    }
+
+    /**
+     * A destructor method to close the database connection when the object is destroyed
+     * @return void
+     */
+    public function __destruct()
+    {
         $this->db->close();
     }
 }

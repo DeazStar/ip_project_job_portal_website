@@ -157,7 +157,7 @@ echo $src;
                     <div class="container">
                         <p class="h2">Personal Information</p>
                         <hr class="text-center">
-                        <form>
+                        <form action="../src/controller/profileController.php" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="name" class="form-label">Your Name:</label>
@@ -181,22 +181,12 @@ echo $src;
                                 </div>
 
                                 <div class="col-md-6 mt-3">
-                                    <label for="language" class="form-label">Languages:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-megaphone-fill"></i>
-                                        </span>
-                                        <input type="text" class="form-control" id="language" placeholder="e.g Amharic">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mt-3">
                                     <label for="birth-date" class="form-label">Birth Date:</label>
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <i class="bi bi-calendar-date-fill"></i>
                                         </span>
-                                        <input type="date" class="form-control" id="birth-date">
+                                        <input type="date" name="birth-date" class="form-control" id="birth-date">
                                     </div>
                                 </div>
 
@@ -206,7 +196,7 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-telephone-fill"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="phonenumber"
+                                        <input type="text" name="phone-number" class="form-control" id="phonenumber"
                                             placeholder="e.g +555-555-555">
                                     </div>
                                 </div>
@@ -217,7 +207,7 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-envelope-at-fill"></i>
                                         </span>
-                                        <input type="email" class="form-control" id="email"
+                                        <input type="email" name="email" class="form-control" id="email"
                                             placeholder="e.g email@example.com">
                                     </div>
                                 </div>
@@ -240,7 +230,7 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-postcard"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="postcode" placeholder="e.g 1000">
+                                        <input type="text" name="postcode" class="form-control" id="postcode" placeholder="e.g 1000">
                                     </div>
                                 </div>
 
@@ -250,7 +240,7 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="city" placeholder="e.g Addis Ababa">
+                                        <input type="text" name="city" class="form-control" id="city" placeholder="e.g Addis Ababa">
                                     </div>
                                 </div>
 
@@ -260,18 +250,18 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="address"
+                                        <input type="text" name="address" class="form-control" id="address"
                                             placeholder="e.g Addis Ababa">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 mt-3">
                                     <label for="description" class="form-label">Description:</label>
-                                    <textarea name="description" id="description" class="form-control"></textarea>
+                                    <textarea name="description" name="description" id="description" class="form-control"></textarea>
                                 </div>
                             </div>
 
-                            <button class="btn btn-primary mt-5 save-btn">Save</button>
+                            <button class="btn btn-primary mt-5 save-btn" type="submit" name="submit-personal-info">Save</button>
 
                             <!--end-->
                         </form>

@@ -6,7 +6,6 @@ class PersonalInfo
     private string $firstName;
     private string $lastName;
     private string $professionalTitle;
-    private array $language;
     private DateTime $date;
     private string $phoneNumber;
     private string $email;
@@ -250,9 +249,8 @@ class PersonalInfo
      */
     public function setFromArray(array $data): void
     {
-        $name = explode(' ', $data['fullname']);
-        $this->firstName = $this->validateInput($name[0]);
-        $this->lastName = $this->validateInput($name[1]);
+        $this->firstName = $this->validateInput($data['firstname']);
+        $this->lastName = $this->validateInput($data['lastname']);
         $this->professionalTitle = $this->validateInput($data['professional-title']);
         $dateObj = DateTime::createFromFormat('Y-m-d', $data['birth-date']);
         if ($dateObj === false) {
@@ -297,7 +295,7 @@ class PersonalInfo
     public function updatePersonalInfo(int $id)
     {
         $sql = "UPDATE job_seeker SET first_name = :first_name, last_name = :last_name, professional_title = :professional_title,
-        date_of_birth = :date_of_birth, email = :email, country = :country, postcode = :postcode, city = :city, address = :address, description =:description WHERE job_seeker_id = :job_seeker_id";
+        date_of_birth = :date_of_birth, email = :email, phone_number = :phone_number, country = :country, postcode = :postcode, city = :city, address = :address, description =:description WHERE job_seeker_id = :job_seeker_id";
 
         try {
             $stmt = $this->connection->prepare($sql);
@@ -307,6 +305,7 @@ class PersonalInfo
             $birthDate = $this->date->format('Y-m-d');
             $stmt->bindParam(":date_of_birth", $birthDate);
             $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":phone_number", $this->phoneNumber);
             $stmt->bindParam(":country", $this->country);
             $stmt->bindParam(":postcode", $this->postCode);
             $stmt->bindParam(":city", $this->city);
@@ -317,6 +316,33 @@ class PersonalInfo
             $stmt->execute();
         } catch (PDOException $e) {
             echo "can't update database" . $e->getMessage();
+        }
+    }
+
+    public function fetchPersonalInfo(int $id):void {
+        $sql = "SELECT first_name, last_name, professional_title, date_of_birth, email, phone_number, country, postcode, 
+        city, address, description FROM job_seeker WHERE job_seeker_id = :id";
+
+        try {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->setFirstName($result['first_name']);
+            $this->setLastName($result['last_name']);
+            $this->setProfessionalTitle($result['professional_title']);
+            $dateObj = DateTime::createFromFormat('Y-m-d', $result['date_of_birth']);
+            $this->setDate($dateObj);
+            $this->setEmail($result['email']);
+            $this->setPhoneNumber($result['phone_number']);
+            $this->setCountry($result['country']);
+            $this->setPostCode($result['postcode']);
+            $this->setCity($result['city']);
+            $this->setAddress($result['address']);
+            $this->setDescription($result['description']);
+        } catch (PDOException $e) {
+            echo "can't fetch data from database" . $e->getMessage();
         }
     }
 

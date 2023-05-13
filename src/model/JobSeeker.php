@@ -33,6 +33,10 @@ class JobSeeker {
         $this->id =$id;
     }
 
+    public function getPersonalInfo():PersonalInfo {
+        return  $this->personalInfo;
+    }
+
 
     /**
      * updateProfile: update personal information of the job seeker
@@ -44,5 +48,9 @@ class JobSeeker {
     public function updateProfile(array $data):void {
         $this->personalInfo->setFromArray($data);
         $this->personalInfo->updatePersonalInfo($this->id);
+    }
+
+    public function fetchProfile():void {
+        $this->personalInfo->fetchPersonalInfo($this->id);
     }
 }

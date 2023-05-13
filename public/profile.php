@@ -14,7 +14,20 @@ if ($uploadsPos !== false) {
     $src = substr($path, $uploadsPos);
 }
 
-echo $src;
+$jobSeeker->fetchProfile();
+
+$firstName = $jobSeeker->getPersonalInfo()->getFirstName();
+$lastName = $jobSeeker->getPersonalInfo()->getLastName();
+$professionalTitle = $jobSeeker->getPersonalInfo()->getProfessionalTitle();
+$birthDate =  $jobSeeker->getPersonalInfo()->getDate();
+$phoneNumber = $jobSeeker->getPersonalInfo()->getPhoneNumber();
+$email = $jobSeeker->getPersonalInfo()->getEmail();
+$country = $jobSeeker->getPersonalInfo()->getCountry();
+$postcode = $jobSeeker->getPersonalInfo()->getPostCode();
+$city = $jobSeeker->getPersonalInfo()->getCity();
+$address = $jobSeeker->getPersonalInfo()->getAddress();
+$description = $jobSeeker->getPersonalInfo()->getDescription();
+
 ?>
 
 <!DOCTYPE html>
@@ -103,12 +116,18 @@ echo $src;
                                     ?>
                                 </div>
                                 <div class="name-container text-center mt-4">
-                                    <p class="name h3">Naod Ararsa</p>
+                                    <p class="name h3"><?= $firstName . " " . $lastName; ?></p>
                                 </div>
 
                                 <div class="occupation-container">
-                                    <p class="occupation text-center">
-                                        Full Stack Web Developer
+                                    <p class="occupation text-center h5">
+                                        <?php 
+                                            if (isset($professionalTitle)) {
+                                                echo $professionalTitle;
+                                            } else {
+                                                echo "-";
+                                            }
+                                        ?>
                                     </p>
                                 </div>
                             </div>
@@ -160,23 +179,35 @@ echo $src;
                         <form action="../src/controller/profileController.php" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="name" class="form-label">Your Name:</label>
+                                    <label for="name" class="form-label">Your First Name:</label>
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <i class="bi bi-person-bounding-box"></i>
                                         </span>
-                                        <input type="text" name="fullname" class="form-control" id="name" placeholder="e.g Naod Ararsa">
+                                        <input type="text" name="firstname" class="form-control" id="name" placeholder="e.g Naod Ararsa" 
+                                        value="<?= $firstName; ?>">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
+                                    <label for="name" class="form-label">Your Last Name:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-person-bounding-box"></i>
+                                        </span>
+                                        <input type="text" name="lastname" class="form-control" id="name" placeholder="e.g Naod Ararsa"
+                                        value="<?= $lastName; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mt-3">
                                     <label for="title" class="form-label">Professional title:</label>
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <i class="bi bi-briefcase-fill"></i>
                                         </span>
                                         <input type="text" name="professional-title" class="form-control" id="title"
-                                            placeholder="e.g Software Engineer">
+                                            placeholder="e.g Software Engineer" value="<?= $professionalTitle; ?>">
                                     </div>
                                 </div>
 
@@ -186,7 +217,8 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-calendar-date-fill"></i>
                                         </span>
-                                        <input type="date" name="birth-date" class="form-control" id="birth-date">
+                                        <input type="date" name="birth-date" class="form-control" id="birth-date"
+                                        value="<?= $birthDate->format('Y-m-d'); ?>">
                                     </div>
                                 </div>
 
@@ -197,7 +229,7 @@ echo $src;
                                             <i class="bi bi-telephone-fill"></i>
                                         </span>
                                         <input type="text" name="phone-number" class="form-control" id="phonenumber"
-                                            placeholder="e.g +555-555-555">
+                                            placeholder="e.g +555-555-555" value="<?= $phoneNumber ?>">
                                     </div>
                                 </div>
 
@@ -208,7 +240,7 @@ echo $src;
                                             <i class="bi bi-envelope-at-fill"></i>
                                         </span>
                                         <input type="email" name="email" class="form-control" id="email"
-                                            placeholder="e.g email@example.com">
+                                            placeholder="e.g email@example.com" value="<?= $email; ?>">
                                     </div>
                                 </div>
 
@@ -218,7 +250,7 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <select name="country" id="country" class="form-control">
+                                        <select name="country" id="country" class="form-control" data-selected="<?=$country?>">
                                             <option value="">Select Country</option>
                                         </select>
                                     </div>
@@ -230,7 +262,8 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-postcard"></i>
                                         </span>
-                                        <input type="text" name="postcode" class="form-control" id="postcode" placeholder="e.g 1000">
+                                        <input type="text" name="postcode" class="form-control" id="postcode" placeholder="e.g 1000"
+                                        value="<?= $postcode; ?>">
                                     </div>
                                 </div>
 
@@ -240,7 +273,8 @@ echo $src;
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <input type="text" name="city" class="form-control" id="city" placeholder="e.g Addis Ababa">
+                                        <input type="text" name="city" class="form-control" id="city" placeholder="e.g Addis Ababa"
+                                        value="<?= $city; ?>">
                                     </div>
                                 </div>
 
@@ -251,13 +285,13 @@ echo $src;
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
                                         <input type="text" name="address" class="form-control" id="address"
-                                            placeholder="e.g Addis Ababa">
+                                            placeholder="e.g Addis Ababa" value="<?= $address; ?>">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 mt-3">
                                     <label for="description" class="form-label">Description:</label>
-                                    <textarea name="description" name="description" id="description" class="form-control"></textarea>
+                                    <textarea name="description" name="description" id="description" class="form-control"><?= $description ?></textarea>
                                 </div>
                             </div>
 

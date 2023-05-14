@@ -75,8 +75,6 @@ class ProfilePictureModel
                 if ($file['size'] < $this->size) {
                     $newFileName = uniqid('', true) . '.' . $this->fileExtension;
                     $newFilePath = $this->filePath . $newFileName;
-                    echo $this->filePath . '<br>';
-                    echo $newFilePath . '<br>';
                     move_uploaded_file($this->fileTmp, $newFilePath);
                     $stmt = $this->connection->prepare($sql);
                     $stmt->bindParam(":url", $newFilePath);

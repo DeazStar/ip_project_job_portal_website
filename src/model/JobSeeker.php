@@ -1,10 +1,12 @@
 <?php 
 
 require_once 'PersonalInfo.php';
+require_once 'Resume.php';
 
 class JobSeeker {
     private int $id;
     private PersonalInfo $personalInfo;
+    private Resume $resume;
 
     /**
      * jobSeeker construct 
@@ -14,6 +16,7 @@ class JobSeeker {
     public function __construct(int $id){
         $this->id = $id;
         $this->personalInfo = new PersonalInfo();
+        $this->resume = new Resume();
     }
 
     /**
@@ -37,6 +40,10 @@ class JobSeeker {
         return  $this->personalInfo;
     }
 
+    public function getResume():Resume {
+        return $this->resume;
+    }
+
 
     /**
      * updateProfile: update personal information of the job seeker
@@ -50,7 +57,33 @@ class JobSeeker {
         $this->personalInfo->updatePersonalInfo($this->id);
     }
 
+    /**
+     * fetchProfile: retrieve the personal information from the database
+     * 
+     * @return void
+     */
     public function fetchProfile():void {
         $this->personalInfo->fetchPersonalInfo($this->id);
+    }   
+
+
+    /**
+     * uploadResume: upload resume file using the saveResume method from Resume class
+     * 
+     * @param array $data
+     * 
+     * @return void
+     */
+    public function uploadResume(array $data):void {
+        $this->resume->saveResume($this->id, $data);
+    }
+
+    /**
+     * fetchResume: retrieve the resume file path using fetchResumeUrl method from Resume class
+     * 
+     * @return void
+     */
+    public function fetchResume():void {
+        $this->resume->fetchResumeUrl($this->id);
     }
 }

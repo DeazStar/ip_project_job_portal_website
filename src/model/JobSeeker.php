@@ -36,14 +36,23 @@ class JobSeeker {
         $this->id =$id;
     }
 
+    /**
+     * getter method for the personalInfo object
+     * 
+     * @return PersonalInfo
+     */
     public function getPersonalInfo():PersonalInfo {
         return  $this->personalInfo;
     }
 
+    /**
+     * getter method for the Resume object
+     * 
+     * @return Resume
+     */
     public function getResume():Resume {
         return $this->resume;
     }
-
 
     /**
      * updateProfile: update personal information of the job seeker
@@ -65,6 +74,40 @@ class JobSeeker {
     public function fetchProfile():void {
         $this->personalInfo->fetchPersonalInfo($this->id);
     }   
+
+    /**
+     * saveLanguage a method to save the language in the database using method saveLanguage specified
+     * in the Resume class
+     * 
+     * @param array $language
+     * 
+     * @return void
+     */
+    public function saveLanguage(array $language):void {
+        $this->resume->addLanguage($this->id, $language);
+    }
+
+    /**
+     * removeLanguage a method to delete a language from the database using the method deleteLanguage 
+     * specified in the Resume class
+     * 
+     * @param int $languageId 
+     * 
+     * @return void
+     */
+    public function removeLanguage(int $languageId): void {
+        $this->resume->deleteLanguage($this->id, $languageId);
+    }
+
+    /**
+     * fetchLanguage a method to retrieve language from the database using fetchLanguage specified 
+     * in the Resume class
+     * 
+     * @return void
+     */
+    public function fetchLanguage():void {
+         $this->resume->fetchLanguage($this->id);
+    }
 
 
     /**

@@ -6,6 +6,8 @@ require_once dirname(__DIR__) . '/core/DataBase.php';
 class Resume {
     private string $resumeUrl;
 
+    private array $language = [];
+
     private DataBase $db;
 
     private PDO $connection;
@@ -18,6 +20,154 @@ class Resume {
     public function __construct() {
         $this->db = new DataBase();
         $this->connection = $this->db->getConnection(); 
+    }
+
+    /**
+     * getter method for language
+     * 
+     * @return array
+     */
+    public function getLanguage():array {
+        return $this->language;
+    }
+
+    /**
+     * addLanguage set the language and then use a saveLanguage() interactively to save to database
+     * 
+     * @param int $userId the job seeker id
+     * @param array $language the languages selected job seeker
+     * 
+     * @return void
+     */
+    public function addLanguage(int $userId, array $language):void {
+        $this->language = $language;
+
+        foreach($this->language as $lang) {
+            $this->saveLanguage($userId, $lang);
+        }
+    }
+
+    /**
+     * saveLanguage a method to save a language into the database
+     * 
+     * @param int $userId the job seeker id
+     * @param string $language the language to save to database 
+     * 
+     * @return void
+     */
+    private function saveLanguage(int $userId, string $language):void {        
+        $checkLanguage = "SELECT language_id FROM language WHERE language = :language";
+        $checkMap = "SELECT job_seeker_id FROM user_language WHERE job_seeker_id = :id AND language_id = :languageId";
+        $map = "INSERT INTO user_language(job_seeker_id, language_id) VALUES(:id, :languageId)";
+        $addLanguage = "INSERT INTO language(language) VALUES(:language)";
+
+        try {
+            $stmt = $this->connection->prepare($checkLanguage);
+            $stmt->bindParam(":language", $language);
+
+            $stmt->execute();
+
+            $languageId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (count($languageId) > 0) {
+                $stmtTwo = $this->connection->prepare($checkMap);
+                $stmtTwo->bindParam(":id", $userId);
+                $stmtTwo->bindParam(":languageId", $languageId[0]['language_id']);
+
+                $stmtTwo->execute();
+
+                $jobSeekerId = $stmtTwo->fetchAll(PDO::FETCH_ASSOC);
+
+                if(count($jobSeekerId) === 0) {
+                    $stmtThree = $this->connection->prepare($map);
+                    $stmtThree->bindParam(":id", $userId);
+                    $stmtThree->bindParam(":languageId", $languageId[0]['language_id']);
+
+                    $stmtThree->execute();
+                }
+
+
+            } else {
+                $stmtFour = $this->connection->prepare($addLanguage);
+                $stmtFour->bindParam(":language", $language);
+                
+                $stmtFour->execute();
+
+                $lastInsertedId = $this->connection->lastInsertId();
+
+                $stmtFive = $this->connection->prepare($map);
+                $stmtFive->bindParam(":id", $userId);
+                $stmtFive->bindParam(":languageId", $lastInsertedId);
+
+                $stmtFive->execute();
+            }
+        } catch (PDOException $e) {
+            echo "can't fetch data " . $e->getMessage();
+        }
+    }
+
+    /**
+     * deleteLanguage a method to delete a language from database 
+     * 
+     * @param int $userId the job seeker id
+     * @param int $languageId the language id
+     * 
+     * @return void
+     */
+    public function deleteLanguage(int $userId, int $languageId):void {
+        $sql = "DELETE FROM user_language WHERE job_seeker_id = :userId AND language_id = :languageId";
+
+        try {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":userId", $userId);
+            $stmt->bindParam(":languageId", $languageId);
+
+            $stmt->execute();
+
+        } catch (PDOException $e) {
+            echo "Can't delete data" . $e->getMessage();
+        }
+    }
+
+    /**
+     * fetchLanguage retrieve the language from the database
+     * 
+     * @param int $userId the job seeker id 
+     * 
+     * @return void
+     */
+    public function fetchLanguage(int $userId):void {
+        $sql = "SELECT language_id FROM user_language WHERE job_seeker_id = :id";
+        $sqlTwo = "SELECT * FROM language WHERE language_id = :id";
+        $languageId = [];
+        try {
+
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":id", $userId);
+
+            $stmt->execute();
+
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $languageId[] = $row;
+            }
+
+
+            foreach($languageId as $id) {
+                $stmt = $this->connection->prepare($sqlTwo);
+                $stmt->bindParam(":id", $id['language_id']);
+
+                $stmt->execute();
+
+                $this->language[] = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+            }
+
+
+
+        } catch(PDOException $e) {
+            echo "Can't fetch language from the database" . $e->getMessage();
+        }
+
+        
     }
 
     /**

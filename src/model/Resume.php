@@ -1,12 +1,18 @@
 <?php
 
 require_once dirname(__DIR__) . '/core/DataBase.php';
+require_once 'EducationModel.php';
+require_once 'EmploymentModel.php';
 
 
 class Resume {
     private string $resumeUrl;
+    private Education $education; 
+    private Employment $employment;
 
     private array $language = [];
+    
+    private array $skill = [];
 
     private DataBase $db;
 
@@ -20,6 +26,8 @@ class Resume {
     public function __construct() {
         $this->db = new DataBase();
         $this->connection = $this->db->getConnection(); 
+        $this->education = new Education();
+        $this->employment = new Employment();
     }
 
     /**
@@ -29,6 +37,18 @@ class Resume {
      */
     public function getLanguage():array {
         return $this->language;
+    }
+
+    public function getSkill():array {
+        return $this->skill;
+    }
+
+    public function getEducation():Education {
+        return $this->education;
+    }
+
+    public function getEmployment():Employment {
+        return $this->employment;
     }
 
     /**
@@ -244,6 +264,206 @@ class Resume {
         $this->resumeUrl = $result['resume_url'];
     }
 
+    public function addSkill(int $userId, array $skill):void {
+        $this->skill = $skill;
+
+        foreach($this->skill as $sk) {
+            $this->saveSkill($userId, $sk);
+        }
+    }
+    private function saveSkill(int $userId, string $skill):void {        
+        $checkSkill = "SELECT skill_id FROM skill WHERE skill = :skill";
+        $checkMap = "SELECT job_seeker_id FROM user_skill WHERE job_seeker_id = :id AND skill_id = :skillId";
+        $map = "INSERT INTO user_skill(job_seeker_id, skill_id) VALUES(:id, :skillId)";
+        $addSkill = "INSERT INTO skill(skill) VALUES(:skill)";
+
+        try {
+            $stmt = $this->connection->prepare($checkSkill);
+            $stmt->bindParam(":skill", $skill);
+
+            $stmt->execute();
+
+            $skillId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (count($skillId) > 0) {
+                $stmtTwo = $this->connection->prepare($checkMap);
+                $stmtTwo->bindParam(":id", $userId);
+                $stmtTwo->bindParam(":skillId", $skillId[0]['skill_id']);
+
+                $stmtTwo->execute();
+
+                $jobSeekerId = $stmtTwo->fetchAll(PDO::FETCH_ASSOC);
+
+                if(count($jobSeekerId) === 0) {
+                    $stmtThree = $this->connection->prepare($map);
+                    $stmtThree->bindParam(":id", $userId);
+                    $stmtThree->bindParam(":skillId", $skillId[0]['skill_id']);
+
+                    $stmtThree->execute();
+                }
+
+
+            } else {
+                $stmtFour = $this->connection->prepare($addSkill);
+                $stmtFour->bindParam(":skill", $skill);
+                
+                $stmtFour->execute();
+
+                $lastInsertedId = $this->connection->lastInsertId();
+
+                $stmtFive = $this->connection->prepare($map);
+                $stmtFive->bindParam(":id", $userId);
+                $stmtFive->bindParam(":skillId", $lastInsertedId);
+
+                $stmtFive->execute();
+            }
+        } catch (PDOException $e) {
+            echo "can't fetch data " . $e->getMessage();
+        }
+    }
+
+    public function fetchSkill(int $userId):void {
+        $sql = "SELECT skill_id FROM user_skill WHERE job_seeker_id = :id";
+        $sqlTwo = "SELECT * FROM skill WHERE skill_id = :id";
+        $skillId = [];
+        try {
+
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":id", $userId);
+
+            $stmt->execute();
+
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $skillId[] = $row;
+            }
+
+
+            foreach($skillId as $id) {
+                $stmt = $this->connection->prepare($sqlTwo);
+                $stmt->bindParam(":id", $id['skill_id']);
+
+                $stmt->execute();
+
+                $this->skill[] = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+            }
+
+        } catch(PDOException $e) {
+            echo "Can't fetch skill from the database" . $e->getMessage();
+        }
+        
+    }
+
+    public function deleteSkill(int $userId, int $skillId):void {
+        $sql = "DELETE FROM user_skill WHERE job_seeker_id = :userId AND skill_id = :skillId";
+
+        try {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":userId", $userId);
+            $stmt->bindParam(":skillId", $skillId);
+
+            $stmt->execute();
+
+        } catch (PDOException $e) {
+            echo "Can't delete data" . $e->getMessage();
+        }
+    }
+
+    public function addEducation(int $userId, string $degreeType, string $field, 
+    string $institute, string $enrolledDate, string $graduatedDate): void {
+        $this->education->setDegreeType($degreeType);
+        $this->education->setField($field);
+        $this->education->setInstitute($institute);
+        $this->education->setEnrolledDate($enrolledDate);
+        $this->education->setGraduatedDate($graduatedDate);
+
+        $this->education->saveEducation($userId);
+    }
+
+    public function addEmployment(int $userId, string $position, string $company, 
+    string $startedDate, string $dateLeft): void {
+        $this->employment->setPosition($position);
+        $this->employment->setCompany($company);
+        $this->employment->setStartedDate($startedDate);
+        $this->employment->setDateLeft($dateLeft);
+
+        $this->employment->saveEmployment($userId);
+    }
+
+    public function fetchEducation(int $userId): array {
+        $educationArray =  $this->education->retrieveEducation($userId);
+        $educationObject = [];
+
+        foreach($educationArray as $education) {
+            $obj = new Education();
+
+            $obj->setId($education['education_id']);
+            $obj->setDegreeType($education['degree_type']);
+            $obj->setField($education['field']);
+            $obj->setInstitute($education['institute']);
+            $obj->setEnrolledDate($education['enrolled_date']);
+            $obj->setGraduatedDate($education['graduated_date']);
+
+            array_push($educationObject, $obj);
+
+        }
+
+
+        return $educationObject;
+
+    }
+
+    public function fetchEmployment(int $userId): array {
+        $employmentArray =  $this->employment->retrieveEmployment($userId);
+        $employmentObject = [];
+
+        foreach($employmentArray as $employment) {
+            $obj = new Employment();
+
+            $obj->setId($employment['employment_id']);
+            $obj->setPosition($employment['position']);
+            $obj->setCompany($employment['company']);
+            $obj->setStartedDate($employment['started_date']);
+            $obj->setDateLeft($employment['date_left']);
+
+            array_push($employmentObject, $obj);
+
+        }
+
+
+        return $employmentObject;
+
+    }
+
+    public function deleteEducation(int $userId, int $educationId):void {
+        $this->education->removeEducation($userId, $educationId);
+    }
+
+    public function deleteEmployment(int $userId, int $employmentId):void {
+        $this->employment->removeEmployment($userId, $employmentId);
+    }
+
+    public function updateEducation(int $userId, int $educationId,string $degreeType, string $field, 
+    string $institute, string $enrolledDate, string $graduatedDate): void {
+        $this->education->setDegreeType($degreeType);
+        $this->education->setField($field);
+        $this->education->setInstitute($institute);
+        $this->education->setEnrolledDate($enrolledDate);
+        $this->education->setGraduatedDate($graduatedDate);
+        $this->education->setId($educationId);
+
+        $this->education->updateEducation($userId, $educationId);
+    }
+
+    public function updateEmployment(int $userId, int $employmentId,string $position, string $company, 
+    string $startedDate, string $dateLeft): void {
+        $this->employment->setPosition($position);
+        $this->employment->setCompany($company);
+        $this->employment->setStartedDate($startedDate);
+        $this->employment->setDateLeft($dateLeft);
+        $this->employment->setId($employmentId);
+
+        $this->employment->updateEmployment($userId, $employmentId);
+    }
     /**
      * A destructor method to close the database connection when the object is destroyed
      * @return void

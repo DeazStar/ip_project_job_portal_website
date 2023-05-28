@@ -2,6 +2,7 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
+    position: relative
 }
 
 /** utility classes **/
@@ -117,7 +118,7 @@ textarea {
     color: #189494;
 }
 
-.edit-btn {
+.add-btn {
     color: #fff;
     background-color: #189494;
     border: none;
@@ -144,6 +145,178 @@ textarea {
 
 .box-cn {
     position: relative;
+}
+/** dialog **/
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2d2d2d91;
+    z-index: 999;
+    display: none;
+}
+.language-dialog, .skill-dialog, .education-dialog, .employment-dialog{
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    width: 80%;
+    border-radius: 10px;
+    display: none;
+}
+
+.dialog-visible {
+    display: block;
+}
+
+.language-dialog hr, .skill-dialog hr, .education-dialog hr, .employment-dialog hr{
+    margin: unset;
+    padding: unset;
+}
+.language-input-container, .skill-input-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: scroll;
+    height: 177px;
+
+}
+
+.language-input-container input, .skill-input-container input{
+    display: block;
+    margin-top: 15px;
+}
+
+.language-input-container button, .skill-input-container button{
+    display: block;
+}
+
+.language-form, .skill-form{
+    display: none;
+}
+
+.language-dialog hr, .skill-dialog hr, .education-dialog hr, .employment-dialog hr {
+    width: 100%;
+}
+
+.nav-header {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+.close-btn-container i, .skill-close-btn-container i, .education-close-btn-container i, 
+.employment-close-btn-container i {
+    font-size: 2.5rem;
+    padding-right: 1rem;
+}
+
+.close-btn-container:hover, .skill-close-btn-container:hover, .education-close-btn-container:hover,
+.employment-close-btn-container:hover {
+    cursor: pointer;
+}
+
+.lang-selected-items, .skill-selected-items {
+    padding: 30px;
+}
+
+.select-btn {
+    width: 100%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.save-btn-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.save-lng, .save-skill, .save-education, .save-employment {
+    color: #fff;
+    background-color: #189494;
+    border: none;
+}
+
+
+.degree-type, .field, .position-input, .company-input{
+    width: 73%;
+}
+
+.institute-input {
+    width: 100%;
+}
+
+.institute-input-container {
+    height: 130px;
+    overflow-y: scroll;
+    width: 81%;
+}
+
+.institute-suggest {
+    width: 100%;
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.text {
+    font-size: 1.1rem;
+}
+
+.enrolled-date, .graduated-date, .started-date, .end-date {
+    width: 33%;
+}
+
+/** dialog **/
+
+.resume-btn {
+    background-color: #189494 !important;
+    border: unset;
+    color: #fff;
+}
+
+.resume-upload-button {
+    display: none;
+}
+
+.add-btn {
+    margin: 0 auto;
+}
+
+.resume-delete-btn i, .resume-edit-btn i {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 6px;
+    color: #189494;
+    border-color: #189494;
+    border-width: 1px;
+    visibility: hidden;
+    transition: all 0.3s ease-in;
+}
+
+
+.education-view:hover .resume-delete-btn i, 
+.education-view:hover .resume-edit-btn i {
+    visibility: visible;
+}
+
+.employment-view:hover .resume-delete-btn i, 
+.employment-view:hover .resume-edit-btn i {
+    visibility: visible;
+}
+
+.resume-delete-btn i:hover , .resume-edit-btn i:hover {
+    background-color: #189494;
+    color: #fff;
+    cursor: pointer;
+}
+
+.operation-type input {
+    display: none;
 }
 /** footer style **/
 footer {

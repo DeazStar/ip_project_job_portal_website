@@ -1,14 +1,20 @@
+const selectElement = document.querySelector("#country");
+const selected = selectElement.getAttribute('data-selected');
 document.addEventListener('DOMContentLoaded', ()=> {
     var dropdown = document.getElementById('country');
     var output = '';
     getData().then(response => {
         for (let i = 0; i < response.length; i++) {
-            output += `<option value=${response[i].name.common}>${response[i].name.common}</option>`;
+            if (response[i].name.common == selected) {
+                output += `<option value="${response[i].name.common}" selected>${response[i].name.common}</option>`;
+            } else {
+                output += `<option value="${response[i].name.common}">${response[i].name.common}</option>`;
+            }
         }
 
         dropdown.innerHTML =  output;
     }).catch(error => {
-        console.log("Server Error")
+        console.log(error);
     })
 
 });
@@ -21,7 +27,7 @@ async function getData() {
         const response = await fetch(url);
         data = await response.json();
     } catch (err) {
-        console.log('server error');
+        console.log(err);
     }
 
     return data;

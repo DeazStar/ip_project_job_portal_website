@@ -50,13 +50,13 @@
 
 
 
-const form = document.getElementById('right');
+const form = document.getElementById('form');
 const f_name = document.getElementById('f_name');
 const l_name = document.getElementById('l_name');
 const email = document.getElementById('email');
 const remail = document.getElementById('remail');
-const password = document.getElementById('pass');
-const password2 = document.getElementById('confirmpass');
+const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
 const tel = document.getElementById('tel')
 
 form.addEventListener('submit', e => {
@@ -114,8 +114,7 @@ function validateInputs() {
     //     alert("message");
     //     setError(tel,'Enter the right format')
     //     }
-
-    if(f_nameValue === '') {
+if(f_nameValue === '') {
         setError(f_name, 'Name is required');
         // alert("Name is re")
     } else {

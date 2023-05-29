@@ -50,13 +50,13 @@
 
 
 
-const form = document.getElementById('form');
+const form = document.getElementById('right');
 const f_name = document.getElementById('f_name');
 const l_name = document.getElementById('l_name');
 const email = document.getElementById('email');
 const remail = document.getElementById('remail');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const password = document.getElementById('pass');
+const password2 = document.getElementById('confirmpass');
 const tel = document.getElementById('tel')
 
 form.addEventListener('submit', e => {

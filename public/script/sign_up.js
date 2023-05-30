@@ -123,13 +123,13 @@ else{
 }
 
 if(f_nameValue === '') {
-        setError(f_name, 'Name is required');
+        setError(f_name, 'This section can not be empty');
         // alert("Name is re")
     } else {
         setSuccess(f_name);
     }
     if(l_nameValue === '') {
-      setError(l_name, 'Name is required');
+      setError(l_name, 'This section can not be empty');
   } else {
       setSuccess(l_name);
   }

@@ -12,50 +12,121 @@ class Education {
     private PDO $connection;
     private DataBase $db;
 
+    /**
+     * EducationModel Constructor 
+     * 
+     * Creates a new instance of EducationModel class
+     */
     public function __construct() {
         $this->db = new DataBase();
         $this->connection = $this->db->getConnection();
     }
 
+    /**
+     * setter method for the id
+     * 
+     * @param int $id
+     * 
+     * @return void
+     */
     public function setId(int $id):void {
         $this->id = $id;
     }
 
+    /**
+     * getter method for the id
+     * 
+     * @return int
+     */
     public function getId():int {
         return $this->id;
     }
+
+    /**
+     * setter method for the degree type like degree, masters ...
+     * 
+     * @param string $degreeType 
+     * 
+     * @return void
+     */
     public function setDegreeType(string $degreeType):void {
         $this->degreeType = $degreeType;
     }
 
+    /**
+     * getter method for the degree type
+     * 
+     * @return string
+     */
     public function getDegreeType():string {
         return $this->degreeType;
     }
 
+    /**
+     * setter method for the field like computer science, ....
+     * 
+     * @param string $field
+     * 
+     * @return void
+     */
     public function setField(string $field):void {
         $this->field = $field;
     }
 
+    /**
+     * getter method for the field 
+     * 
+     * @return string
+     */
     public function getField():string {
         return $this->field;
     }
 
+    /**
+     * setter method for the institute
+     * 
+     * @param string $institute
+     * 
+     * @return void
+     */
     public function setInstitute(string $institute):void {
         $this->institute = $institute;
     }
 
+    /**
+     * getter method for the institute
+     * 
+     * @return string
+     */
     public function getInstitute():string {
         return $this->institute;
     }
 
+    /**
+     * setter method for the enrolled date
+     * 
+     * @param string $enrolledDate
+     */
     public function setEnrolledDate(string $enrolledDate):void {
         $this->enrolledDate = $enrolledDate;
     }
 
+    /**
+     * getter method for the enrolled date
+     * 
+     * @return string
+     */
     public function getEnrolledDate():string {
         return $this->enrolledDate;
     }
 
+    /**
+     * setter method for graduated date
+     * 
+     * @param string $graduatedDate
+     * 
+     * @return void
+     */
     public function setGraduatedDate(string $graduatedDate):void {
         $this->graduatedDate = $graduatedDate;
     }

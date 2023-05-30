@@ -506,8 +506,6 @@ if ($uploadsPos !== false) {
                                 $dateLeft = $employment->getDateLeft();
 
                                 $date = $startedDate . "-" . $dateLeft;
-
-
                             ?>
                                 <div class="row gap-5 pb-3 employment-view">
                                     <div class="col-9">

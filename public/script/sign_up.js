@@ -57,7 +57,8 @@ const email = document.getElementById('email');
 const remail = document.getElementById('remail');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
-const tel = document.getElementById('tel')
+const tel = document.getElementById('tel');
+const postcode = document.getElementById('postcode')
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -94,7 +95,6 @@ const isValidRemail = remail => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(remail).toLowerCase());
 }
-
 function validateInputs() {
     const f_nameValue = f_name.value.trim();
     const l_nameValue = l_name.value.trim();
@@ -102,6 +102,7 @@ function validateInputs() {
     const remailValue = remail.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
+    const postcodeValue = postcode.value.trim();
     const telValue= tel.value.trim();
     var phoneno = /^\d{10}$/;
 
@@ -114,6 +115,13 @@ function validateInputs() {
     //     alert("message");
     //     setError(tel,'Enter the right format')
     //     }
+if(isNaN(postcodeValue)){
+    setError(postcode, 'Post code should only be Number')
+}
+else{
+    setSuccess(postcode)
+}
+
 if(f_nameValue === '') {
         setError(f_name, 'Name is required');
         // alert("Name is re")

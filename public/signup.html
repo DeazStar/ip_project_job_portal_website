@@ -39,10 +39,10 @@
             <p class="parr" > Sign Up </p><br> 
             <button class="login_btn">Continue with Google</button>
             <hr>
-            <form id="form" onsubmit="return validateInputs()">
+            <form id="form" action="" onsubmit="return validateInputs()">
               <div class="form-container">
                 <div class="form_control">
-                  <input type="text" name="" id="f_name" required>
+                  <input type="text" name="firstName" id="f_name" required>
                   <label for="">First Name</label>
                   <div class="error"></div>
                 </div>
@@ -50,7 +50,7 @@
 
               <div class="form-container">
                 <div class="form_control">
-                  <input type="text" name="" id="l_name" required>
+                  <input type="text" name="lastName" id="l_name" required>
                   <label for="">Last Name</label>
                   <div class="error"></div>
                 </div>
@@ -59,20 +59,23 @@
               <div class="form-container">
                 <div class="form_control">
                   <div class="age_in">
-                  <input type="date" class="age_in" id="age" name="age" required>
+                  <input type="date" class="age_in" id="age" name="dateOfBirth" required>
                   <label for="age" class="age_par" >DOB</label>
                 </div>
-                  <div class="error"></div>
+                  <!-- <div class="error"></div> -->
                 </div>
               </div>
-              <div  class="gen">
-                <label for="gender">Gender:</label>
-                
-                <input type="radio" id="male" name="gender">
-                <label for="male" >Male</label>    
-                <input type="radio" id="female" name="gender">
-                <label for="female"  >Female</label>
-              </div>
+			<div class="gen">
+			  <label for="gender">Gender:</label>
+
+			  <div class="radio-container">
+				<input type="radio" id="male"required name="gender">
+				<label for="male">Male</label>    
+				<input type="radio" id="female" name="gender">
+				<label for="female">Female</label>
+			  </div>
+			</div>
+
 
               <div class="form-container">
                 <div class="form_control">
@@ -86,7 +89,7 @@
               <div class="form-container">
                 <div class="form_control">
                 
-                  <input type="text"  id="remail"  name="remail" required>
+                  <input type="text"  id="remail"  name="recoveryEmail" required>
                   <label for="remail">Recovery Email</label> 
                   <div class="error"></div>
                 </div>
@@ -94,7 +97,7 @@
 
               <div class="form-container">
                 <div class="form_control">
-                  <input type="password"   id="password" required>
+                  <input type="password" name="password"  id="password" required>
                   <label for="pass">Password</label>
                   <div class="error"></div>
                 </div>
@@ -102,7 +105,7 @@
 
               <div class="form-container">
                 <div class="form_control">
-                  <input type="password" id="password2" required>
+                  <input type="password" name="confirm-password" id="password2" required>
                   <label for="repass">Repeat Password</label>
                   <div class="error"></div>
                 </div>
@@ -110,10 +113,58 @@
 
               <div class="form-container">
                 <div class="form_control">
-                  <input type="tel" name="Tel" required id="tel">
+                  <input type="tel" name="phone_number" required id="tel">
                   <label for="">Telephone</label>
                   </div>
               </div>
+
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <select name="country" id="">
+                    <option value="ethiopia">Ethiopia</option>
+                  </select>
+                  <label for="country">Country</label> 
+                  <!-- <div class="error"></div> -->
+                </div>
+              </div>
+
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <input type="text"  id="Professional_title" required name="professional_title">
+                  <label for="Professional_title">Professional Title</label> 
+                  <!-- <div class="error"></div> -->
+                </div>
+              </div>
+
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <input type="text" reqired id="postcode" required name="postcode">
+                  <label for="postcode">Postal Code</label> 
+                  <div class="error"></div>
+                </div>
+              </div>
+
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <input type="text"  id="city" required  name="city">
+                  <label for="city">City</label> 
+                  <!-- <div class="error"></div> -->
+                </div>
+              </div>
+
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <input type="text"  id="address"  name="address" required>
+                  <label for="address">Address</label> 
+                  <!-- <div class="error"></div> -->
+                </div>
+              </div>
+
 
               <div class="checkbox">
                 <input type="checkbox" required name="" id="">

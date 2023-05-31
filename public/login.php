@@ -87,7 +87,7 @@ session_start();
                         <button class="can_btn">Cancel</button>
                         <button type ="submit" class="btn">Log in</button>
                     </div>
-                    <p class="parr1">Don't have an account?&nbsp;<a class="log_btn" href="choose.html">Sign up</a></p>
+                    <p class="parr1">Don't have an account?&nbsp;<a class="log_btn" href="choose.php">Sign up</a></p>
                 </form>
             </div>
         </div>

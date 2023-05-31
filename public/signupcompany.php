@@ -45,7 +45,7 @@
             <form id="form" action = "../src/controller/signupcontrollerC.php" method = "POST" onsubmit="return validateInputs()">
               <div class="form-container">
                 <div class="form_control">
-                  <input type="text" name="companyName" id="f_name" >
+                  <input type="text" name="companyName" required id="f_name" >
                   <label for="">Company Name</label>
                   <div class="error"></div>
                 </div>

@@ -140,7 +140,7 @@
                 ?>
                 <button class="can_btn">Cancel</button>
               <button type="submit" class="btn">Signup</button>
-              <p class="parr1">Already have an account?&nbsp; <a class="log_btn" href="login.html">Log in</a></p> 
+              <p class="parr1">Already have an account?&nbsp; <a class="log_btn" href="login.php">Log in</a></p> 
             </form>
             </div> 
 

@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="nav-icon">
-                       <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
+                       <a href="profile.php"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
                     </div>
                 </ul>
             </nav>

@@ -1,49 +1,141 @@
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-.logo_img
-{
-    width: 120px;
-}
-nav 
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.nav_item
-{
-    margin: 25px 50px 50px 0px;
-}
-.nav_item a{
-    text-decoration: none;
+a {
     color: #189494;
 }
-li{
-    display: list-item;
-}
-ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-}
-.nav_container
-{
-    font-family: 'Montserrat', sans-serif;
+
+.nav_container {
+    color: #fff;
+    padding: 10px;
 }
 
+.nav_one {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_item {
+    margin-left: 20px;
+}
+
+.logo_img {
+    width: 100px;
+    height: auto;
+}
 
 .main-container {
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items : center;
-height: 100vh;
+    text-align: center;
+    margin-top: 50px;
 }
 
-.container{
+h1 {
+    font-size: 30px;
+    color: #333;
+}
+
+.container {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
-.recuriter{
-    margin-right: 50px;
+
+.recuriter,
+.jobseeker {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
+.recuriter p,
+.jobseeker p {
+    margin-left: 10px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+	color: white;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    background-color: #189494;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    background-color: #189494;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.radio-image {
+    width: 250px;
+    height: 250px;
+    margin-right: 10px;
+}
+
+.radio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + img {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+input[type="radio"]:checked + .radio-image img {
+	width: 255px;
+	height: 255px;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+	
+	  .btn {
+        justify-content: center;
+    }
+	
+    .radio-label {
+        margin-bottom: 20px;
+    }
+}

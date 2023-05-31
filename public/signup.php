@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +42,7 @@
             <p class="parr" > Sign Up </p><br> 
             <button class="login_btn">Continue with Google</button>
             <hr>
-            <form id="form" action = "signupcontroller.php" method = "POST" onsubmit="return validateInputs()">
+            <form id="form" action = "../src/controller/signupcontroller.php" method = "POST" >
               <div class="form-container">
                 <div class="form_control">
                   <input type="text" name="firstName" id="f_name" required>
@@ -69,9 +72,9 @@
 			  <label for="gender">Gender:</label>
 
 			  <div class="radio-container">
-				<input type="radio" id="male"required name="gender">
+				<input type="radio" id="male"required name="gender" value="M">
 				<label for="male">Male</label>    
-				<input type="radio" id="female" name="gender">
+				<input type="radio" id="female" name="gender" value = "F">
 				<label for="female">Female</label>
 			  </div>
 			</div>
@@ -113,7 +116,7 @@
 
               <div class="form-container">
                 <div class="form_control">
-                  <input type="tel" name="phone_number" required id="tel">
+                  <input type="tel" name="phoneNumber" required id="tel">
                   <label for="">Telephone</label>
                   </div>
               </div>
@@ -121,7 +124,7 @@
               <div class="form-container">
                 <div class="form_control">
                 
-                  <select name="country" id="">
+                  <select name="country" >
                     <option value="ethiopia">Ethiopia</option>
                   </select>
                   <label for="country">Country</label> 
@@ -170,6 +173,13 @@
                 <input type="checkbox" required name="" id="">
                 <p>By creating an account you agree to <a  href="">Terms & Privacy</a>.</p>
               </div> 
+              <?php
+                if(isset($_SESSION['error'])){
+
+                  echo $_SESSION['error'];
+                  unset($_SESSION['error']);
+                }
+              ?>
                 <button class="can_btn">Cancel</button>
               <button type="submit" class="btn">Signup</button>
               <p class="parr1">Already have an account?&nbsp; <a class="log_btn" href="login.html">Log in</a></p> 

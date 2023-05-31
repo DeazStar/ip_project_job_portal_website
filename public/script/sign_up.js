@@ -61,7 +61,7 @@ const tel = document.getElementById('tel');
 const postcode = document.getElementById('postcode')
 
 form.addEventListener('submit', e => {
-    e.preventDefault();
+    // e.preventDefault();
 
     validateInputs();
 

@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +53,7 @@
                 <button class="login_btn">Continue with Google</button>
                 <hr>
 
-                <form action = "signincontroller.php" method ="POST" id="form" onsubmit="return validate()" name="form">
+                <form action = "../src/controller/signincontroller.php" method ="POST" id="form" onsubmit="return validate()" name="form">
                     <div class="form-container">
                         <div class="form_control">
 
@@ -74,8 +78,14 @@
                         <a href="#">Forget Password</a>
                     </div>
                     <div class="btn-container">
+                        <?php
+                            if(isset($_SESSION['error'])){
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                            }
+                        ?>
                         <button class="can_btn">Cancel</button>
-                        <button class="btn">Log in</button>
+                        <button type ="submit" class="btn">Log in</button>
                     </div>
                     <p class="parr1">Don't have an account?&nbsp;<a class="log_btn" href="choose.html">Sign up</a></p>
                 </form>

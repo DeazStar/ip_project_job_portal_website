@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 
 class DataBase {
     private string $url = "mysql:host=localhost;dbname=job_portal";

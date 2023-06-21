@@ -1,3 +1,37 @@
+<?php 
+
+require_once '../src/model/Company.php';
+require_once '../src/model/ProfilePictureModel.php';
+
+
+$company = new Company(1);
+
+$profilePicture = new ProfilePictureModel();
+
+$path = $profilePicture->fetchPicture($company) ?? null;
+$uploadsDir = "uploads/";
+
+$uploadsPos = strrpos($path, $uploadsDir);
+
+if ($uploadsPos !== false) {
+    $src = substr($path, $uploadsPos);
+}
+
+$company->fetchProfile();
+
+$companyName = $company->getCompanyName();
+$companyEmail = $company->getEmail();
+$companyWebsite = $company->getWebsite();
+$foundedDate = $company->getFoundedDate()->format("Y-m-d");
+$phoneNumber =$company->getPhoneNumber();
+$country = $company->getCountry();
+$postCode = $company->getPostalCode();
+$city = $company->getCity();
+$address = $company->getAddress();
+$description = $company->getDescription();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +115,7 @@
                                     ?>
                                 </div>
                                 <div class="name-container text-center mt-4">
-                                    <p class="name h3">Company</p>
+                                    <p class="name h3"><?=$company->getCompanyName()?></p>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +159,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-person-bounding-box"></i>
                                         </span>
-                                        <input type="text" name="company-name" class="form-control" id="name" placeholder="e.g DeadStar inc." value="">
+                                        <input type="text" name="company-name" class="form-control" id="name" placeholder="e.g DeadStar inc." value="<?= $companyName ?>">
                                     </div>
                                 </div>
 
@@ -135,7 +169,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-person-bounding-box"></i>
                                         </span>
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="e.g company@gamil.com" value="">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="e.g company@gamil.com" value="<?= $companyEmail ?>">
                                     </div>
                                 </div>
 
@@ -145,7 +179,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-briefcase-fill"></i>
                                         </span>
-                                        <input type="text" name="website" class="form-control" id="website" placeholder="e.g www.company.com" value="">
+                                        <input type="text" name="website" class="form-control" id="website" placeholder="e.g www.company.com" value="<?= $companyWebsite ?>">
                                     </div>
                                 </div>
 
@@ -155,7 +189,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-calendar-date-fill"></i>
                                         </span>
-                                        <input type="date" name="founded-date" class="form-control" id="founded-date" value="">
+                                        <input type="date" name="founded-date" class="form-control" id="founded-date" value="<?= $foundedDate?>">
                                     </div>
                                 </div>
 
@@ -165,7 +199,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-telephone-fill"></i>
                                         </span>
-                                        <input type="text" name="phone-number" class="form-control" id="phonenumber" placeholder="e.g +555-555-555" value="">
+                                        <input type="text" name="phone-number" class="form-control" id="phonenumber" placeholder="e.g +555-555-555" value="<?= $phoneNumber ?>">
                                     </div>
                                 </div>
 
@@ -175,7 +209,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <select name="country" id="country" class="form-control" data-selected="">
+                                        <select name="country" id="country" class="form-control" data-selected="<?= $country ?>">
                                             <option value="">Select Country</option>
                                         </select>
                                     </div>
@@ -187,7 +221,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-postcard"></i>
                                         </span>
-                                        <input type="text" name="postcode" class="form-control" id="postcode" placeholder="e.g 1000" value="">
+                                        <input type="text" name="postcode" class="form-control" id="postcode" placeholder="e.g 1000" value="<?= $postCode?>">
                                     </div>
                                 </div>
 
@@ -197,7 +231,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <input type="text" name="city" class="form-control" id="city" placeholder="e.g Addis Ababa" value="">
+                                        <input type="text" name="city" class="form-control" id="city" placeholder="e.g Addis Ababa" value="<?= $city ?>">
                                     </div>
                                 </div>
 
@@ -207,17 +241,17 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-globe-europe-africa"></i>
                                         </span>
-                                        <input type="text" name="address" class="form-control" id="address" placeholder="e.g Addis Ababa" value="">
+                                        <input type="text" name="address" class="form-control" id="address" placeholder="e.g Addis Ababa" value="<?= $address ?>">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 mt-3">
                                     <label for="description" class="form-label">Description:</label>
-                                    <textarea name="description" name="description" id="description" class="form-control"></textarea>
+                                    <textarea name="description" name="description" id="description" class="form-control"><?= $description ?></textarea>
                                 </div>
                             </div>
 
-                            <button class="btn btn-primary mt-5 save-btn" type="submit" name="submit-personal-info">Save</button>
+                            <button class="btn btn-primary mt-5 save-btn" type="submit" name="submit-company-info">Save</button>
 
                             <!--end-->
                         </form>

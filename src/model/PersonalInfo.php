@@ -29,7 +29,6 @@ class PersonalInfo
         $this->connection = $this->db->getConnection();
     }
 
-
     /**
      * getter Method for firstName
      */

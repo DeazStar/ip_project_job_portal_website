@@ -85,7 +85,6 @@ nav ul li a:hover {
 .profile-image {
     border-radius: 50%;
     cursor: pointer;
-    height: 224px !important;
     object-fit: cover;
 }
 

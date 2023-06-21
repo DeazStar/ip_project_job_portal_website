@@ -7,6 +7,7 @@ class JobSeeker {
     private int $id;
     private PersonalInfo $personalInfo;
     private Resume $resume;
+    private string $profileUrl;
 
     /**
      * jobSeeker construct 
@@ -52,6 +53,14 @@ class JobSeeker {
      */
     public function getResume():Resume {
         return $this->resume;
+    }
+
+    public function setProfileUrl(string $profileUrl):void {
+        $this->profileUrl = $profileUrl;
+    }
+
+    public function getProfileUrl():string {
+        return $this->profileUrl;
     }
 
     /**

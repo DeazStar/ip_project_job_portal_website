@@ -108,6 +108,8 @@ nav ul li a:hover {
 /** left part ***/
 .left-part {
     margin-left: 150px;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
 }
 
 .left-part-header {
@@ -285,6 +287,26 @@ select {
     margin-left: 40px;
 }
 
+.pagination-row {
+    width: 50%;
+    overflow-x:scroll;
+}
+
+.pagination-style {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A09D9D;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #189494;
+    color: #fff  !important;
+}
+.selected a {
+    color: #fff;
+}
 .profile-container {
     display: flex;
     flex-direction: row;
@@ -318,11 +340,16 @@ select {
 }
 
 .role-description {
-    font-weight: 600;
     font-size: 20px;
     margin-left: 10px;
-    margin-top: 5px;
+    padding-left: 5rem;
 }
+
+.see-btn {
+    background-color: #189494 !important;
+    border-color: #189494 !important;
+}
+
 
 .open-work{
     color: #189494;
@@ -361,9 +388,13 @@ select {
     color: #A09D9D;
 }
 
+hr {
+    width: 100% !important;
+}
+
 .right-part hr {
     border-style: solid;
-    width: 90%;
+    width: 100%;
     border-radius: 1px;
     border-color: #d8d8da;
 }

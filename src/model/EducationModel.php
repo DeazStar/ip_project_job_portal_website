@@ -240,4 +240,13 @@ class Education {
         }
     }
 
+    /**
+     * A destructor method to close the database connection when the object is destroyed
+     * @return void
+     */
+    public function __destruct()
+    {
+        $this->db->close();
+    }
+
 }

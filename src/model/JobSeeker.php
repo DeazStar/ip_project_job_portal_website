@@ -7,6 +7,7 @@ class JobSeeker {
     private int $id;
     private PersonalInfo $personalInfo;
     private Resume $resume;
+    private string $profileUrl;
 
     /**
      * jobSeeker construct 
@@ -52,6 +53,14 @@ class JobSeeker {
      */
     public function getResume():Resume {
         return $this->resume;
+    }
+
+    public function setProfileUrl(string $profileUrl):void {
+        $this->profileUrl = $profileUrl;
+    }
+
+    public function getProfileUrl():string {
+        return $this->profileUrl;
     }
 
     /**
@@ -106,7 +115,7 @@ class JobSeeker {
      * @return void
      */
     public function fetchLanguage():void {
-         $this->resume->fetchLanguage($this->id);
+        $this->resume->fetchLanguage($this->id);
     }
 
 
@@ -129,4 +138,53 @@ class JobSeeker {
     public function fetchResume():void {
         $this->resume->fetchResumeUrl($this->id);
     }
+
+    public function saveSkill(array $skill):void {
+        $this->resume->addSkill($this->id, $skill);
+    }
+
+    public function fetchSKill():void {
+        $this->resume->fetchSkill($this->id);
+    }
+
+    public function removeSkill(int $skillId): void {
+        $this->resume->deleteSkill($this->id, $skillId);
+    }
+
+    public function saveEducation(string $degreeType, string $field, 
+    string $institute, string $enrolledDate, string $graduatedDate) {
+        $this->resume->addEducation($this->id, $degreeType, $field, $institute, $enrolledDate, $graduatedDate);
+    }
+
+    public function saveEmployment(string $position, string $company, 
+    string $startedDate, string $dateLeft) {
+        $this->resume->addEmployment($this->id, $position, $company, $startedDate, $dateLeft);
+    }
+
+    public function fetchEducation():array {
+        return $this->resume->fetchEducation($this->id);
+    }
+
+    public function fetchEmployment():array {
+        return $this->resume->fetchEmployment($this->id);
+    }
+
+    public function removeEducation(int $educationId) {
+        $this->resume->deleteEducation($this->id, $educationId);
+    }
+
+    public function removeEmployment(int $employmentId) {
+        $this->resume->deleteEmployment($this->id, $employmentId);
+    }
+
+    public function updateEducation(int $educationId, string $degreeType, string $field, 
+    string $institute, string $enrolledDate, string $graduatedDate) {
+        $this->resume->updateEducation($this->id, $educationId ,$degreeType, $field, $institute, $enrolledDate, $graduatedDate);
+    }
+
+    public function updateEmployment(int $employmentId, string $position, string $company, 
+    string $startedDate, string $dateLeft) {
+        $this->resume->updateEmployment($this->id, $employmentId ,$position, $company, $startedDate, $dateLeft);
+    }
+
 }

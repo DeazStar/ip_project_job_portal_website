@@ -59,7 +59,7 @@ class ProfilePictureModel
             $id = $user->getId();
         } else if ($user instanceof Company) {
             $this->filePath = dirname(dirname(__Dir__)).'/public/uploads/company-profile/';
-            $sql = "UPDATE company SET profile_picture_url= :url WHERE company_id = :id";
+            $sql = "UPDATE company SET company_logo_url= :url WHERE company_id = :id";
             $id = $user->getId();
         } else {
             throw new InvalidArgumentException('Invalid user type provided');
@@ -105,9 +105,11 @@ class ProfilePictureModel
         if ($user instanceof JobSeeker) {
             $sql = "SELECT profile_picture_url FROM job_seeker WHERE job_seeker_id= :id";
             $id = $user->getId();
+            $key = 'profile_picture_url';
         } else if ($user instanceof Company) {
-            $sql = "SELECT profile_picture_url FROM company WHERE company_id= :id";
+            $sql = "SELECT company_logo_url FROM company WHERE company_id= :id";
             $id = $user->getId();
+            $key = 'company_logo_url';
         } else {
             throw new InvalidArgumentException('Invalid user type provided');
         }
@@ -116,7 +118,7 @@ class ProfilePictureModel
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->filePath = $result['profile_picture_url'];
+        $this->filePath = $result[$key];
 
         return $this->filePath;
     }

@@ -31,8 +31,13 @@ $jobSeeker->fetchResume();
 $resumePath = $jobSeeker->getResume()->getResumeUrl();
 
 $jobSeeker->fetchLanguage();
+$jobSeeker->fetchSKill();
 
 $languages = $jobSeeker->getResume()->getLanguage();
+$skills = $jobSeeker->getResume()->getSkill();
+
+$educationData = $jobSeeker->fetchEducation();
+$employmentData = $jobSeeker->fetchEmployment();
 
 $resumeUploadsDir = "resume/";
 
@@ -348,35 +353,234 @@ if ($uploadsPos !== false) {
                     <div class="container pt-3 pb-3 mt-3 skills box-cn shadow-b-none  rounded">
                         <h2 class="px-3">Skills</h2>
                         <div class="row gap-2 px-3">
-                            <div class="col-2 pin text-center rounded">Javascript</div>
-                            <div class="col-2 pin text-center rounded">HTML</div>
-                            <div class="col-2 pin text-center rounded">CSS</div>
-                            <div class="col-2 pin text-center rounded">PHP</div>
+                            <?php foreach ($skills as $skill) : ?>
+                                <div class="col-2 pin text-center rounded"> <?= $skill['skill'] ?><a href="../src/controller/deleteSkill.php?skillId=<?= $skill['skill_id'] ?>"><i class="bi bi-x"></i></a></div>
+                            <?php endforeach ?>
                         </div>
-                        <button class="edit-btn ps-2 pe-3 py-1 rounded"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button class="add-btn add-skill ps-2 pe-3 py-1 rounded"><i class="bi bi-pencil-fill"></i> Add</button>
+
+                        <div class="skill-dialog shadow-lg">
+                            <div class="dialog-nav">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="nav-header">Add Skills</div>
+                                    <div class="skill-close-btn-container">
+                                        <i class="bi bi-x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="skill-selected-items-container">
+                                <div class="row gap-2 skill-selected-items">
+                                </div>
+                            </div>
+
+                            <form action="../src/controller/skillController.php" method="POST" class="skill-form">
+                                <input type="text" name="skill" class="skill-input">
+                                <button type="submit" name="submit-skill" class="skill-submit-btn"></button>
+                            </form>
+
+                            <div class="skill-input-container">
+                                <input type="text" class="form-control fake-skill-input">
+                            </div>
+                            <div class="save-btn-container text-end">
+                                <button class="save-skill px-3 py-1 me-4 rounded">Save</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="container pt-3 pb-3 mt-3 skills box-cn shadow-b-none  rounded">
                         <h2 class="px-3">Education</h2>
-                        <div class="row gap-2 px-3">
-                            <div class="education-level h5 fw-medium pt-3">BSC in Software Engineering</div>
-                            <div class="institute fw-light text-secondary">Addis Ababa Science and Technology University</div>
-                            <div class="year fw-light text-secondary">2020-2025</div>
+                        <div class="row gap-2 px-3 pt-2">
+                            <?php foreach ($educationData as $education) :
+                                $educationId = $education->getId();
+                                $degreeType = $education->getDegreeType();
+                                $field = $education->getField();
+                                $institute = $education->getInstitute();
+                                $enrolledDate = $education->getEnrolledDate();
+                                $graduatedDate = $education->getGraduatedDate();
+
+                                $degree = $degreeType . " " . "in" . " " . $field;
+                                $degree = ucfirst($degree);
+                                $date = $enrolledDate . "-" . $graduatedDate;
+
+
+                            ?>
+                                <div class="row gap-5 pb-3 education-view">
+                                    <div class="col-9">
+                                        <div class="education-level h5 fx-medium pt-3"><?= $degree ?></div>
+                                        <div class="institute fw-light text-secondary"><?= $institute ?></div>
+                                        <div class="year fw-light text-secondary"><?= $date ?></div>
+                                    </div>
+                                    <div class="col-2 d-flex gap-5">
+                                        <div class="resume-delete-container">
+                                            <a class="resume-delete-btn education-delete-btn" href="../src/controller/deleteEducation.php?educationId=<?= $educationId ?>">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="resume-edit-container">
+                                            <div class="resume-edit-btn education-edit-btn">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endforeach ?>
                         </div>
                         <div class="add-btn-container text-center pt-2">
-                            <button class="add-btn btn btn-primary ps-2 pe-3 py-1 rounded">add</button>
+                            <button class="add-btn add-education ps-2 pe-3 py-1 rounded"><i class="bi bi-pencil-fill"></i> Add</button>
+                        </div>
+
+                        <div class="education-dialog shadow-lg">
+                            <div class="dialog-nav">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="nav-header">Add Education</div>
+                                    <div class="education-close-btn-container">
+                                        <i class="bi bi-x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="ps-3">
+                                <form autocomplete="off" action="../src/controller/educationController.php" method="POST" class="education-form">
+                                    <div class="degree-type-container d-flex gap-3 pt-5 align-items-center">
+                                        <label class="text form-label ">Degree Type</label>
+                                        <select name="degree-type" id="degree-type" class="form-control degree-type">
+                                            <option value="associates">Associate's Degree</option>
+                                            <option value="bachelors">Bachelor's Degree</option>
+                                            <option value="masters">Master's Degree</option>
+                                            <option value="doctoral">Doctoral Degree</option>
+                                            <option value="professional">Professional Degree</option>
+                                            <option value="diploma">Diploma</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="field-container d-flex gap-3 pt-5 align-items-center">
+                                        <label class="text form-label">Field</label>
+                                        <select name="field" id="field" class="field form-control">
+
+                                        </select>
+                                    </div>
+
+                                    <div class="institute-container d-flex gap-3 pt-5 align-items-start">
+                                        <label class="text form-label">Institute</label>
+                                        <div class="institute-input-container">
+                                            <input type="text" name="institute" class="institute-input form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="row date-container justify-content-center">
+                                        <div class="col enrolled">
+                                            <label for="enrolled-date display-block form-label">Enrolled Date</label>
+                                            <select name="enrolled-date" id="enrolled-date" class="enrolled-date form-control mt-2"></select>
+
+                                        </div>
+
+                                        <div class="col graduated">
+                                            <label for="graduated-date display-block form-label">Graduated Date</label>
+                                            <select name="graduated-date" id="enrolled-date" class="graduated-date form-control mt-2"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="operation-type">
+                                        <input type="text" name="operation" value="insert" class="education-operation">
+                                        <input type="text" name="education-id" value="<?= isset($educationId) ? $educationId : null ?>">
+                                    </div>
+                                    <div class="save-btn-container text-end">
+                                        <button type="submit" name="submit-education" class="save-education px-3 py-1 me-4 rounded">Save</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
                     <div class="container pt-3 pb-3 mt-3 skills box-cn shadow-b-none  rounded">
                         <h2 class="px-3">Employment</h2>
-                        <div class="row gap-2 px-3">
-                            <div class="education-level h5 fw-medium pt-3">Junior Software Engineer</div>
-                            <div class="institute fw-light text-secondary">Coin Base inc.</div>
-                            <div class="year fw-light text-secondary">2020-2025</div>
+                        <div class="row gap-2 px-3 pt-2">
+                            <?php foreach ($employmentData as $employment) :
+                                $employmentId = $employment->getId();
+                                $position = $employment->getPosition();
+                                $company = $employment->getCompany();
+                                $startedDate = $employment->getStartedDate();
+                                $dateLeft = $employment->getDateLeft();
+
+                                $date = $startedDate . "-" . $dateLeft;
+                            ?>
+                                <div class="row gap-5 pb-3 employment-view">
+                                    <div class="col-9">
+                                        <div class="position h5 fx-medium pt-3"><?= $position ?></div>
+                                        <div class="company fw-light text-secondary"><?= $company ?></div>
+                                        <div class="year fw-light text-secondary"><?= $date ?></div>
+                                    </div>
+                                    <div class="col-2 d-flex gap-5">
+                                        <div class="resume-delete-container">
+                                            <a class="resume-delete-btn employment-delete-btn" href="../src/controller/deleteEmployment.php?employmentId=<?= $employmentId ?>">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="resume-edit-container">
+                                            <div class="resume-edit-btn employment-edit-btn">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
+                            <div class="add-btn-container text-center pt-2">
+                                <button class="add-btn add-employment ps-2 pe-3 py-1 rounded"><i class="bi bi-pencil-fill"></i> Add</button>
+                            </div>
+
+                            <div class="employment-dialog shadow-lg">
+                                <div class="dialog-nav">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="nav-header">Add Employment</div>
+                                        <div class="employment-close-btn-container">
+                                            <i class="bi bi-x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="ps-3">
+                                    <form action="../src/controller/employmentController.php" method="POST" class="employment-form">
+                                        <div class="position-container d-flex gap-3 pt-5 align-items-center">
+                                            <label class="text form-label ">Position</label>
+                                            <input class="position-input form-control" name="position">
+                                        </div>
+
+                                        <div class="company-container d-flex gap-3 pt-5 align-items-center">
+                                            <label class="text form-label">Company</label>
+                                            <input name="company" id="company" class="company-input form-control">
+                                        </div>
+
+                                        <div class="row date-container justify-content-center pt-5">
+                                            <div class="col started">
+                                                <label for="started-date display-block form-label">Date Stated</label>
+                                                <select name="started-date" id="started-date" class="started-date form-control mt-2"></select>
+
+                                            </div>
+
+                                            <div class="col left">
+                                                <label for="end-date display-block form-label">Date Left</label>
+                                                <select name="end-date" id="end-date" class="end-date form-control mt-2"></select>
+                                            </div>
+                                        </div>
+
+                                        <div class="operation-type">
+                                            <input type="text" name="operation" value="insert" class="employment-operation">
+                                            <input type="text" name="employment-id" value="<?= isset($employmentId) ? $employmentId : null ?>">
+                                        </div>
+                                        <div class="save-btn-container text-end">
+                                            <button type="submit" name="submit-employment" class="save-employment px-3 py-1 me-4 rounded">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <button class="edit-btn ps-2 pe-3 py-1 rounded"><i class="bi bi-pencil-fill"></i> Edit</button>
                     </div>
+
+
 
                     <div class="container pt-3 pb-3 mt-3 skills box-cn shadow-b-none  rounded">
                         <h2 class="px-3">Attach Resume</h2>

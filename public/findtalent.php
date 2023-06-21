@@ -209,7 +209,7 @@ $jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
                         </div>
 
                         <div class="profile-right">
-                            <a class="see-btn btn btn-primary" href="candidateProfile.php?id=<?= $jobSeekerId ?>" role="button">See More</a>
+                            <a class="see-btn btn btn-primary" href="candidate-detail.php?id=<?= $jobSeekerId ?>" role="button">See More</a>
                         </div>
                     </div>
                     <hr>

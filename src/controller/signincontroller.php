@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     //  CHECK IF COMPANY EXISTS WITH THIS EMAIL AND PASSWORD
     if(!$admin->getCompany($email , $password)){
 
-        // IF NO COMPANY IF FOUND!!
+        // IF NO JOB SEEKER IS FOUND!!
         $userFound = $admin->getUser($email , $password);
         
         if(!$userFound){

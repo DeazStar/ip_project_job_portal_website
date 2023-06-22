@@ -20,6 +20,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `job_portal`
 --
+DROP DATABASE IF EXISTS job_portal;
+CREATE DATABASE IF NOT EXISTS job_portal;
+USE job_portal;
+-- GRANT all on job_portal.* TO 'admin'@'localhost' Identified By 'admin';
+-- if you are using workbench use the next line and COMMENT the above line
+GRANT all on job_portal.* To 'admin'@'localhost';
+
 
 -- --------------------------------------------------------
 

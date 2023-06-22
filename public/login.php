@@ -54,7 +54,15 @@ session_start();
                 <hr>
 
                 <form action = "../src/controller/signincontroller.php" method ="POST" id="form" onsubmit="return validate()" name="form">
-                    <div class="form-container">
+                <div class="error <?php echo isset($_SESSION['error']) ? 'show' : ''; ?>">
+                    <?php
+                            if(isset($_SESSION['error'])){
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                            }
+                        ?>
+                    </div>
+                <div class="form-container">
                         <div class="form_control">
 
                             <input type="text" id="email" name="email" required>
@@ -78,12 +86,6 @@ session_start();
                         <a href="#">Forget Password</a>
                     </div>
                     <div class="btn-container">
-                        <?php
-                            if(isset($_SESSION['error'])){
-                                echo $_SESSION['error'];
-                                unset($_SESSION['error']);
-                            }
-                        ?>
                         <button class="can_btn">Cancel</button>
                         <button type ="submit" class="btn">Log in</button>
                     </div>

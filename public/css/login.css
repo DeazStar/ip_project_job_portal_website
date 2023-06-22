@@ -263,3 +263,16 @@ ul {
   margin-bottom: 10px;
   font-size: 0.9rem;
 }
+
+.error
+{
+  display: none;
+}
+
+.error.show {
+  padding: center !important;
+  position: relative;
+  display: contents;
+  color: #ff0000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

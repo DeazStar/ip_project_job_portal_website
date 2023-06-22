@@ -54,7 +54,7 @@ if(!isset($_SESSION['pass'])){
                         }
                     ?>
                 </div>
-            <form id="form" action = "../src/controller/signupcontroller.php" method = "POST" Onsubmit="return validateInputs()">
+            <form id="form" action = "../src/controller/signupcontroller.php" method = "POST" onsubmit="return validateInputs()">
               <div class="form-container">
                 <div class="form_control">
                   <input type="text" name="firstName" id="f_name" required>

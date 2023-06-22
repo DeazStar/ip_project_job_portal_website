@@ -17,51 +17,51 @@
         $phoneNumber = $_POST['phoneNumber'];
         $address = $_POST['address'];
         if(empty($companyName)){ 
-            $_SESSION['error'] = 'Company name is required.';
+            $_SESSION['c_name'] = 'Company name is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($website)){
-            $_SESSION['error'] = 'Website is required.';
+            $_SESSION['website'] = 'Website is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($postcode)){
-            $_SESSION['error'] = 'postcode is required.';
+            $_SESSION['postal'] = 'postcode is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($foundedDate)){
-            $_SESSION['error'] = 'Founded date is required.';
+            $_SESSION['FOD'] = 'Founded date is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($email)){
-            $_SESSION['error'] = 'Email is required.';
+            $_SESSION['EMAIL'] = 'Email is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($recoveryEmail)){
-            $_SESSION['error'] = 'Recovery email is required.';
+            $_SESSION['REMAIL'] = 'Recovery email is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($password)){
-            $_SESSION['error'] = 'Password is required.';
+            $_SESSION['Password'] = 'Password is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($confirmPassword)){
-            $_SESSION['error'] = 'Confirm password is required.';
+            $_SESSION['rePass'] = 'Confirm password is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if($password != $confirmPassword){
-            $_SESSION['error'] = 'Passwords do not match.';
+            $_SESSION['rePass'] = 'Passwords do not match.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($country)){
-            $_SESSION['error'] = 'Country is required.';
+            $_SESSION['Country'] = 'Country is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($phoneNumber)){
-            $_SESSION['error'] = 'Phone number is required.';
+            $_SESSION['tele'] = 'Phone number is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($address)){
-            $_SESSION['error'] = 'Address is required.';
+            $_SESSION['Address'] = 'Address is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } 

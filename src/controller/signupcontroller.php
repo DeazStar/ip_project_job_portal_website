@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    require_once "../model/person.php";
+    
+    require_once "../model/PersonalInfo.php";
     require_once "../model/admin.php";
 
     
@@ -112,22 +112,19 @@
             header('Location: ../../public/signup.php');
             exit;
         }
+        
         $admin = new Admin();
+        
         if ($admin->emailExists($email)) {
             $_SESSION['error'] = 'An account with that email already exists.';
             header('Location: ../../public/signup.php');
             exit;
         }    
       
-        $user = new User($firstName, $lastName , $email, md5($password), $country,
-                         $gender ,$dateOfBirth , $phoneNumber ,$recoveryEmail ,
-                        $professionalTitle , $postcode , $city , $address
-                        );
+        
 
-
-        $admin->saveUser($user);
-        echo"<h1>data is saved successfully</h1>";
-
+        $admin->saveUser($_POST);
+         unset($_SESSION['pass']);
         
 
         header('Location: ../../public/login.php');

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['pass'])){
+  header('Location:choose.php');
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

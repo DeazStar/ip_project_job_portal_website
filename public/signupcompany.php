@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if(!isset($_SESSION['pass'])){
+    header('Location:choose.php');
+    exit;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,7 +130,15 @@
                   <!-- <div class="error"></div> -->
                 </div>
               </div>
-
+              
+              <div class="form-container">
+                <div class="form_control">
+                
+                  <input type="text" reqired id="postcode" required name="postcode">
+                  <label for="postcode">Postal Code</label> 
+                  <div class="error"></div>
+                </div>
+              </div>
 
               <div class="checkbox">
                 <input type="checkbox" required name="" id="">

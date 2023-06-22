@@ -2,9 +2,10 @@
     require_once "../model/company.php";
     require_once "../model/admin.php";
 
-    session_start();
+    
  
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $postcode = $_POST['postcode'];
         $companyName = $_POST['companyName'];
         $website = $_POST['website'];
         $foundedDate = $_POST['foundedDate'];
@@ -21,6 +22,10 @@
             exit;
         } else if(empty($website)){
             $_SESSION['error'] = 'Website is required.';
+            header('Location: ../../public/signupcompany.php');
+            exit;
+        } else if(empty($postcode)){
+            $_SESSION['error'] = 'postcode is required.';
             header('Location: ../../public/signupcompany.php');
             exit;
         } else if(empty($foundedDate)){
@@ -108,14 +113,10 @@
             exit;
         }    
       
-        $company = new Company( $companyName, $website ,$foundedDate , $email ,$recoveryEmail ,
-                         md5($password), $country, $phoneNumber , $address );
-
-
-        $admin->saveCompany($company);
+        $admin->saveCompany($_POST);
         echo"<h1>data is saved successfully</h1>";
 
-        
+        unset($_SESSION['pass']);
 
         header('Location: ../../public/login.php');
         exit;

@@ -1,8 +1,8 @@
 <?php
 require_once "../core/DataBase.php";
-require_once "../model/person.php";
+require_once "../model/PersonalInfo.php";
 require_once "../model/company.php";
-
+session_start();
 class Admin {
     private PDO $pdo;
 
@@ -26,7 +26,7 @@ class Admin {
     public function emailExists($email) {
         
         // CHECK IF EMAIL EXISTS IN USER TABLE
-        $sql = "SELECT COUNT(*) FROM user WHERE email = :email";
+        $sql = "SELECT COUNT(*) FROM job_seeker WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         
         $stmt->execute(array(
@@ -39,7 +39,7 @@ class Admin {
         }
 
         //CHECK IF EMAIL EXISTS IN COMPANY TABLE
-        $sql = "SELECT COUNT(*) FROM user WHERE email = :email";
+        $sql = "SELECT COUNT(*) FROM company WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         
         $stmt->execute(array(
@@ -58,7 +58,7 @@ class Admin {
     /**
      * Saves user data to the database.
      *
-     * @param User $user The User object to save. The object should include the following properties:
+     * @param PersonalInfo $user The personalInfo object to save. The object should include the following properties:
      *                   - firstName: The user's first name.
      *                   - lastName: The user's last name.
      *                   - email: The user's email address.
@@ -73,30 +73,30 @@ class Admin {
      *
      * @link #save
      */
-    public function saveUser(User $user) {
+    public function saveUser(array $user) {
        
-        $sql = "INSERT INTO user 
-                    (firstName, lastName, email , password, country, gender, phoneNumber, recovery_email 
+        $sql = "INSERT INTO job_seeker 
+                    (first_name, last_name, email , date_of_birth, password, country, gender, phone_number, recovery_email 
                     , professional_title , postcode , city , address ) 
                 VALUES 
-                    (:firstName, :lastName, :email, :password, :country, :gender, :phoneNumber , :recovery_email,
+                    (:firstName, :lastName, :email, :date_of_birth , :password, :country, :gender, :phoneNumber , :recovery_email,
                      :professional_title , :postcode , :city , :address)";
         $stmt = $this->pdo->prepare($sql);
         
         $result = $stmt->execute(array(
-            
-            ':firstName' => $user->getFirstName(),
-            ':lastName' => $user->getLastName(),
-            ':email' => $user->getEmail(),
-            ':password' => $user->getPassword(),
-            ':country' => $user->getCountry(),
-            ':gender' => $user->getGender(),
-            ':phoneNumber' => $user->getPhoneNumber(),
-            ':recovery_email' => $user->getRecoveryEmail(),
-            ':professional_title' =>$user->getProfessionTitle(),
-            ':postcode' =>$user->getPostcode(),
-            ':city' => $user->getCity(),
-            ':address' => $user->getAddress()
+            ':firstName' => $user['firstName'],
+            ':lastName' => $user['lastName'],
+            ':email' => $user['email'],
+            ':password' => md5($user['password']),
+            ':date_of_birth' =>$user['dateOfBirth'],
+            ':country' => $user['country'],
+            ':gender' => $user['gender'],
+            ':phoneNumber' => $user['phoneNumber'],
+            ':recovery_email' => $user['recoveryEmail'],
+            ':professional_title' =>$user['professional_title'],
+            ':postcode' =>$user['postcode'],
+            ':city' => $user['city'],
+            ':address' => $user['address']
 
         ));
         
@@ -108,30 +108,31 @@ class Admin {
     /**
      * Saves user data to the database.
      *
-     * @param Company $company The company object to save.
+     * @param array $company array containing data of company to save.
      * @return bool Returns True if the user is added to the database, else False.
      *
      * @link #saveCompany
      */
-    public function saveCompany(Company $company) {
+    public function saveCompany(array $company) {
        
         $sql = "INSERT INTO company 
-                (company_name, website, founded_date ,email , recovery_email, password, phone_number ,country, address ) 
+                (company_name, website, founded_date ,email , recovery_email, password, phone_number ,country, address , postcode) 
                 VALUES 
-                (:companyName, :website , :foundedDate , :email,  :recovery_email , :password , :phoneNumber , :country ,  :address)";
+                (:companyName, :website , :foundedDate , :email,  :recovery_email , :password , :phoneNumber , :country ,  :address , :postcode)";
         
         $stmt = $this->pdo->prepare($sql);
         
         $result = $stmt->execute(array(
-            ':companyName' => $company->getCompanyName(),
-            ':website' => $company->getWebsite(),
-            'foundedDate' => $company->getFoundedDate(),
-            ':email' => $company->getEmail(),
-            ':password' => $company->getPassword(),
-            ':country' => $company->getCountry(),
-            ':recovery_email' => $company->getRecoveryEmail(),
-            ':phoneNumber' => $company->getPhoneNumber(),
-            ':address' => $company->getAddress()
+            ':companyName' => $company['companyName'],
+            ':website' => $company['website'],
+            'foundedDate' => $company['foundedDate'],
+            ':email' => $company['email'],
+            ':password' =>md5($company['password']),
+            ':country' => $company['country'],
+            ':recovery_email' => $company['recoveryEmail'],
+            ':phoneNumber' => $company['phoneNumber'],
+            ':address' => $company['address'],
+            ':postcode' => $company['postcode']
         ));
         
         if ($result) {
@@ -148,7 +149,7 @@ class Admin {
      * @return array
      */
     public function getUser($email , $password){
-        $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email and password = :password" );
+        $stmt = $this->pdo->prepare("SELECT * FROM job_seeker WHERE email = :email and password = :password" );
         $stmt->execute(array(
             ':email'=>$email,
             ':password'=>md5($password)
@@ -159,7 +160,7 @@ class Admin {
             
             
             $_SESSION['id'] = $user['id'];
-            $_SESSION['user'] = "YES";
+            $_SESSION['user_type'] = "JOB_SEEKER";
             return True;
 
         }
@@ -189,7 +190,7 @@ class Admin {
             
             
             $_SESSION['id'] = $user['id'];
-            $_SESSION['user'] = "NO";
+            $_SESSION['user_type'] = "COMPANY";
             return True;
         }
         else{

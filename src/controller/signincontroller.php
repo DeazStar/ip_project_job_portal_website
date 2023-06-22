@@ -22,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         }
         else{
 
-            // IF USER IS FOUND
+            // IF JOB SEEKER IS FOUND
             header('Location:../../public/index.html');
             exit;
         }

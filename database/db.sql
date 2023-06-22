@@ -29,19 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `company` (
   `company_id` int NOT NULL,
-  `company_name` varchar(60) NOT NULL,
+  `company_name` varchar(100) NOT NULL,
   `website` varchar(60) DEFAULT NULL,
   `founded_date` date NOT NULL,
   `email` varchar(60) NOT NULL,
   `recovery_email` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `phone_number` varchar(60) NOT NULL,
   `country` varchar(60) NOT NULL,
   `address` varchar(60) DEFAULT NULL,
   `company_logo_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `city` varchar(60) DEFAULT NULL,
   `postcode` int NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `description` varchar(1000)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `job_seeker` (
   `gender` char(1) NOT NULL,
   `email` varchar(60) NOT NULL,
   `recovery_email` varchar(60) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
   `country` varchar(60) NOT NULL,
   `professional_title` varchar(255) DEFAULT NULL,

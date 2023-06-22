@@ -173,11 +173,11 @@ padding: 25px;
 .gen {
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
   min-width: 5px;
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   color: #585656;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   letter-spacing: 1px;
 }
 
@@ -353,4 +353,11 @@ border-radius: 10px;
 .form_control select:valid{
   outline: 0;
   border-bottom-color: #000000;
+}
+.error {
+  padding: center !important;
+  position: relative;
+  display: contents;
+  color: #ff0000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

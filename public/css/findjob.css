@@ -4,6 +4,8 @@ body
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
+
+    zoom: 0.95;
 }
 /** navbar css**/
 
@@ -93,9 +95,10 @@ a {
 .nav-button-container {
     margin-top: 0px;
 }
-/* header */
-
-
+.navbar-container.nav-scrolled {
+    background-color: #f4fcfc;
+}
+/*  */
 body
 {
     width: 100%;
@@ -113,13 +116,13 @@ body
     border: 1px solid rgb(221, 212, 212);
    
     padding: 10px 12px 15px 16px;
-    margin: 10px 0px 0px 30px;
+    margin: 3px 0px 0px 40px;
     width:350px; 
     height: 65px;
     
     border-radius: 15px;
     font-size: 15px;
-    box-shadow: 3px 3px 15px rgba(216, 137, 137, 0.3);
+    box-shadow: 3px 3px 15px rgba(206, 53, 53, 0.3);
 
 }
 .sun
@@ -135,21 +138,35 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     margin-top: 20px;
  
 }
 .search-input
 {
-    width: 40%;
+    width: 30%;
     border: 1.5px solid red;
     border-radius: 19px;
     border-color: rgb(166, 156, 156);
     padding: 10px 0px 8px 45px;
-
  
+    font-size: larger;
     margin-left: -35px;
 }
+.sort
+{
+    width: 125px;
+    margin-left:20px;
+    padding: 10px 0px 8px 5px;
+
+    border-radius: 19px;
+    border: 1.5px solid red;
+    border-color: rgb(166, 156, 156);
+
+    text-align: center;
+    font-size: larger;
+}
+
 
 .jobs
 {
@@ -169,7 +186,8 @@ body
 }
 .job-container
 {
-    margin-top: 5px ;
+    margin: 5px 0 30px 0 ;
+    
     display: flex;
     background-color: rgb(255, 255, 255);
 
@@ -181,6 +199,8 @@ body
     width: 35%;
     max-height: 995px;
     overflow-y: scroll;   
+    overflow-x: hidden;   
+
     font: 12px;
 
     display: flex;
@@ -190,8 +210,8 @@ body
 .job1
 {
     display: flex;
-    border-radius: 5px;
-    background-color: #f6feff;;
+    border-radius: 25px;
+    background-color: #f6feff;
     
     
     padding: 15px 5px 0px 10px;
@@ -205,13 +225,11 @@ body
     flex: 1;
     margin: 0px 35px 1px 15px;
 
-
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: #eefafa;
     
-
     margin: 25px 35px 1px 15px;
     font: 12px;
 
@@ -221,13 +239,15 @@ body
 {
     display: inline-block;
     width: 70px;
-    vertical-align: top;
+    height: 70px;
+    vertical-align: center;
 } 
 .job-pic
 {
     width: 50px;
-    border-radius: 5px;
-    margin: 3px 0px 0px 5px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 0px 0px 5px;
 }      
 .job-name
 {
@@ -244,7 +264,8 @@ body
 
 }
 
-.btn {
+.btn 
+{
     border: none;
     font-size: 12px;
     font-weight: bold;
@@ -254,12 +275,22 @@ body
     background-color: #189494;
 
     padding: 16px 15px;
-    margin-left: -45px;
+    margin-left: 45px;
     margin-top: 16px;
 
     text-shadow: 1px 1px 1px rgba(255, 15, 15, 0.14);
     text-transform: uppercase;
     box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+.search-btn
+{
+    min-width: 10%;
+    max-width: 15%;
+    border-radius: 19px;
+    margin-top: 0px;
+    height: 40px;
+    color: white;
+    padding: 10px 10px 10px 10px;
 }
 button:active {
     transform: scale(1.03);
@@ -267,8 +298,8 @@ button:active {
   
 .status
 {
-    color: rgb(66, 52, 52);
-    padding-top: 28px;
+    color: rgb(0, 0, 0);
+    padding-top: 18px;
     font-size: 15px;
 
     height: 220px;
@@ -279,7 +310,7 @@ button:active {
 }
 .status1
 {
-    color: rgb(97, 67, 67);
+    color: rgb(0, 0, 0);
     padding-top: 28px;
     font-size: 15px;
 
@@ -289,6 +320,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 5px;
 }
 
 
@@ -312,14 +344,15 @@ button:active {
     font-weight: bold;
     letter-spacing: 1px;
 	border-radius: 7px;
-    background-color: #189494;
+    background-color: #139e9e;
     color: rgb(255, 255, 255);
     
     width: 50%;
     
 
     padding: 16px 15px;
-    margin-left: 18%;
+    /* margin-left: 18%; */
+    align-self: center;
     margin-top: 18px;
 
     text-shadow: 1px 1px 1px rgba(240, 207, 207, 0.14);
@@ -327,6 +360,15 @@ button:active {
     box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
 
 }
+button:focus {
+    outline: none;
+    border: none;
+    
+  }
+button:hover{
+    
+    background-color: #378888;
+}  
 
 @media screen and (max-width: 900px) {
 
@@ -358,7 +400,7 @@ button:active {
     
     .btn1 {
         margin-left:25%;;
-        width: 70%;
+        width: 90%;
     }
     .job-container
     {
@@ -375,7 +417,6 @@ button:active {
     display: flex;
     
     border-radius: 5px;
-    background-color: rgb(252, 252, 252);
      
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.993);
 
@@ -407,7 +448,7 @@ p.description
 {
     width: 100%;
     color: rgb(59, 42, 42);
-    margin: 15px 0px;
+    margin: 15px 18px;
 
     text-align: justify;
 }
@@ -471,7 +512,7 @@ p.description
 }
 .description
 {
-    font-size: 14.5px;
+    font-size: 15px;
 
     margin: 10px 17px;
 
@@ -483,13 +524,11 @@ p.description
 /*footer*/
 /** footer style **/
 footer {
-    margin-top: 50px;
     background-color: #F1F1F1;
     padding-bottom: 10px;
 }
 .upper-footer-container {
     display: flex;
-    width: 100%;
     flex-direction: row;
 }
 
@@ -549,15 +588,10 @@ footer {
 }
 
 hr {
-    width: 95%;
-    margin-left: 2.5%;
-
-    margin-top: 0px;
-    margin-bottom: 5px;
-
-    border: 0.01px solid rgb(233, 218, 218);
-    padding: 0.001px;
-    background-color: black;
+    width: 80%;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
     border-radius: 50px;
 }
 
@@ -568,10 +602,10 @@ hr {
     justify-content: space-around;
 }
 
-/* other */
+/* scroll-bar */
 
 ::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
   }
 ::-webkit-scrollbar-thumb {
     background-color: #6c8383;;
@@ -579,5 +613,19 @@ hr {
   }
 ::-webkit-scrollbar-thumb:hover {
     background: #842e42;
-  }
+    width: 6px;
+}
   
+
+.Available-jobs
+{
+ 
+    align-self: center;
+    align-items: center;
+    position: absolute;
+    justify-content:center ;
+    left: 14%;
+    font-size: 1.2rem;
+    margin-top: 64px;    
+    z-index: 111;
+  }

@@ -1,6 +1,8 @@
 <?php 
     session_start();
+   
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +26,7 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
-        <link rel="stylesheet" href="css/post_job.css">
+    <link rel="stylesheet" href="css/post_job.css">
     <link rel="icon" href="images/logo.png" type="image/icon type">
     <!--icon -->
 
@@ -75,7 +77,8 @@
             ">
             <?php
 
-            if(isset($_SESSION['error'])){
+            if(isset($_SESSION['error']))
+            {
                 echo $_SESSION['error'];
                 unset($_SESSION['error']);
             }
@@ -86,7 +89,7 @@
                 <div class="col-8">
                 <div class="text-start">
             
-                 <form action="php/postjob.php" method="POST" enctype="multipart/form-data">
+                 <form action="../src/controller/postController.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="company-logo" class="form-label">Company Logo: </label>
                         <div class="input-group">
@@ -136,14 +139,14 @@
                             </span>
                             <select name="company-industry" id="company-industry" class="form-control" name="Company-Industry" required>
                                 <option value="" selected>Choose company Industry</option>
-                                <option value="information_tecnology">Information Technology</option>
-                                <option value="manufacturing">Manufacturing</option>
-                                <option value="entertainment">Entertainment</option>
-                                <option value="agriculture_and_forestry">Agriculture & Forestry/Wildlife</option>
-                                <option value="business_and_information">Business & Information</option>
-                                <option value="construction">Construction/Utilities/Contracting</option>
-                                <option value="education">Education</option>
-                                <option value="finace_and_insurance">Finance & Insurance</option>
+                                <option value="Information_tecnology">Information Technology</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Agriculture_and_forestry">Agriculture & Forestry/Wildlife</option>
+                                <option value="Business_and_information">Business & Information</option>
+                                <option value="Construction">Construction/Utilities/Contracting</option>
+                                <option value="Education">Education</option>
+                                <option value="Finace_and_insurance">Finance & Insurance</option>
                             </select>
                         </div>
                     </div>
@@ -156,9 +159,9 @@
                             </span>
                             <select name="employment-type" id="employment-type" class="form-control" required>
                                 <option value="" selected>Choose Employment Type</option>
-                                <option value="fulltime">Full-Time</option>
-                                <option value="parttime">Part-Time</option>
-                                <option value="contract">Contract</option>
+                                <option value="Full-Time">Full-Time</option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Contract">Contract</option>
                             </select>
                         </div>
                     </div>
@@ -171,9 +174,9 @@
                             </span>
                             <select name="seniority-level" id="Seniority" class="form-control" required>
                                 <option value="" selected>Choose Seniority Level</option>
-                                <option value="entrylevel">Entery-Level</option>
-                                <option value="midlevel">Mid-Level</option>
-                                <option value="seniorlevel">Senior Level</option>
+                                <option value="Entery-Level">Entery-Level</option>
+                                <option value="Mid-Level">Mid-Level</option>
+                                <option value="Senior Level">Senior Level</option>
                             </select>
                         </div>
                     </div>
@@ -181,18 +184,17 @@
                     <div class="mb-3">
                         <label for="payment-amount" class="form-label">Budget / Payment Amount</label>
                         <div class="input-group">
-                          <span class="input-group-text">$</span>
+                          <span class="input-group-text">Birr</span>
                           <input type="number" name="payment-amount" id="payment-amount" class="form-control" placeholder="Enter payment amount" required>
                           <select name="payment-frequency" id="payment-frequency" class="form-select" required>
                             <option value="" selected>Payment Frequency</option>
-                            <option value="hourly">Per Hour</option>
-                            <option value="daily">Per Day</option>
-                            <option value="daily">Per Week</option>
-                            <option value="monthly">Per Month</option>
+                            <option value="Hour">Per Hour</option>
+                            <option value="Day">Per Day</option>
+                            <option value="Week">Per Week</option>
+                            <option value="Month">Per Month</option>
                           </select>
                         </div>
                       </div>
-                    
 
                     <div class="mb-3">
                         <label for="job-description" class="form-label">Job Description:</label>
@@ -202,6 +204,7 @@
                         </div>
                     </div>
 
+                    <br>
                     
                     <button class="btn btn-primary btn-md me-5 reset-btn px-4" type="reset">Reset</button>
                     <button class="btn btn-primary btn-md submit-btn px-4" type="submit" name="submit">Post</button>

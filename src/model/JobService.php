@@ -4,6 +4,22 @@ require_once dirname(__DIR__) . '/core/DataBase.php';
 require_once 'Job.php';
 
 class JobService {
+    public static function applyJob(int $jobId, int $jobSeekerId):void {
+        $sql = "INSERT INTO applied_job(job_postings_id, job_seeker_id) VALUES(:job_postings_id, :job_seeker_id)";
+
+        try {
+            $db = new DataBase();
+            $connection = $db->getConnection();
+
+            $stmt = $connection->prepare($sql);
+            $stmt->bindParam(":job_postings_id", $jobId);
+            $stmt->bindParam(":job_seeker_id", $jobSeekerId);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            throw new Exception('Oops Something went wrong try again');
+        }
+    }
     public static function getPostedJobById(int $id, $start, $finish): array {
         $sql = "SELECT * FROM job_postings WHERE company_id = :id LIMIT :start, :finish";
         $jobs = [];
@@ -92,7 +108,7 @@ class JobService {
     public static function appliedRow($id) {
         $sql = "SELECT COUNT(*) as count FROM applied_job WHERE job_seeker_id = :id";
         $count = 0;
-    
+
         try {
             $db = new DataBase();
             $connection = $db->getConnection();

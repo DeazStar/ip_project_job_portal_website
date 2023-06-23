@@ -42,9 +42,9 @@
                     <li>
                         <a href="index.html"><img src="images/logo.png"></a>  
                     </li>
-                    <li class="nav-item"><a href="index.php">Home</a> </li>
+                    <li class="nav-item"><a href="findtalent.php">Home</a> </li>
                     <li class="nav-item"> <a href="findtalent.php">Find Talent</a> </li>
-                    <li class="nav-item">  <a href="aboutus.html">About Us</a> </li>
+                    <li class="nav-item">  <a href="postjob.php">Post Job</a> </li>
                 </ul>
 
                 <ul class="nav-two">
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="nav-icon">
-                        <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
+                        <a href="../src/controller/linkController.php"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
                     </div>
                 </ul>
             </nav>
@@ -89,7 +89,7 @@
                 <div class="col-8">
                 <div class="text-start">
             
-                 <form action="../src/controller/postController.php" method="POST" enctype="multipart/form-data">
+                <form action="../src/controller/postController.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="company-logo" class="form-label">Company Logo: </label>
                         <div class="input-group">

@@ -28,14 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jobDescription = validate_input($_POST["job-description"]);
 
     // Prepare the SQL statement with placeholders
-    $stmt = $connection->prepare("INSERT INTO job_postings (company_logo, company_name,
+    $stmt = $connection->prepare("INSERT INTO job_postings (company_id, company_logo, company_name,
                             company_location, job_title, company_industry, employment_type,
                             seniority_level, payment_amount, payment_frequency, job_description)
-                            VALUES (:companyLogo, :companyName, :companyLocation, :jobTitle,
+                            VALUES (:company_id, :companyLogo, :companyName, :companyLocation, :jobTitle,
                                 :companyIndustry, :employmentType, :seniorityLevel, :paymentAmount,
                                 :paymentFrequency, :jobDescription)");
 
     // Bind the form data to the prepared statement
+    $stmt->bindParam(':company_id', $_SESSION['id']);
     $stmt->bindParam(':companyLogo', $companyLogo);
     $stmt->bindParam(':companyName', $companyName);
     $stmt->bindParam(':companyLocation', $companyLocation);

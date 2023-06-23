@@ -282,6 +282,9 @@ $jobs = JobService::getPostedJobById($_SESSION['id'], $start, $itemPerRow);
 
                     </div>
                     <div class="d-flex gap=0 pagination-row text-center pb-5">
+                </div>
+
+                    <?php endforeach ?>
                     <?php
                     for ($i = 1; $i <= $num; $i++) {
                         if (isset($_GET['page'])) {
@@ -297,9 +300,6 @@ $jobs = JobService::getPostedJobById($_SESSION['id'], $start, $itemPerRow);
                         }
                     }
                     ?>
-                </div>
-
-                    <?php endforeach ?>
                 </div>
 
 

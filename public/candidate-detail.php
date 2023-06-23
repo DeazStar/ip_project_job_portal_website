@@ -111,8 +111,8 @@ if (isset($_GET['id'])) {
                     <li>
                         <a href="index.html"><img src="images/logo.png"></a>
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a> </li>
-                    <li class="nav-item"> <a href="findtalent.html">Find Talent</a> </li>
+                    <li class="nav-item"><a href="index.php">Home</a> </li>
+                    <li class="nav-item"> <a href="findtalent.php">Find Talent</a> </li>
                     <li class="nav-item"> <a href="aboutus.html">About Us</a> </li>
                 </ul>
 

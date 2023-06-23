@@ -67,9 +67,9 @@ if(isset($_GET['job-id'])) {
                     <li>
                         <img src="images/logo.png">
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="findtalent.php">Home</a></li>
                     <li class="nav-item"><a href="postjob.php">Post Job</a></li>
-                    <li class="nav-item"><a href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a href="findtalent.php">Find Talent</a></li>
                 </ul>
 
                 <ul class="nav-two">

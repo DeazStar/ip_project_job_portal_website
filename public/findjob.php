@@ -6,7 +6,21 @@ $sort = isset($_POST['sort']) ? $_POST['sort'] : 'job_posted_date';
 
 $jobPosting = new JobPosted();
 $jobList = $jobPosting->getJobPostings($search, $sort);
-
+if (isset($_GET['job-id'])){
+    $key = array_search($_GET['job-id'], array_column($jobList, 'id'));
+    $particularJob = $jobList[$key];
+    $postedJobId = $particularJob['id'];
+    $companyName = $particularJob['company_name'];
+    $companyLogo = $particularJob['company_logo'];
+    $jobName = $particularJob['job_title'];
+    $companyLocation = $particularJob['company_location'];
+    $postedDate = $particularJob['job_posted_date'];
+    $employmentType = $particularJob['employment_type'];
+    $seniorityLevel = $particularJob['seniority_level'];
+    $paymentAmount = $particularJob['payment_amount'];
+    $paymentFrequency = $particularJob['payment_frequency'];
+    $jobDescription = $particularJob['job_description'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -111,22 +125,7 @@ $jobList = $jobPosting->getJobPostings($search, $sort);
         <div class="sun">
             <img class="sun" src="images/sun.png" alt="">
         </div>
-        <?php
-                if (isset($_POST['jobId'])) 
-                {
-                    $jobId = $_POST['jobId'];
-
-                    // Perform your PHP logic to retrieve the job detail using $jobId
-                    $jobDetail = new JobPosted();
-                    $jobDetail2 = $jobDetail->getJobDetail($jobId);
-
-                    // Return the job detail as the response
-                    echo "hi";
-                }
-                else{
-                    echo "not set";
-                }
-                ?>
+       
     </div>
 
     <!-- search -->
@@ -188,12 +187,12 @@ $jobList = $jobPosting->getJobPostings($search, $sort);
                                     color:black;
                                     margin: 6px;
                                     font-size: 16px;
-                                 ">
+                                ">
                                     <?= $job['job_title'] ?></p>
                                 <p style="
                                     font-size:12px;
                                     margin: 5px;
-                                   ">
+                                ">
                                     <?= $job['company_location'] ?> </p>
                             </div>
 
@@ -251,22 +250,24 @@ $jobList = $jobPosting->getJobPostings($search, $sort);
                                     margin: 5px 75px 5px 5px;
                                     font-size: 17px;
                                     ">
-                                <?= $job['job_title'] ?> : - <i class="fa-sharp fa-solid fa-user-tie"></i> Company: <?= $job['company_name'] ?> </p>
+                                <?= $job['job_title'] ?> : - <i class="fa-sharp fa-solid fa-user-tie"></i> Company: <?= $companyName??$job['company_name'] ?> </p>
                             <p style="
                                     font-size:12px;
                                     margin: 5px;
                                 ">
-                                <?= $job['company_industry'] ?>, <?= $job['company_location'] ?></p>
+                                <?= $job['company_industry'] ?>, <?= $companyLocation??$job['company_location'] ?></p>
                         </div>
                         <div class="status1">
 
 
-                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : <?= $job_posted_time ?></p>
-                            <p><i class="fas fa-chart-line capitalize" style="font-size:13px;"></i> Level : <?= $job['seniority_level'] ?></p>
-                            <p><i class="glyphicon glyphicon-time capitalize" style="font-size:13px;"></i> Hours : <?= $job['employment_type'] ?></p>
-                            <p><i class="glyphicon glyphicon-usd capitalize" style="font-size:13px;"></i> Budget : <?= $job['payment_amount'] . "birr per/" . $job['payment_frequency'] ?></p>
+                            <p><i class="glyphicon glyphicon-hourglass" style="font-size:13px;"></i> Posted : <?= $postedDate??$job['job_posted_date'] ?></p>
+                            <p><i class="fas fa-chart-line capitalize" style="font-size:13px;"></i> Level : <?= $seniorityLevel??$job['seniority_level'] ?></p>
+                            <p><i class="glyphicon glyphicon-time capitalize" style="font-size:13px;"></i> Hours : <?= $employmentType??$job['employment_type'] ?></p>
+                            <p><i class="glyphicon glyphicon-usd capitalize" style="font-size:13px;"></i> Budget : <?= $paymentAmount??$job['payment_amount'] . "birr per/" . $job['payment_frequency'] ?></p>
 
-                            <button class="btn1">apply for the job</button>
+                            <a href="../src/controller/applyController.php?job-id=<?= $postedJobId??$job['id']?>">
+                                <button class="btn1">apply for the job</button>
+                            </a>
                         </div>
                     </div>
 
@@ -391,7 +392,7 @@ $jobList = $jobPosting->getJobPostings($search, $sort);
                 const jobId = jobElement.querySelector('p').textContent;
 
                 // Update the job name on the right side
-                updateJobName(jobId);
+                window.location.href="?job-id=" + jobId;
             });
         });
 
@@ -412,6 +413,10 @@ $jobList = $jobPosting->getJobPostings($search, $sort);
             };
             xhr.send(`jobId=${encodeURIComponent(jobId)}`);
         }
+
+        const applyBtn =document.querySelector(".btn1");
+
+
     </script>
 
 </body>

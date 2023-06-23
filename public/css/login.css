@@ -171,10 +171,11 @@ ul {
 }
 
 .rem_me p {
-  color: black;
-  font-size: 0.9rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-left: 5px;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+
 }
 .text {
 
@@ -183,6 +184,17 @@ ul {
   border-radius: 10px;
 }
 
+.parr1
+{
+    color: #757575;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    
+}
+.parr1 a {
+  color: #189494;
+}
 .btn-container {
   padding-top: 15px;
 }
@@ -257,11 +269,15 @@ ul {
   display: flex;
 }
 
-.forgot_pass {
+.forgot_pass a {
+  color: #189494;
   text-decoration: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 10px;
   font-size: 0.9rem;
+}
+.log_btn {
+  color: #189494;
 }
 
 .error

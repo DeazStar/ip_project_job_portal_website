@@ -7,7 +7,7 @@ class JobSeeker {
     private int $id;
     private PersonalInfo $personalInfo;
     private Resume $resume;
-    private string $profileUrl;
+    private ?string $profileUrl = null;
 
     /**
      * jobSeeker construct 
@@ -55,11 +55,13 @@ class JobSeeker {
         return $this->resume;
     }
 
-    public function setProfileUrl(string $profileUrl):void {
-        $this->profileUrl = $profileUrl;
+    public function setProfileUrl(?string $profileUrl):void {
+        if (isset($profileUrl)) {
+            $this->profileUrl = $profileUrl;
+        }
     }
 
-    public function getProfileUrl():string {
+    public function getProfileUrl():string|null {
         return $this->profileUrl;
     }
 

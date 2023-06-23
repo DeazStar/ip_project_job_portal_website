@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 21, 2023 at 11:29 PM
+-- Generation Time: Jun 23, 2023 at 02:09 AM
 -- Server version: 8.0.33-0ubuntu0.22.04.2
 -- PHP Version: 8.2.7
 
@@ -20,13 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `job_portal`
 --
-DROP DATABASE IF EXISTS job_portal;
-CREATE DATABASE IF NOT EXISTS job_portal;
-USE job_portal;
--- GRANT all on job_portal.* TO 'admin'@'localhost' Identified By 'admin';
--- if you are using workbench use the next line and COMMENT the above line
-GRANT all on job_portal.* To 'admin'@'localhost';
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applied_job`
+--
+
+CREATE TABLE `applied_job` (
+  `id` int NOT NULL,
+  `job_postings_id` int NOT NULL,
+  `job_seeker_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `applied_job`
+--
+
+INSERT INTO `applied_job` (`id`, `job_postings_id`, `job_seeker_id`) VALUES
+(1, 2, 48);
 
 -- --------------------------------------------------------
 
@@ -48,14 +60,15 @@ CREATE TABLE `company` (
   `company_logo_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `city` varchar(60) DEFAULT NULL,
   `postcode` int NOT NULL,
-  `description` varchar(1000)
+  `description` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `company`
 --
 
-
+INSERT INTO `company` (`company_id`, `company_name`, `website`, `founded_date`, `email`, `recovery_email`, `password`, `phone_number`, `country`, `address`, `company_logo_url`, `city`, `postcode`, `description`) VALUES
+(2, 'DeazStar Tech', 'https://web.telegram.org', '2023-06-21', 'company@gmail.com', 'company@gmail.com', '05f6759b74183bda46782558e2559017', '0946612595', 'Jordan', 'Addis Ababa', NULL, '', 1000, '');
 
 -- --------------------------------------------------------
 
@@ -76,6 +89,9 @@ CREATE TABLE `education` (
 -- Dumping data for table `education`
 --
 
+INSERT INTO `education` (`education_id`, `degree_type`, `field`, `institute`, `enrolled_date`, `graduated_date`) VALUES
+(9, 'bachelors', 'Computer Science', 'Addis Ababa Science and Technology University (AASTU)', '2020', '2025'),
+(12, 'bachelors', 'Computer Science', 'Adama Science and Technology University (ASTU)', '2020', '2023');
 
 -- --------------------------------------------------------
 
@@ -95,6 +111,9 @@ CREATE TABLE `employment` (
 -- Dumping data for table `employment`
 --
 
+INSERT INTO `employment` (`employment_id`, `position`, `company`, `started_date`, `date_left`) VALUES
+(15, 'Junior Software Enginner', 'Holberton School', '2022', '2024');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +122,7 @@ CREATE TABLE `employment` (
 
 CREATE TABLE `job_postings` (
   `id` int NOT NULL,
+  `company_id` int NOT NULL,
   `company_logo` varchar(255) DEFAULT NULL,
   `job_posted_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `company_name` varchar(255) NOT NULL,
@@ -115,6 +135,14 @@ CREATE TABLE `job_postings` (
   `payment_frequency` varchar(255) NOT NULL,
   `job_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `job_postings`
+--
+
+INSERT INTO `job_postings` (`id`, `company_id`, `company_logo`, `job_posted_date`, `company_name`, `company_location`, `job_title`, `company_industry`, `employment_type`, `seniority_level`, `payment_amount`, `payment_frequency`, `job_description`) VALUES
+(1, 0, '1687465966_Screenshot from 2023-06-22 22-46-18.png', '2023-06-22 20:32:46', 'DeadZstar Technology', 'Addis Ababa', 'Front End Developer', 'Information_tecnology', 'Full-Time', 'Entery-Level', 40, 'Hour', 'we are looking for a dump ass nigga to join our company'),
+(2, 2, '1687465966_Screenshot from 2023-06-22 22-46-18.png', '2023-06-22 23:38:01', 'DeazStar', 'Addis Ababa', 'Software Engineering', 'Information Technology', 'Full Time', 'Junior', 140, 'Per Day', 'sdkjflaskjfdlasjfdlkdsafjalskdjflsakdfjlsadjflsadjflasdkfjslkdjf');
 
 -- --------------------------------------------------------
 
@@ -146,6 +174,9 @@ CREATE TABLE `job_seeker` (
 -- Dumping data for table `job_seeker`
 --
 
+INSERT INTO `job_seeker` (`job_seeker_id`, `first_name`, `last_name`, `date_of_birth`, `gender`, `email`, `recovery_email`, `password`, `phone_number`, `country`, `professional_title`, `postcode`, `city`, `address`, `description`, `profile_picture_url`, `resume_url`) VALUES
+(48, 'Naod', 'Ararsa', '2023-06-07', 'M', 'naodararsa71@gmail.om', 'naodararsa7@gmail.com', '846c154f6e7c4d35281fdf70be7e8225', '0946612595', 'Jordan', 'Software Engineer', 1000, 'Addis  Ababa', 'Addis Ababa', 'hey am a software engineer', '/var/www/html/ip_project_job_portal_website/public/uploads/jobseeker-profile/6494b6e26f1819.20951258.jpg', '/var/www/html/ip_project_job_portal_website/public/uploads/jobseeker-profile/resume/6494bc892fdc51.09108411.pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -161,7 +192,8 @@ CREATE TABLE `language` (
 -- Dumping data for table `language`
 --
 
-
+INSERT INTO `language` (`language_id`, `language`) VALUES
+(22, 'Afar');
 
 -- --------------------------------------------------------
 
@@ -178,6 +210,8 @@ CREATE TABLE `skill` (
 -- Dumping data for table `skill`
 --
 
+INSERT INTO `skill` (`skill_id`, `skill`) VALUES
+(6, 'HTML');
 
 -- --------------------------------------------------------
 
@@ -194,6 +228,8 @@ CREATE TABLE `user_education` (
 -- Dumping data for table `user_education`
 --
 
+INSERT INTO `user_education` (`job_seeker_id`, `education_id`) VALUES
+(48, 12);
 
 -- --------------------------------------------------------
 
@@ -210,6 +246,8 @@ CREATE TABLE `user_employment` (
 -- Dumping data for table `user_employment`
 --
 
+INSERT INTO `user_employment` (`employment_id`, `job_seeker_id`) VALUES
+(15, 48);
 
 -- --------------------------------------------------------
 
@@ -226,6 +264,8 @@ CREATE TABLE `user_language` (
 -- Dumping data for table `user_language`
 --
 
+INSERT INTO `user_language` (`job_seeker_id`, `language_id`) VALUES
+(48, 22);
 
 -- --------------------------------------------------------
 
@@ -242,10 +282,20 @@ CREATE TABLE `user_skill` (
 -- Dumping data for table `user_skill`
 --
 
+INSERT INTO `user_skill` (`skill_id`, `job_seeker_id`) VALUES
+(6, 48);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `applied_job`
+--
+ALTER TABLE `applied_job`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_applied_job_job_posting_id` (`job_postings_id`),
+  ADD KEY `fk_applied_job_job_seeker_id` (`job_seeker_id`);
 
 --
 -- Indexes for table `company`
@@ -322,50 +372,63 @@ ALTER TABLE `user_skill`
 --
 
 --
+-- AUTO_INCREMENT for table `applied_job`
+--
+ALTER TABLE `applied_job`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `company_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `education_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `education_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `employment`
 --
 ALTER TABLE `employment`
-  MODIFY `employment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `employment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `job_postings`
 --
 ALTER TABLE `job_postings`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `job_seeker`
 --
 ALTER TABLE `job_seeker`
-  MODIFY `job_seeker_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `job_seeker_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `language`
 --
 ALTER TABLE `language`
-  MODIFY `language_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `language_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `skill_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `skill_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `applied_job`
+--
+ALTER TABLE `applied_job`
+  ADD CONSTRAINT `fk_applied_job_job_posting_id` FOREIGN KEY (`job_postings_id`) REFERENCES `job_postings` (`id`),
+  ADD CONSTRAINT `fk_applied_job_job_seeker_id` FOREIGN KEY (`job_seeker_id`) REFERENCES `job_seeker` (`job_seeker_id`);
 
 --
 -- Constraints for table `user_education`

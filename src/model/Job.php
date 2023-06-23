@@ -21,6 +21,13 @@ class Job {
         $this->connection = $this->db->getConnection();
     }
 
+    public function setJobId(int $id):void {
+        $this->$id = $id;
+    }
+
+    public function getJobId():int {
+        return $this->id;
+    }
     public function setJobTitle(string $jobTitle):void {
         $this->jobTitle = $jobTitle;
     }

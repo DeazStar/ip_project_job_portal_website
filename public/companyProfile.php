@@ -1,10 +1,12 @@
 <?php 
-
+session_start();
 require_once '../src/model/Company.php';
 require_once '../src/model/ProfilePictureModel.php';
+require_once '../src/model/JobService.php';
 
 
-$company = new Company(1);
+
+$company = new Company($_SESSION['id']);
 
 $profilePicture = new ProfilePictureModel();
 
@@ -30,6 +32,11 @@ $city = $company->getCity();
 $address = $company->getAddress();
 $description = $company->getDescription();
 
+$tableRow = JobService::getPostedJobRow($_SESSION['id']);
+$itemPerRow = 7;
+$num = ceil($tableRow / $itemPerRow);
+$start = (($_GET['page'] ?? 1) - 1) * $itemPerRow;
+$jobs = JobService::getPostedJobById($_SESSION['id'], $start, $itemPerRow);
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +62,7 @@ $description = $company->getDescription();
 
     <!--custom css-->
     <link rel="stylesheet" href="css/profilestyle.css">
+    <link rel="stylesheet" href="css/error-style.css">
     <!--end custom css-->
 
     <!-- icons -->
@@ -72,9 +80,9 @@ $description = $company->getDescription();
                     <li>
                         <img src="images/logo.png">
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a></li>
-                    <li class="nav-item"><a href="findjob.html">Find job</a></li>
-                    <li class="nav-item"><a href="findtalent.html">About Us</a></li>
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item"><a href="findtalent.php">Find Talent</a></li>
+                    <li class="nav-item"><a href="aboutus.html">About Us</a></li>
                 </ul>
 
                 <ul class="nav-two">
@@ -126,7 +134,7 @@ $description = $company->getDescription();
                                 </span>Company Profile</p>
                         </div>
 
-                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf" data-filter="resume">
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf" data-filter="manage-job">
                             <p class="btn-name h5"><span>
                                     <i class="bi bi-briefcase pe-1"></i>
                                 </span>Manage Jobs</p>
@@ -138,7 +146,7 @@ $description = $company->getDescription();
                                 </span>Change Password</p>
                         </div>
 
-                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf">
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf logout-btn">
                             <p class="btn-name h5"><span>
                                     <i class="bi bi-box-arrow-right pe-1"></i>
                                 </span>Log Out</p>
@@ -258,8 +266,50 @@ $description = $company->getDescription();
 
                     </div>
                 </div>
+
+                <div class="col-md-7 manage-job opt">
+                    <?php 
+                        foreach($jobs as $job):
+                    ?>
+                    <div class="container pt-3 pb-3 job box-cn shadow-b-none  rounded">
+                        <button class="add-btn add-language px-2 rounded"><i class="bi bi-eye"></i></button>
+                        <div class="posted-job-container pb-3">
+                            <div class="job-name h4"><?=$job->getJobTitle()?></div>
+                            <div class="date"><?=$job->getJobPostedDate()->format('Y-m-d H:i:s') ?></div>
+                            <div class="job-type"><?= $job->getEmploymentType() ?></div>
+                        </div>
+                        <a class="save-lng px-3 py-1 me-4 rounded" href="findtalent.php?job-id=<?= $job->getJobId() ?>">Manage Applicants</a>
+
+                    </div>
+                    <div class="d-flex gap=0 pagination-row text-center pb-5">
+                    <?php
+                    for ($i = 1; $i <= $num; $i++) {
+                        if (isset($_GET['page'])) {
+                            if ($i == $_GET['page']) {
+                                echo '<a href="?page=' . $i . '">' . '<div class="pagination-style selected">' . $i . "</div></a>";
+                            } else {
+                                echo '<a href="?page=' . $i . '">' . '<div class="pagination-style">' . $i . "</div></a>";
+                            }
+                        } else if ($i == 1) {
+                            echo '<a href="?page=' . $i . '">' . '<div class="pagination-style selected">' . $i . "</div></a>";
+                        } else {
+                            echo '<a href="?page=' . $i . '">' . '<div class="pagination-style">' . $i . "</div></a>";
+                        }
+                    }
+                    ?>
+                </div>
+
+                    <?php endforeach ?>
+                </div>
+
+
             </div>
     </main>
+
+    <?php if (isset($_SESSION['required-personal-info'])) {
+            echo '<div class="error-container text-danger pb-3 text-center">' . $_SESSION['required-personal-info'] . '</div>';
+        }
+    ?>
 
     <script src="script/filter.js"></script>
     <script src="script/fetchCountry.js"></script>

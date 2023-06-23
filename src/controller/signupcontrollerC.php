@@ -1,9 +1,9 @@
 <?php
-    require_once "../model/company.php";
+    require_once "../model/Company.php";
     require_once "../model/admin.php";
 
     
- 
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $postcode = $_POST['postcode'];
         $companyName = $_POST['companyName'];

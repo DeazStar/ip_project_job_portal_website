@@ -23,14 +23,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         else{
 
             // IF JOB SEEKER IS FOUND
-            header('Location:../../public/index.html');
+            header('Location:../../public/findjob.php');
             exit;
         }
     }
     else{
 
         // IF COMPANY IS FOUND
-        header('Location:../../public/index.html');
+        header('Location:../../public/findtalent.php');
         exit;
     }
     

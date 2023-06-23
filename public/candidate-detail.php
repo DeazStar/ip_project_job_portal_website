@@ -88,6 +88,7 @@ if (isset($_GET['id'])) {
 
     <!--custom css-->
     <link rel="stylesheet" href="css/candidate-detail.css">
+    <link rel="stylesheet" href="css/findjob.css">
     <!--end custom css-->
 
     <!-- icons -->
@@ -97,11 +98,50 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <div class="container-lg">
+<div class="navbar-container" style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                background-color: #fff;
+                ">
+            <nav>
+                <ul class="nav-one">
+                    <li>
+                        <a href="index.html"><img src="images/logo.png"></a>
+                    </li>
+                    <li class="nav-item"><a href="index.html">Home</a> </li>
+                    <li class="nav-item"> <a href="findtalent.html">Find Talent</a> </li>
+                    <li class="nav-item"> <a href="aboutus.html">About Us</a> </li>
+                </ul>
+
+                <ul class="nav-two">
+                    <div class="nav-icon">
+                        <i class="fa fa-bell-o" aria-hidden="true" style="font-size: 20px;"></i>
+                    </div>
+
+                    <div class="nav-icon">
+                        <i class="fa fa-comments-o" aria-hidden="true" style="font-size: 20px;"></i>
+                    </div>
+
+                    <div class="nav-icon">
+                        <a href="../src/controller/linkController.php"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <hr style="
+        margin:100px 0 0 0;
+        border:none;
+    ">
+
+    <div class="container-lg pb-5">
         <div class="container-fluid">
             <div class="profile-contianer d-flex align-content-end pb-5 ps-3">
                 <div class="profile-image-profile">
-                    <img class="img-fluid" src="<?= $src ?>" alt="">
+                    <img class="img-fluid" src="<?= $src ?? 'uploads/jobseeker-profile/initail.png' ?>" alt="">
                 </div>
                 <div class="name-container">
                     <div class="name fs-4"><?= $firstName . " " . $lastName ?></div>
@@ -211,7 +251,7 @@ if (isset($_GET['id'])) {
                             <div class="address col-6"><?= $address ?></div>
                         </div>
                         <div class="container-lg text-center pt-3 pe-2 mt-5 cv-container rounded">
-                            <a class="btn download-cv px-3 mb-3" href="?id=<?= $_GET['id']?>&file=<?=urlencode($resumePath) ?>"><i class="bi bi-file-earmark-pdf pe-3"></i>Download Resume</a>
+                            <a class="download-cv px-3 mb-3 rounded py-3" href="?id=<?= $_GET['id']?>&file=<?=urlencode($resumePath) ?>"><i class="bi bi-file-earmark-pdf pe-3"></i>Download Resume</a>
                         </div>
                     </div>
 
@@ -219,6 +259,64 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="upper-footer-container">
+            <div class="left-section">
+                <div class="bottom-site-icon">
+                    <img src="images/logo.png">
+                </div>
+
+                <div class="footer-social-media">
+                    <span class="follow-us">Follow Us: </span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </div>
+
+                <div class="subscribe">
+                    <p>Subscribe to our news letter: </p>
+                    <input type="email" placeholder="Subscribe" class="subscribe-input">
+                    <button class="btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+            <div class="right-footer-section footer-links">
+                <div class="footer-row-one">
+                    <ul>
+                        <li class="footer-title">For Recruiters</li>
+                        <li class="footer-item">How to Hire</li>
+                        <li class="footer-item">Talent Marketplace</li>
+                        <li class="footer-item">Payroll Service</li>
+                        <li class="footer-item">Hire Worldwide</li>
+                        <li class="footer-item">Hire in Africa</li>
+                    </ul>
+                </div>
+
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">For Talent</li>
+                        <li class="footer-item">How to Find a Job</li>
+                        <li class="footer-item">Find in Africa</li>
+                    </ul>
+                </div>
+
+                <div class="footer-row-two">
+                    <ul>
+                        <li class="footer-title">Company</li>
+                        <li class="footer-item">About Us</li>
+                        <li class="footer-item">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-last">
+            <p>&copy; 2022-2022 AfriHire inc</p>
+            <p>Terms and Services</p>
+            <p>Privacy Policy</p>
+        </div>
+        <!--finsh the footer-->
+    </footer>
 </body>
 
 </html>

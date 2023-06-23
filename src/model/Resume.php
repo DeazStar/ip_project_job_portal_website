@@ -6,7 +6,7 @@ require_once 'EmploymentModel.php';
 
 
 class Resume {
-    private string $resumeUrl;
+    private ?string $resumeUrl = null;
     private Education $education; 
     private Employment $employment;
 
@@ -195,7 +195,7 @@ class Resume {
      * 
      * @return string
      */
-    public function getResumeUrl():string {
+    public function getResumeUrl():string|null {
         return $this->resumeUrl;
     }
 
@@ -261,7 +261,10 @@ class Resume {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->resumeUrl = $result['resume_url'];
+
+        if(isset($result)) {
+            $this->resumeUrl = $result['resume_url'];
+        }
     }
 
     public function addSkill(int $userId, array $skill):void {

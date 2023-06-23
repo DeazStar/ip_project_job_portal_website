@@ -1,7 +1,7 @@
 <?php
 require_once "../core/DataBase.php";
 require_once "../model/PersonalInfo.php";
-require_once "../model/company.php";
+require_once "../model/Company.php";
 session_start();
 class Admin {
     private PDO $pdo;
@@ -74,13 +74,13 @@ class Admin {
      * @link #save
      */
     public function saveUser(array $user) {
-       
+
         $sql = "INSERT INTO job_seeker 
                     (first_name, last_name, email , date_of_birth, password, country, gender, phone_number, recovery_email 
                     , professional_title , postcode , city , address ) 
                 VALUES 
                     (:firstName, :lastName, :email, :date_of_birth , :password, :country, :gender, :phoneNumber , :recovery_email,
-                     :professional_title , :postcode , :city , :address)";
+                    :professional_title , :postcode , :city , :address)";
         $stmt = $this->pdo->prepare($sql);
         
         $result = $stmt->execute(array(
@@ -114,7 +114,7 @@ class Admin {
      * @link #saveCompany
      */
     public function saveCompany(array $company) {
-       
+
         $sql = "INSERT INTO company 
                 (company_name, website, founded_date ,email , recovery_email, password, phone_number ,country, address , postcode) 
                 VALUES 
@@ -146,9 +146,9 @@ class Admin {
      *
      * @param string $email
      * @param string $password
-     * @return array
+     * @return bool
      */
-    public function getUser($email , $password){
+    public function getUser($email , $password): bool{
         $stmt = $this->pdo->prepare("SELECT * FROM job_seeker WHERE email = :email and password = :password" );
         $stmt->execute(array(
             ':email'=>$email,
@@ -159,13 +159,13 @@ class Admin {
         if ($user) {
             
             
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['id'] = $user['job_seeker_id'];
             $_SESSION['user_type'] = "JOB_SEEKER";
-            return True;
+            return true;
 
         }
         else{
-            return False;
+            return false;
         }
     }
 
@@ -174,9 +174,9 @@ class Admin {
      *
      * @param string $email
      * @param string $password
-     * @return array
+     * @return bool
      */
-    public function getCompany($email , $password){
+    public function getCompany($email , $password):bool {
         $stmt = $this->pdo->prepare("SELECT * FROM company WHERE email = :email and password = :password" );
         
         $stmt->execute(array(
@@ -189,12 +189,12 @@ class Admin {
         if ($user) {
             
             
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['id'] = $user['company_id'];
             $_SESSION['user_type'] = "COMPANY";
-            return True;
+            return true;
         }
         else{
-            return False;
+            return false;
         }
     }
 }

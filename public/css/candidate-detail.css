@@ -15,8 +15,9 @@
 }
 
 .download-cv {
-    background-color: #189494;
+    background-color: #189494 !important;
     color: #FFF;
+    display: block;
 }
 
 .cv-container {
@@ -29,6 +30,7 @@
     overflow: hidden;
     border-color: #e7f0fa;
     width: 120px;
+    height: 120px;
     border-width: 5px;
 }
 

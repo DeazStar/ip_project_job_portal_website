@@ -1,6 +1,10 @@
 const button = document.querySelectorAll(".btn-lf");
 const options = document.querySelectorAll(".opt");
+const logOutBtn = document.querySelector(".logout-btn");
 
+logOutBtn.addEventListener('click', () => {
+    window.location.href = "../src/controller/logoutController.php";
+});
 
 function filter(catagories) {
     options.forEach(opt => {

@@ -120,11 +120,11 @@
             header('Location: ../../public/signup.php');
             exit;
         }    
-      
+
         
 
         $admin->saveUser($_POST);
-         unset($_SESSION['pass']);
+        unset($_SESSION['pass']);
         
 
         header('Location: ../../public/login.php');

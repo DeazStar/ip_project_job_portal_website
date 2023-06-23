@@ -1,6 +1,6 @@
 <?php 
     session_start();
-   
+
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +40,10 @@
             <nav>
                 <ul class="nav-one">
                     <li>
-                      <a href="index.html"><img src="images/logo.png"></a>  
+                        <a href="index.html"><img src="images/logo.png"></a>  
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a> </li>
-                    <li class="nav-item"> <a href="findtalent.html">Find Talent</a> </li>
+                    <li class="nav-item"><a href="index.php">Home</a> </li>
+                    <li class="nav-item"> <a href="findtalent.php">Find Talent</a> </li>
                     <li class="nav-item">  <a href="aboutus.html">About Us</a> </li>
                 </ul>
 
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="nav-icon">
-                       <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
+                        <a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 24px; color: rgb(0, 0, 0);"></i></a> 
                     </div>
                 </ul>
             </nav>

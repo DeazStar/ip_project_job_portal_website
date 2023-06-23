@@ -73,19 +73,15 @@ nav ul li a:hover {
 .profile-image-container {
     width: 210px;
     margin: 0 auto;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .profile-picture-input, .profile-picture-upload-btn {
     display: none;
     visibility: hidden;
-}
-
-
-
-.profile-image {
-    border-radius: 50%;
-    cursor: pointer;
-    object-fit: cover;
 }
 
 .profile-btn-container:hover {
@@ -422,4 +418,21 @@ hr {
 
 .saved-jobs {
     background-color: #fff;
+}
+
+.job {
+    height: 177px;
+}
+
+.pagination-row {
+    width: 50%;
+    overflow-x:scroll;
+}
+
+.pagination-style {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A09D9D;
+    padding: 3px 10px;
+    cursor: pointer;
 }

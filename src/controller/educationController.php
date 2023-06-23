@@ -1,7 +1,7 @@
-<?php 
+<?php
+session_start();
 require_once "../model/JobSeeker.php";
 
-$_SESSION['id'] = 1;
 
 if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit-education'])) {
     $jobSeeker = new JobSeeker($_SESSION['id']);

@@ -13,7 +13,7 @@ class PersonalInfo
     private int $postCode;
     private string $city;
     private string $address;
-    private string $description;
+    private ?string $description = null;
 
     private DataBase $db;
     private PDO $connection;
@@ -112,7 +112,7 @@ class PersonalInfo
     /**
      * getter Method for description
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->description;
     }
@@ -231,9 +231,11 @@ class PersonalInfo
      * 
      * @param string $description 
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        if(isset($description)) {
+            $this->description = $description;
+        }
     }
 
     /**

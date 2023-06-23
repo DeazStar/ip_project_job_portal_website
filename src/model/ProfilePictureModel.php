@@ -13,7 +13,7 @@ require_once dirname(__DIR__) . '/core/DataBase.php';
  */
 class ProfilePictureModel
 {
-    private string $filePath;
+    private ?string $filePath;
     private int $size = 10000000;
 
     private string $fileTmp;
@@ -100,7 +100,7 @@ class ProfilePictureModel
      * 
      * @return string
      */
-    public function fetchPicture(JobSeeker|Company $user): string
+    public function fetchPicture(JobSeeker|Company $user): string|null
     {
         if ($user instanceof JobSeeker) {
             $sql = "SELECT profile_picture_url FROM job_seeker WHERE job_seeker_id= :id";
@@ -118,7 +118,11 @@ class ProfilePictureModel
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->filePath = $result[$key];
+        if (isset($result) || $result == true) {
+            $this->filePath = $result[$key];
+        } else {
+            $this->filePath = null;
+        }
 
         return $this->filePath;
     }

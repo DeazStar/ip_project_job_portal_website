@@ -1,9 +1,12 @@
 <?php
+session_start();
 require_once '../src/model/ProfilePictureModel.php';
 require_once '../src/model/JobSeeker.php';
+require_once '../src/model/JobService.php';
+
 
 $profilePicture = new ProfilePictureModel();
-$jobSeeker = new JobSeeker(1);
+$jobSeeker = new JobSeeker($_SESSION['id']);
 
 $path = $profilePicture->fetchPicture($jobSeeker) ?? null;
 $uploadsDir = "uploads/";
@@ -47,6 +50,12 @@ if ($uploadsPos !== false) {
     $resumeSrc = substr($resumePath, $resumeUploadPos);
 }
 
+$tableRow = JobService::appliedRow($_SESSION['id']);
+$itemPerRow = 7;
+$num = ceil($tableRow / $itemPerRow);
+$start = (($_GET['page'] ?? 1) - 1) * $itemPerRow;
+$jobs = JobService::appliedJob($_SESSION['id'], $start, $itemPerRow);
+
 
 ?>
 
@@ -73,6 +82,7 @@ if ($uploadsPos !== false) {
 
     <!--custom css-->
     <link rel="stylesheet" href="css/profilestyle.css">
+    <link rel="stylesheet" href="css/error-style.css">
     <!--end custom css-->
 
     <!-- icons -->
@@ -90,9 +100,9 @@ if ($uploadsPos !== false) {
                     <li>
                         <img src="images/logo.png">
                     </li>
-                    <li class="nav-item"><a href="index.html">Home</a></li>
-                    <li class="nav-item"><a href="findjob.html">Find job</a></li>
-                    <li class="nav-item"><a href="findtalent.html">About Us</a></li>
+                    <li class="nav-item"><a href="index.php">Home</a></li>
+                    <li class="nav-item"><a href="findjob.php">Find job</a></li>
+                    <li class="nav-item"><a href="findtalent.php">About Us</a></li>
                 </ul>
 
                 <ul class="nav-two">
@@ -162,13 +172,7 @@ if ($uploadsPos !== false) {
                                 </span>My Resume</p>
                         </div>
 
-                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf" data-filter="saved-job">
-                            <p class="btn-name h5"><span>
-                                    <i class="bi bi-box2-heart pe-1"></i>
-                                </span>Saved Jobs</p>
-                        </div>
-
-                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf">
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf" data-filter="manage-job">
                             <p class="btn-name h5"><span>
                                     <i class="bi bi-briefcase pe-1"></i>
                                 </span>Applied Jobs</p>
@@ -180,7 +184,7 @@ if ($uploadsPos !== false) {
                                 </span>Change Password</p>
                         </div>
 
-                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf">
+                        <div class="col-12 pt-3 profile-btn-container border border-top-0 btn-lf logout-btn">
                             <p class="btn-name h5"><span>
                                     <i class="bi bi-box-arrow-right pe-1"></i>
                                 </span>Log Out</p>
@@ -188,7 +192,7 @@ if ($uploadsPos !== false) {
                     </div>
                 </div>
 
-                <div class="col-md-7 profile shadow-lg px-3 py-5 rounded opt">
+                <div class="col-md-7 profile shadow-lg px-3 py-5 rounded opt is-visible">
                     <!-- personal information container-->
                     <div class="container">
                         <p class="h2">Personal Information</p>
@@ -311,7 +315,7 @@ if ($uploadsPos !== false) {
                     </div>
                 </div>
 
-                <div class="col-md-7 resume opt is-visible">
+                <div class="col-md-7 resume opt">
                     <div class="container pt-3 pb-3 skills box-cn shadow-b-none  rounded">
                         <h2 class="px-3">Language</h2>
                         <div class="row gap-2 px-3">
@@ -598,44 +602,46 @@ if ($uploadsPos !== false) {
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-7 saved-job opt shadow-b-none  rounded">
-                    <div class="container">
-                        <h2 class="saved-jobs-header py-4">Saved Jobs</h2>
-                        <div class="job border-left-none py-4">
-                            <div class="title h4">Position: Web Developer</div>
-                            <div class="company h5">Company: Meta</div>
-                            <div class="location">Location: Remote</div>
-                        </div>
-
-                        <div class="job py-4">
-                            <div class="title h4">Position: Web Developer</div>
-                            <div class="company h5">Company: Meta</div>
-                            <div class="location">Location: Remote</div>
-                        </div>
-
-                        <div class="job py-4">
-                            <div class="title h4">Position: Web Developer</div>
-                            <div class="company h5">Company: Meta</div>
-                            <div class="location">Location: Remote</div>
-                        </div>
-
-                        <div class="job py-4">
-                            <div class="title h4">Position: Web Developer</div>
-                            <div class="company h5">Company: Meta</div>
-                            <div class="location">Location: Remote</div>
-                        </div>
-
-                        <div class="job py-4">
-                            <div class="title h4">Position: Web Developer</div>
-                            <div class="company h5">Company: Meta</div>
-                            <div class="location">Location: Remote</div>
+                <div class="col-md-7 manage-job opt">
+                    <?php 
+                        foreach($jobs as $job):
+                    ?>
+                    <div class="container pt-3 pb-3 job box-cn shadow-b-none  rounded">
+                        <button class="add-btn add-language px-2 rounded"><i class="bi bi-eye"></i></button>
+                        <div class="posted-job-container pb-3">
+                            <div class="job-name h4"><?=$job->getJobTitle()?></div>
+                            <div class="date"><?=$job->getJobPostedDate()->format('Y-m-d H:i:s') ?></div>
+                            <div class="job-type"><?= $job->getEmploymentType() ?></div>
                         </div>
                     </div>
+                    <div class="d-flex gap=0 pagination-row text-center pb-5">
+                    <?php
+                    for ($i = 1; $i <= $num; $i++) {
+                        if (isset($_GET['page'])) {
+                            if ($i == $_GET['page']) {
+                                echo '<a href="?page=' . $i . '">' . '<div class="pagination-style selected">' . $i . "</div></a>";
+                            } else {
+                                echo '<a href="?page=' . $i . '">' . '<div class="pagination-style">' . $i . "</div></a>";
+                            }
+                        } else if ($i == 1) {
+                            echo '<a href="?page=' . $i . '">' . '<div class="pagination-style selected">' . $i . "</div></a>";
+                        } else {
+                            echo '<a href="?page=' . $i . '">' . '<div class="pagination-style">' . $i . "</div></a>";
+                        }
+                    }
+                    ?>
+                </div>
 
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
+        
+        <?php if (isset($_SESSION['error-uploading-file']) || isset($_SESSION['required-personal-info'])) {
+            echo '<div class="error-container text-danger pb-3 text-center">' . $_SESSION['error-uploading-file'] . '</div>';
+            echo '<div class="error-container text-danger pb-3 text-center">' . $_SESSION['required-personal-info'] . '</div>';
+        }
+        ?>
     </main>
 
     <footer>

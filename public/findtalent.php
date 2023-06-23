@@ -3,13 +3,25 @@ require_once '../src/model/JobSeeker.php';
 require_once '../src/model/ProfilePictureModel.php';
 require_once '../src/model/JobSeekerService.php';
 
-$tableRow = JobSeekerService::getRows();
 
-$itemPerRow = 7;
-$num = ceil($tableRow / $itemPerRow);
-$start = (($_GET['page'] ?? 1) - 1) * $itemPerRow;
-$jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
+if(isset($_GET['job-id'])) {
+    $tableRow = JobSeekerService::getAppliedRow();
 
+    $itemPerRow = 7;
+    $num = ceil($tableRow / $itemPerRow);
+    $start = (($_GET['page'] ?? 1) - 1) * $itemPerRow;
+    $jobSeekers = JobSeekerService::getAppliedJobSeeker($_GET['job-id'], $start, $itemPerRow);
+
+
+} else {
+    $tableRow = JobSeekerService::getRows();
+
+    $itemPerRow = 7;
+    $num = ceil($tableRow / $itemPerRow);
+    $start = (($_GET['page'] ?? 1) - 1) * $itemPerRow;
+    $jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +82,7 @@ $jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
                     </div>
 
                     <div class="nav-icon">
-                        <a href="profile.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                        <a href="../src/controller/linkController.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                     </div>
                 </ul>
             </nav>
@@ -187,6 +199,8 @@ $jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
 
                     if ($uploadsPos !== false) {
                         $src = substr($path, $uploadsPos);
+                    } else {
+                        $src = 'uploads/jobseeker-profile/initail.png';
                     }
 
 
@@ -196,7 +210,7 @@ $jobSeekers = JobSeekerService::getAllJobSeekers($start, $itemPerRow);
                         <div class="profile-left">
                             <div class="profile-name-image-container">
                                 <div class="profile-img-container">
-                                    <img src="<?= $src ?>" class="profile-image">
+                                    <img src="<?= $src ?>" class="profile-image img-fluid">
                                 </div>
                                 <div class="profile-name-container">
                                     <div class="name"><?= $fullName ?></div>
